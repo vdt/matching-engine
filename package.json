@@ -1,0 +1,24 @@
+{
+  "author": "Vadim Graboys",
+  "name": "matcher",
+  "description": "Matching Engine",
+  "version": "0.0.1",
+  "homepage": "bitfloor.com",
+  "repository": {
+    "url": ""
+  },
+  "main": "./matcher",
+  "directories": {
+      "lib": "lib"
+  },
+  "scripts": {
+    "test": "./test/test"
+  },
+  "engines": {
+    "node": "~v0.4.8"
+  },
+  "dependencies": {
+      "msgpack-0.4": ">= 0.1.4"
+  },
+  "devDependencies": {}
+}
