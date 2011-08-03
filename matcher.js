@@ -2,7 +2,7 @@ var sys = require('sys');
 var net = require('net');
 var events = require('events');
 
-var msgpack = require('msgpack-0.4');
+var msgpack = require('msgpack');
 
 var OrderBook = require('./lib/order_book').OrderBook;
 var ReqProcessor = require('./lib/req_processor').ReqProcessor;

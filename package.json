@@ -12,14 +12,14 @@
       "lib": "lib"
   },
   "scripts": {
-    "test": "./test/test"
+    "test": "node ./test/test.js"
   },
   "engines": {
-    "node": "~v0.4.8"
+    "node": ">=v0.4.8"
   },
   "dependencies": {
       "bintrees": ">= 0.0.3",
-      "msgpack-0.4": ">= 0.1.4"
+      "msgpack-0.4": "https://github.com/jmars/node-msgpack/tarball/master"
   },
   "devDependencies": {}
 }

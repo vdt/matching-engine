@@ -1,5 +1,5 @@
 var net = require('net');
-var msgpack = require('msgpack-0.4');
+var msgpack = require('msgpack');
 var fs = require('fs');
 var assert = require('assert');
 
@@ -7,7 +7,7 @@ var Matcher = require('../matcher');
 var json2 = require('../deps/json2'); // for pretty-serialize
 
 var PORT = 6666;
-var BASE_DIR = "unit";
+var BASE_DIR = __dirname + "/unit";
 var TIMEOUT = 100;
 
 var gen_golds = process.argv.length > 2 && process.argv[2] == '-g';
