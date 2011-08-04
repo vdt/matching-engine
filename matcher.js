@@ -30,6 +30,10 @@ Matcher.prototype.start = function(port, cb) {
         var ms = new msgpack.Stream(socket);
         var pubsub = new PubSub(socket, emitter);
 
+        socket.on('close', function() {
+            pubsub.close();
+        });
+
         var ev = new EventSender(pubsub);
         ms.addListener('msg', function(msg) {
             order_processor.process(msg, ev);
