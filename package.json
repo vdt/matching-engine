@@ -1,25 +1,11 @@
 {
-  "author": "Vadim Graboys",
   "name": "matcher",
-  "description": "Matching Engine",
   "version": "0.0.1",
-  "homepage": "bitfloor.com",
-  "repository": {
-    "url": ""
-  },
-  "main": "./matcher",
+  "main": "./matcher.js",
   "directories": {
       "lib": "lib"
   },
   "scripts": {
     "test": "node ./test/test.js"
-  },
-  "engines": {
-    "node": ">=v0.4.8"
-  },
-  "dependencies": {
-      "bintrees": ">= 0.0.3",
-      "msgpack-0.4": "https://github.com/jmars/node-msgpack/tarball/master"
-  },
-  "devDependencies": {}
+  }
 }
