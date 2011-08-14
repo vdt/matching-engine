@@ -2,7 +2,7 @@ var sys = require('sys');
 var net = require('net');
 var events = require('events');
 
-var msgpack = require('msgpack');
+var Messenger = require('../common/messenger');
 
 var OrderBook = require('./lib/order_book').OrderBook;
 var ReqProcessor = require('./lib/req_processor').ReqProcessor;
@@ -27,8 +27,8 @@ Matcher.prototype.start = function(port, cb) {
     this.server = net.createServer();
     this.server.listen(port, cb);
     this.server.on('connection', function(socket) {
-        var ms = new msgpack.Stream(socket);
-        var pubsub = new PubSub(socket, emitter);
+        var ms = new Messenger(socket);
+        var pubsub = new PubSub(ms, emitter);
 
         socket.on('close', function() {
             pubsub.close();

@@ -5,7 +5,8 @@
 		"payload": {
 			"status": "open",
 			"order_id": 0
-		}
+		},
+		"seq": 1
 	},
 	{
 		"type": "order_status",
@@ -13,7 +14,8 @@
 		"payload": {
 			"status": "open",
 			"order_id": 1
-		}
+		},
+		"seq": 2
 	},
 	{
 		"type": "order_status",
@@ -21,7 +23,8 @@
 		"payload": {
 			"status": "open",
 			"order_id": 2
-		}
+		},
+		"seq": 3
 	},
 	{
 		"type": "order_status",
@@ -29,7 +32,8 @@
 		"payload": {
 			"status": "open",
 			"order_id": 5
-		}
+		},
+		"seq": 4
 	},
 	{
 		"type": "order_status",
@@ -37,7 +41,8 @@
 		"payload": {
 			"status": "open",
 			"order_id": 3
-		}
+		},
+		"seq": 5
 	},
 	{
 		"type": "order_status",
@@ -45,7 +50,8 @@
 		"payload": {
 			"status": "open",
 			"order_id": 4
-		}
+		},
+		"seq": 6
 	},
 	{
 		"type": "order_status",
@@ -53,7 +59,8 @@
 		"payload": {
 			"status": "open",
 			"order_id": 9
-		}
+		},
+		"seq": 7
 	},
 	{
 		"type": "fill",
@@ -63,7 +70,8 @@
 			"size": 10.234,
 			"liquidity": false,
 			"price": 10.24
-		}
+		},
+		"seq": 8
 	},
 	{
 		"type": "fill",
@@ -73,7 +81,8 @@
 			"size": 10.234,
 			"liquidity": true,
 			"price": 10.24
-		}
+		},
+		"seq": 9
 	},
 	{
 		"type": "order_status",
@@ -82,7 +91,8 @@
 			"status": "done",
 			"reason": "filled",
 			"order_id": 1
-		}
+		},
+		"seq": 10
 	},
 	{
 		"type": "fill",
@@ -92,7 +102,8 @@
 			"size": 52.34591011,
 			"liquidity": false,
 			"price": 10.23
-		}
+		},
+		"seq": 11
 	},
 	{
 		"type": "fill",
@@ -102,7 +113,8 @@
 			"size": 52.34591011,
 			"liquidity": true,
 			"price": 10.23
-		}
+		},
+		"seq": 12
 	},
 	{
 		"type": "order_status",
@@ -111,7 +123,8 @@
 			"status": "done",
 			"reason": "filled",
 			"order_id": 0
-		}
+		},
+		"seq": 13
 	},
 	{
 		"type": "fill",
@@ -121,7 +134,8 @@
 			"size": 10.2,
 			"liquidity": false,
 			"price": 10.23
-		}
+		},
+		"seq": 14
 	},
 	{
 		"type": "fill",
@@ -131,7 +145,8 @@
 			"size": 10.2,
 			"liquidity": true,
 			"price": 10.23
-		}
+		},
+		"seq": 15
 	},
 	{
 		"type": "order_status",
@@ -140,7 +155,8 @@
 			"status": "done",
 			"reason": "filled",
 			"order_id": 2
-		}
+		},
+		"seq": 16
 	},
 	{
 		"type": "order_status",
@@ -148,7 +164,8 @@
 		"payload": {
 			"status": "open",
 			"order_id": 9
-		}
+		},
+		"seq": 17
 	},
 	{
 		"type": "fill",
@@ -158,7 +175,8 @@
 			"size": 27.32008989,
 			"liquidity": false,
 			"price": 0.01
-		}
+		},
+		"seq": 18
 	},
 	{
 		"type": "fill",
@@ -168,7 +186,8 @@
 			"size": 27.32008989,
 			"liquidity": true,
 			"price": 0.01
-		}
+		},
+		"seq": 19
 	},
 	{
 		"type": "order_status",
@@ -177,7 +196,8 @@
 			"status": "done",
 			"reason": "filled",
 			"order_id": 9
-		}
+		},
+		"seq": 20
 	},
 	{
 		"type": "fill",
@@ -187,7 +207,8 @@
 			"size": 1.2,
 			"liquidity": false,
 			"price": 11
-		}
+		},
+		"seq": 21
 	},
 	{
 		"type": "fill",
@@ -197,7 +218,8 @@
 			"size": 1.2,
 			"liquidity": true,
 			"price": 11
-		}
+		},
+		"seq": 22
 	},
 	{
 		"type": "order_status",
@@ -206,7 +228,8 @@
 			"status": "done",
 			"reason": "filled",
 			"order_id": 3
-		}
+		},
+		"seq": 23
 	},
 	{
 		"type": "fill",
@@ -216,7 +239,8 @@
 			"size": 2.1,
 			"liquidity": false,
 			"price": 11
-		}
+		},
+		"seq": 24
 	},
 	{
 		"type": "fill",
@@ -226,7 +250,8 @@
 			"size": 2.1,
 			"liquidity": true,
 			"price": 11
-		}
+		},
+		"seq": 25
 	},
 	{
 		"type": "order_status",
@@ -235,7 +260,8 @@
 			"status": "done",
 			"reason": "filled",
 			"order_id": 4
-		}
+		},
+		"seq": 26
 	},
 	{
 		"type": "fill",
@@ -245,7 +271,8 @@
 			"size": 80.56912305,
 			"liquidity": false,
 			"price": 18
-		}
+		},
+		"seq": 27
 	},
 	{
 		"type": "fill",
@@ -255,7 +282,8 @@
 			"size": 80.56912305,
 			"liquidity": true,
 			"price": 18
-		}
+		},
+		"seq": 28
 	},
 	{
 		"type": "order_status",
@@ -264,6 +292,7 @@
 			"status": "done",
 			"reason": "filled",
 			"order_id": 5
-		}
+		},
+		"seq": 29
 	}
 ]

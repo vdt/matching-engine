@@ -1,7 +1,8 @@
 var net = require('net');
-var msgpack = require('msgpack');
 var fs = require('fs');
 var assert = require('assert');
+
+var Messenger = require('../../common/messenger');
 
 var Matcher = require('../matcher');
 var json2 = require('../deps/json2'); // for pretty-serialize
@@ -14,12 +15,12 @@ var gen_golds = process.argv.length > 2 && process.argv[2] == '-g';
 
 var matcher = new Matcher();
 
-function subscribe(socket, cb) {
-    var smsg = msgpack.pack({
+function subscribe(ms) {
+    var smsg = {
         type: 'sub'
-    });
+    };
 
-    socket.write(smsg);
+    ms.send(smsg);
 }
 
 function do_test(test_name, cb) {
@@ -40,9 +41,9 @@ function run_test(test_name, cb) {
 
     var client = net.createConnection(PORT);
     client.on('connect', function() {
-        subscribe(client);
+        var ms = new Messenger(client);
+        subscribe(ms);
 
-        var ms = new msgpack.Stream(client);
         ms.addListener('msg', function(msg) {
             end_time = Date.now()/1000;
             resps.push(msg);
@@ -53,7 +54,7 @@ function run_test(test_name, cb) {
 
         start_time = Date.now()/1000;
         orders.forEach(function(order){
-            client.write(msgpack.pack(order));
+            ms.send(order);
         });
         console.log('sent all messages for', test_name)
 
