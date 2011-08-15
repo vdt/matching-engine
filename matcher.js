@@ -3,6 +3,7 @@ var net = require('net');
 var events = require('events');
 
 var Messenger = require('../common/messenger');
+var logger = require('../common/logger');
 
 var OrderBook = require('./lib/order_book').OrderBook;
 var ReqProcessor = require('./lib/req_processor').ReqProcessor;
@@ -18,6 +19,7 @@ function Matcher() {
 }
 
 Matcher.prototype.start = function(port, cb) {
+    logger.trace('Starting matcher');
     var emitter = new events.EventEmitter();
 
     this.order_book = new OrderBook();
@@ -25,24 +27,36 @@ Matcher.prototype.start = function(port, cb) {
     var order_processor = new ReqProcessor(this);
     
     this.server = net.createServer();
-    this.server.listen(port, cb);
+    this.server.listen(port, 'localhost', function() {
+        logger.trace('Matcher started');
+        cb();
+    });
     this.server.on('connection', function(socket) {
+        addr = socket.remoteAddress + ":" + socket.remotePort;
+        logger.trace('accepted connection from ' + addr);
+
         var ms = new Messenger(socket);
         var pubsub = new PubSub(ms, emitter);
 
         socket.on('close', function() {
+            logger.trace('closing pubsub for ' + addr);
             pubsub.close();
         });
 
         var ev = new EventSender(pubsub);
         ms.addListener('msg', function(msg) {
+            logger.trace('got msg ' + msg.type);
             order_processor.process(msg, ev);
         });
     });
 }
 
 Matcher.prototype.stop = function() {
+    logger.trace('Stopping matcher');
     this.server.close();
+    this.server.on('close', function() {
+        logger.trace('Matcher stopped');
+    });
 }
 
 Matcher.prototype.state = function() {

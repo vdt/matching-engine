@@ -1,0 +1,15 @@
+{"type":"order_status","timestamp":1313372732054,"target_id":"b7211f8a704b4815be93c07dcb354e4d","payload":{"status":"open","order_id":0,"exchange_time":1313372732054}}
+{"type":"order_status","timestamp":1313372732054,"target_id":"1fa34b0f04e249c2940a6fbb8bae105c","payload":{"status":"open","order_id":1,"exchange_time":1313372732054}}
+{"type":"order_status","timestamp":1313372732054,"target_id":"fd0d457e3a4e43fe85f84d8c0b95cdd2","payload":{"status":"open","order_id":2,"exchange_time":1313372732054}}
+{"type":"order_status","timestamp":1313372732054,"target_id":"19a61efb542c4c4697d09769092bfab1","payload":{"status":"open","order_id":5,"exchange_time":1313372732054}}
+{"type":"order_status","timestamp":1313372732054,"target_id":"20a867503a244976ab894bbb54d1e76c","payload":{"status":"open","order_id":3,"exchange_time":1313372732054}}
+{"type":"order_status","timestamp":1313372732054,"target_id":"dbaae29301c24070a8237468ee52af81","payload":{"status":"open","order_id":4,"exchange_time":1313372732054}}
+{"type":"order_status","timestamp":1313372732054,"target_id":"e2f78b80dac5460db20700e42a136920","payload":{"status":"open","order_id":6,"exchange_time":1313372732054}}
+{"type":"order_status","timestamp":1313372732055,"target_id":"c8b2e88d62b74733a03b6d6f871e1cc5","payload":{"status":"open","order_id":7,"exchange_time":1313372732055}}
+{"type":"match","timestamp":1313372732055,"payload":{"taker_id":7,"provider_id":3,"size":0.2,"price":11}}
+{"type":"order_status","timestamp":1313372732055,"target_id":"509f2e316df04390b33237c769d23b48","payload":{"status":"open","order_id":8,"exchange_time":1313372732055}}
+{"type":"match","timestamp":1313372732055,"payload":{"taker_id":8,"provider_id":3,"size":0.2,"price":11}}
+{"type":"order_status","timestamp":1313372732055,"target_id":"d2c6d224ad9a4984989ce7923baaac3a","payload":{"status":"open","order_id":9,"exchange_time":1313372732055}}
+{"type":"match","timestamp":1313372732055,"payload":{"taker_id":9,"provider_id":6,"size":0.2,"price":10.59}}
+{"type":"order_status","timestamp":1313372732055,"target_id":"89dbda8070ea40faae02f3a1d0722977","payload":{"status":"open","order_id":10,"exchange_time":1313372732055}}
+{"type":"match","timestamp":1313372732055,"payload":{"taker_id":10,"provider_id":6,"size":0.2,"price":10.59}}

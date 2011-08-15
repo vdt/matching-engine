@@ -1,0 +1,7 @@
+{"type":"order_status","timestamp":1313372731942,"target_id":"4043c2e0cb9443409171ca3d9d3ea105","payload":{"status":"open","order_id":0,"exchange_time":1313372731942}}
+{"type":"order_status","timestamp":1313372731942,"target_id":"037b3997769d408cb55f3df7519c8c68","payload":{"status":"open","order_id":1,"exchange_time":1313372731942}}
+{"type":"match","timestamp":1313372731942,"payload":{"taker_id":1,"provider_id":0,"size":10.234,"price":10.23}}
+{"type":"order_status","timestamp":1313372731942,"target_id":"4043c2e0cb9443409171ca3d9d3ea105","payload":{"status":"done","reason":"cancelled","order_id":0,"exchange_time":1313372731942}}
+{"type":"order_status","timestamp":1313372731943,"target_id":"92b4f302cb214d60b4330453fa1caf9e","payload":{"status":"open","order_id":3,"exchange_time":1313372731943}}
+{"type":"order_status","timestamp":1313372731946,"target_id":"0581a5d7299544049a061b358c525fb7","payload":{"status":"open","order_id":4,"exchange_time":1313372731946}}
+{"type":"match","timestamp":1313372731948,"payload":{"taker_id":4,"provider_id":3,"size":10.1,"price":2.2}}

@@ -4,6 +4,9 @@ var assert = require('assert');
 
 var Messenger = require('../../common/messenger');
 
+//var logger = require('../../common/logger');
+//logger.enable_stdout_provider();
+
 var Matcher = require('../matcher');
 var json2 = require('../deps/json2'); // for pretty-serialize
 
@@ -24,6 +27,7 @@ function subscribe(ms) {
 }
 
 function do_test(test_name, cb) {
+    fs.writeFileSync("./log/matcher.log", "");
     matcher.start(PORT, function() {
         run_test(test_name, cb);
     });
@@ -31,6 +35,8 @@ function do_test(test_name, cb) {
 
 function run_test(test_name, cb) {
     var test_dir = BASE_DIR + "/" + test_name;
+    var journal_file = __dirname + "/../log/matcher.log";
+    var journal_test_file = test_dir + "/journal.log";
     var recv_filename = test_dir + "/recv.json";
     var state_filename = test_dir + "/state.json";
     var orders = JSON.parse(fs.readFileSync(test_dir + "/send.json"));
@@ -68,24 +74,44 @@ function run_test(test_name, cb) {
         states.push(matcher.state());
     });
 
-    function end() {
-        matcher.stop();
-        
-        // remove all timestamps
-        resps.forEach(function(r) {
+    function process_journal(journal) {
+        var a = [];
+        journal.split('\n').forEach(function(line) {
+            if(line.length)
+                a.push(JSON.parse(line));
+        });
+        remove_timestamps(a);
+        return a;
+    }
+
+    // remove all timestamps from an array
+    function remove_timestamps(arr) {
+        arr.forEach(function(r) {
             delete r.timestamp;
             delete r.payload.exchange_time;
         });
+    }
+
+    function end() {
+        client.end();
+        matcher.stop();
+        
+        remove_timestamps(resps);
+
+        var journal = fs.readFileSync(journal_file) + "";
 
         if(gen_golds) {
+            fs.writeFileSync(journal_test_file, journal);
             fs.writeFileSync(recv_filename, json2.stringify(resps, null, '\t'));
             fs.writeFileSync(state_filename, json2.stringify(states, null, '\t'));
         }
         else {
             var grecv = JSON.parse(fs.readFileSync(recv_filename));
             var gstate = JSON.parse(fs.readFileSync(state_filename));
+            var gjournal = fs.readFileSync(journal_test_file) + "";
             assert.deepEqual(resps, grecv);
             assert.deepEqual(states, gstate);
+            assert.deepEqual(process_journal(journal), process_journal(gjournal));
         }
 
         if(cb)
@@ -106,8 +132,6 @@ function process_tests(tests) {
             process_tests(tests);
         });
     }
-    else
-        process.exit(); // TODO: why is this necessary
 }
 
 process_tests(tests);

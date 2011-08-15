@@ -1,0 +1,15 @@
+{"type":"order_status","timestamp":1313372731477,"target_id":"bc21105829fa4ddf981f6cd5366b5af7","payload":{"status":"open","order_id":0,"exchange_time":1313372731477}}
+{"type":"order_status","timestamp":1313372731478,"target_id":"3b95ea087ddb475db5e98f7137640880","payload":{"status":"open","order_id":1,"exchange_time":1313372731478}}
+{"type":"order_status","timestamp":1313372731478,"target_id":"e035fc9fa1034a8eabfa4e50cb3cb303","payload":{"status":"open","order_id":2,"exchange_time":1313372731478}}
+{"type":"order_status","timestamp":1313372731478,"target_id":"9c517fcc473f47a494b4b5aea366477a","payload":{"status":"open","order_id":5,"exchange_time":1313372731478}}
+{"type":"order_status","timestamp":1313372731478,"target_id":"f707b4ead3004fa09e80a7924822c311","payload":{"status":"open","order_id":3,"exchange_time":1313372731478}}
+{"type":"order_status","timestamp":1313372731478,"target_id":"4adbfc1f0e6645789ee99da9cb54540e","payload":{"status":"open","order_id":4,"exchange_time":1313372731478}}
+{"type":"order_status","timestamp":1313372731478,"target_id":"7957f956edf744cca01927025547b011","payload":{"status":"open","order_id":9,"exchange_time":1313372731478}}
+{"type":"match","timestamp":1313372731478,"payload":{"taker_id":9,"provider_id":1,"size":10.234,"price":10.24}}
+{"type":"match","timestamp":1313372731478,"payload":{"taker_id":9,"provider_id":0,"size":52.34591011,"price":10.23}}
+{"type":"match","timestamp":1313372731479,"payload":{"taker_id":9,"provider_id":2,"size":10.2,"price":10.23}}
+{"type":"order_status","timestamp":1313372731479,"target_id":"6214bbd490e44594b64b5e4903e14302","payload":{"status":"open","order_id":9,"exchange_time":1313372731479}}
+{"type":"match","timestamp":1313372731479,"payload":{"taker_id":9,"provider_id":9,"size":27.32008989,"price":0.01}}
+{"type":"match","timestamp":1313372731479,"payload":{"taker_id":9,"provider_id":3,"size":1.2,"price":11}}
+{"type":"match","timestamp":1313372731479,"payload":{"taker_id":9,"provider_id":4,"size":2.1,"price":11}}
+{"type":"match","timestamp":1313372731479,"payload":{"taker_id":9,"provider_id":5,"size":80.56912305,"price":18}}

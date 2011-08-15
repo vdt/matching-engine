@@ -1,0 +1,12 @@
+{"type":"order_status","timestamp":1313372731718,"target_id":"24095cf6defa4985aab0d9f6393a14fb","payload":{"status":"open","order_id":0,"exchange_time":1313372731717}}
+{"type":"order_status","timestamp":1313372731718,"target_id":"693a498fe9454542908f2814154a95d4","payload":{"status":"open","order_id":1,"exchange_time":1313372731718}}
+{"type":"order_status","timestamp":1313372731718,"target_id":"0f9ab1d843a44f9a95f55950d15ab3ba","payload":{"status":"open","order_id":2,"exchange_time":1313372731718}}
+{"type":"order_status","timestamp":1313372731718,"target_id":"a23e0db0f7d74aa79d1f9f8ffdf689b0","payload":{"status":"open","order_id":5,"exchange_time":1313372731718}}
+{"type":"order_status","timestamp":1313372731718,"target_id":"bfdc2003f2594cfda220a0b0d2bcfecb","payload":{"status":"open","order_id":3,"exchange_time":1313372731718}}
+{"type":"order_status","timestamp":1313372731718,"target_id":"2c99757c274648c3b8242da738d9de7f","payload":{"status":"open","order_id":4,"exchange_time":1313372731718}}
+{"type":"order_status","timestamp":1313372731718,"target_id":"0d11c98ce9174b75803b08b34741c131","payload":{"status":"open","order_id":7,"exchange_time":1313372731718}}
+{"type":"match","timestamp":1313372731718,"payload":{"taker_id":7,"provider_id":3,"size":1.2,"price":11}}
+{"type":"match","timestamp":1313372731718,"payload":{"taker_id":7,"provider_id":4,"size":1,"price":11}}
+{"type":"order_status","timestamp":1313372731718,"target_id":"e8aaa71d54cc4f8f904c065c3499f8e8","payload":{"status":"open","order_id":9,"exchange_time":1313372731718}}
+{"type":"match","timestamp":1313372731718,"payload":{"taker_id":9,"provider_id":1,"size":10.234,"price":10.24}}
+{"type":"match","timestamp":1313372731718,"payload":{"taker_id":9,"provider_id":0,"size":9.966,"price":10.23}}

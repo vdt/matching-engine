@@ -1,12 +1,39 @@
 [
 	{
+		"type": "cancel_reject",
+		"target_id": "037b3997769d408cb55f3df7519c8c68",
+		"payload": {
+			"order_id": 1,
+			"reject_reason": "not found"
+		},
+		"seq": 1
+	},
+	{
+		"type": "cancel_reject",
+		"target_id": "0581a5d7299544049a061b358c525fb7",
+		"payload": {
+			"order_id": 4,
+			"reject_reason": "not found"
+		},
+		"seq": 2
+	},
+	{
+		"type": "cancel_reject",
+		"target_id": "92b4f302cb214d60b4330453fa1caf9e",
+		"payload": {
+			"order_id": 3,
+			"reject_reason": "not found"
+		},
+		"seq": 3
+	},
+	{
 		"type": "order_status",
 		"target_id": "4043c2e0cb9443409171ca3d9d3ea105",
 		"payload": {
 			"status": "open",
 			"order_id": 0
 		},
-		"seq": 1
+		"seq": 4
 	},
 	{
 		"type": "order_status",
@@ -15,7 +42,7 @@
 			"status": "open",
 			"order_id": 1
 		},
-		"seq": 2
+		"seq": 5
 	},
 	{
 		"type": "fill",
@@ -26,7 +53,7 @@
 			"liquidity": false,
 			"price": 10.23
 		},
-		"seq": 3
+		"seq": 6
 	},
 	{
 		"type": "order_status",
@@ -36,7 +63,7 @@
 			"reason": "filled",
 			"order_id": 1
 		},
-		"seq": 4
+		"seq": 7
 	},
 	{
 		"type": "fill",
@@ -47,16 +74,7 @@
 			"liquidity": true,
 			"price": 10.23
 		},
-		"seq": 5
-	},
-	{
-		"type": "cancel_reject",
-		"target_id": "037b3997769d408cb55f3df7519c8c68",
-		"payload": {
-			"order_id": 1,
-			"reject_reason": "not found"
-		},
-		"seq": 6
+		"seq": 8
 	},
 	{
 		"type": "order_status",
@@ -66,7 +84,7 @@
 			"reason": "cancelled",
 			"order_id": 0
 		},
-		"seq": 7
+		"seq": 9
 	},
 	{
 		"type": "order_status",
@@ -75,7 +93,7 @@
 			"status": "open",
 			"order_id": 3
 		},
-		"seq": 8
+		"seq": 10
 	},
 	{
 		"type": "order_status",
@@ -84,7 +102,7 @@
 			"status": "open",
 			"order_id": 4
 		},
-		"seq": 9
+		"seq": 11
 	},
 	{
 		"type": "fill",
@@ -95,7 +113,7 @@
 			"liquidity": false,
 			"price": 2.2
 		},
-		"seq": 10
+		"seq": 12
 	},
 	{
 		"type": "order_status",
@@ -105,7 +123,7 @@
 			"reason": "filled",
 			"order_id": 4
 		},
-		"seq": 11
+		"seq": 13
 	},
 	{
 		"type": "fill",
@@ -116,7 +134,7 @@
 			"liquidity": true,
 			"price": 2.2
 		},
-		"seq": 12
+		"seq": 14
 	},
 	{
 		"type": "order_status",
@@ -125,24 +143,6 @@
 			"status": "done",
 			"reason": "filled",
 			"order_id": 3
-		},
-		"seq": 13
-	},
-	{
-		"type": "cancel_reject",
-		"target_id": "0581a5d7299544049a061b358c525fb7",
-		"payload": {
-			"order_id": 4,
-			"reject_reason": "not found"
-		},
-		"seq": 14
-	},
-	{
-		"type": "cancel_reject",
-		"target_id": "92b4f302cb214d60b4330453fa1caf9e",
-		"payload": {
-			"order_id": 3,
-			"reject_reason": "not found"
 		},
 		"seq": 15
 	}

@@ -74,6 +74,16 @@
 		"seq": 8
 	},
 	{
+		"type": "order_status",
+		"target_id": "7957f956edf744cca01927025547b011",
+		"payload": {
+			"status": "done",
+			"reason": "filled",
+			"order_id": 9
+		},
+		"seq": 9
+	},
+	{
 		"type": "fill",
 		"target_id": "3b95ea087ddb475db5e98f7137640880",
 		"payload": {
@@ -82,7 +92,7 @@
 			"liquidity": true,
 			"price": 10.24
 		},
-		"seq": 9
+		"seq": 10
 	},
 	{
 		"type": "order_status",
@@ -92,7 +102,7 @@
 			"reason": "filled",
 			"order_id": 1
 		},
-		"seq": 10
+		"seq": 11
 	},
 	{
 		"type": "fill",
@@ -103,7 +113,17 @@
 			"liquidity": false,
 			"price": 10.23
 		},
-		"seq": 11
+		"seq": 12
+	},
+	{
+		"type": "order_status",
+		"target_id": "7957f956edf744cca01927025547b011",
+		"payload": {
+			"status": "done",
+			"reason": "filled",
+			"order_id": 9
+		},
+		"seq": 13
 	},
 	{
 		"type": "fill",
@@ -114,7 +134,7 @@
 			"liquidity": true,
 			"price": 10.23
 		},
-		"seq": 12
+		"seq": 14
 	},
 	{
 		"type": "order_status",
@@ -124,7 +144,7 @@
 			"reason": "filled",
 			"order_id": 0
 		},
-		"seq": 13
+		"seq": 15
 	},
 	{
 		"type": "fill",
@@ -135,7 +155,17 @@
 			"liquidity": false,
 			"price": 10.23
 		},
-		"seq": 14
+		"seq": 16
+	},
+	{
+		"type": "order_status",
+		"target_id": "7957f956edf744cca01927025547b011",
+		"payload": {
+			"status": "done",
+			"reason": "filled",
+			"order_id": 9
+		},
+		"seq": 17
 	},
 	{
 		"type": "fill",
@@ -146,7 +176,7 @@
 			"liquidity": true,
 			"price": 10.23
 		},
-		"seq": 15
+		"seq": 18
 	},
 	{
 		"type": "order_status",
@@ -156,7 +186,7 @@
 			"reason": "filled",
 			"order_id": 2
 		},
-		"seq": 16
+		"seq": 19
 	},
 	{
 		"type": "order_status",
@@ -165,7 +195,7 @@
 			"status": "open",
 			"order_id": 9
 		},
-		"seq": 17
+		"seq": 20
 	},
 	{
 		"type": "fill",
@@ -176,7 +206,7 @@
 			"liquidity": false,
 			"price": 0.01
 		},
-		"seq": 18
+		"seq": 21
 	},
 	{
 		"type": "fill",
@@ -187,7 +217,7 @@
 			"liquidity": true,
 			"price": 0.01
 		},
-		"seq": 19
+		"seq": 22
 	},
 	{
 		"type": "order_status",
@@ -197,7 +227,7 @@
 			"reason": "filled",
 			"order_id": 9
 		},
-		"seq": 20
+		"seq": 23
 	},
 	{
 		"type": "fill",
@@ -208,7 +238,7 @@
 			"liquidity": false,
 			"price": 11
 		},
-		"seq": 21
+		"seq": 24
 	},
 	{
 		"type": "fill",
@@ -219,7 +249,7 @@
 			"liquidity": true,
 			"price": 11
 		},
-		"seq": 22
+		"seq": 25
 	},
 	{
 		"type": "order_status",
@@ -229,7 +259,7 @@
 			"reason": "filled",
 			"order_id": 3
 		},
-		"seq": 23
+		"seq": 26
 	},
 	{
 		"type": "fill",
@@ -240,7 +270,7 @@
 			"liquidity": false,
 			"price": 11
 		},
-		"seq": 24
+		"seq": 27
 	},
 	{
 		"type": "fill",
@@ -251,7 +281,7 @@
 			"liquidity": true,
 			"price": 11
 		},
-		"seq": 25
+		"seq": 28
 	},
 	{
 		"type": "order_status",
@@ -261,7 +291,7 @@
 			"reason": "filled",
 			"order_id": 4
 		},
-		"seq": 26
+		"seq": 29
 	},
 	{
 		"type": "fill",
@@ -272,7 +302,7 @@
 			"liquidity": false,
 			"price": 18
 		},
-		"seq": 27
+		"seq": 30
 	},
 	{
 		"type": "fill",
@@ -283,7 +313,7 @@
 			"liquidity": true,
 			"price": 18
 		},
-		"seq": 28
+		"seq": 31
 	},
 	{
 		"type": "order_status",
@@ -293,6 +323,6 @@
 			"reason": "filled",
 			"order_id": 5
 		},
-		"seq": 29
+		"seq": 32
 	}
 ]
