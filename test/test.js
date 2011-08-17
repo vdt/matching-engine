@@ -14,6 +14,9 @@ var PORT = 6666;
 var BASE_DIR = __dirname + "/unit";
 var TIMEOUT = 100;
 
+var journal_file = __dirname + "/../../log/matcher.log";
+var in_journal_file = __dirname + "/../../log/matcher_in.log";
+
 var gen_golds = process.argv.length > 2 && process.argv[2] == '-g';
 
 var matcher = new Matcher();
@@ -28,8 +31,8 @@ function subscribe(ms) {
 
 function do_test(test_name, cb) {
     // clear the journals
-    fs.writeFileSync("./log/matcher.log", "");
-    fs.writeFileSync("./log/matcher_in.log", "");
+    fs.writeFileSync(journal_file, "");
+    fs.writeFileSync(in_journal_file, "");
 
     matcher.start(PORT, function() {
         run_test(test_name, cb);
@@ -38,7 +41,6 @@ function do_test(test_name, cb) {
 
 function run_test(test_name, cb) {
     var test_dir = BASE_DIR + "/" + test_name;
-    var journal_file = __dirname + "/../log/matcher.log";
     var journal_test_file = test_dir + "/journal.log";
     var recv_filename = test_dir + "/recv.json";
     var state_filename = test_dir + "/state.json";
