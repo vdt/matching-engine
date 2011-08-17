@@ -5,7 +5,7 @@
         "payload": {
             "order_id": 0, 
             "price": 10.23, 
-            "sender_id": "4043c2e0cb9443409171ca3d9d3ea105", 
+            "sender_id": 2,
             "side": 0, 
             "size": 52.34591011
         }
@@ -16,7 +16,7 @@
         "payload": {
             "order_id": 1, 
             "price": 10.23, 
-            "sender_id": "037b3997769d408cb55f3df7519c8c68", 
+            "sender_id": 3,
             "side": 1, 
             "size": 10.234
         }
@@ -26,7 +26,7 @@
         "type": "cancel", 
         "payload": {
             "order_id": 1, 
-            "sender_id": "037b3997769d408cb55f3df7519c8c68"
+            "sender_id": 2
         }
     }, 
     {
@@ -34,7 +34,7 @@
         "type": "cancel", 
         "payload": {
             "order_id": 0, 
-            "sender_id": "4043c2e0cb9443409171ca3d9d3ea105"
+            "sender_id": 2
         }
     }, 
     {
@@ -43,7 +43,7 @@
         "payload": {
             "order_id": 3, 
             "price": 2.2, 
-            "sender_id": "92b4f302cb214d60b4330453fa1caf9e", 
+            "sender_id": 3,
             "side": 0, 
             "size": 10.1
         }
@@ -54,7 +54,7 @@
         "payload": {
             "order_id": 4, 
             "price": 2.2, 
-            "sender_id": "0581a5d7299544049a061b358c525fb7", 
+            "sender_id": 2,
             "side": 1, 
             "size": 10.1
         }
@@ -64,7 +64,7 @@
         "type": "cancel", 
         "payload": {
             "order_id": 4, 
-            "sender_id": "0581a5d7299544049a061b358c525fb7"
+            "sender_id": 2
         }
     }, 
     {
@@ -72,7 +72,7 @@
         "type": "cancel", 
         "payload": {
             "order_id": 3, 
-            "sender_id": "92b4f302cb214d60b4330453fa1caf9e"
+            "sender_id": 3
         }
     }
 ]

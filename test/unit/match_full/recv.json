@@ -1,70 +1,91 @@
 [
 	{
 		"type": "order_status",
-		"target_id": "9c1f808709be42e595fb0e7528ec1a7c",
+		"target_id": 2,
 		"payload": {
 			"status": "open",
-			"order_id": 0
+			"side": 0,
+			"order_id": 0,
+			"price": 10.23,
+			"size": 52.34591011
 		},
 		"seq": 1
 	},
 	{
 		"type": "order_status",
-		"target_id": "f4b29c15d96d4243ab6961edb8a81774",
+		"target_id": 2,
 		"payload": {
 			"status": "open",
-			"order_id": 1
+			"side": 0,
+			"order_id": 1,
+			"price": 10.24,
+			"size": 10.234
 		},
 		"seq": 2
 	},
 	{
 		"type": "order_status",
-		"target_id": "1510034f4224408b889255066a863a32",
+		"target_id": 2,
 		"payload": {
 			"status": "open",
-			"order_id": 2
+			"side": 0,
+			"order_id": 2,
+			"price": 10.23,
+			"size": 10.2
 		},
 		"seq": 3
 	},
 	{
 		"type": "order_status",
-		"target_id": "4d212121bdf049d485bd9bc30134f959",
+		"target_id": 3,
 		"payload": {
 			"status": "open",
-			"order_id": 5
+			"side": 1,
+			"order_id": 5,
+			"price": 18,
+			"size": 80.56912305
 		},
 		"seq": 4
 	},
 	{
 		"type": "order_status",
-		"target_id": "1fcf60a791714fe8803eb5ffc837d3fc",
+		"target_id": 3,
 		"payload": {
 			"status": "open",
-			"order_id": 3
+			"side": 1,
+			"order_id": 3,
+			"price": 11,
+			"size": 1.2
 		},
 		"seq": 5
 	},
 	{
 		"type": "order_status",
-		"target_id": "6e0d832f449b4f48bba446950b31bbfd",
+		"target_id": 3,
 		"payload": {
 			"status": "open",
-			"order_id": 4
+			"side": 1,
+			"order_id": 4,
+			"price": 11,
+			"size": 2.1
 		},
 		"seq": 6
 	},
 	{
 		"type": "order_status",
-		"target_id": "9066dc814d28478bb3139fe72dd832f8",
+		"target_id": 2,
 		"payload": {
 			"status": "open",
-			"order_id": 7
+			"side": 0,
+			"order_id": 7,
+			"price": 11,
+			"size": 1.2
 		},
 		"seq": 7
 	},
 	{
 		"type": "fill",
-		"target_id": "9066dc814d28478bb3139fe72dd832f8",
+		"target_id": 2,
 		"payload": {
 			"order_id": 7,
 			"size": 1.2,
@@ -75,7 +96,7 @@
 	},
 	{
 		"type": "order_status",
-		"target_id": "9066dc814d28478bb3139fe72dd832f8",
+		"target_id": 2,
 		"payload": {
 			"status": "done",
 			"reason": "filled",
@@ -85,7 +106,7 @@
 	},
 	{
 		"type": "fill",
-		"target_id": "1fcf60a791714fe8803eb5ffc837d3fc",
+		"target_id": 3,
 		"payload": {
 			"order_id": 3,
 			"size": 1.2,
@@ -96,7 +117,7 @@
 	},
 	{
 		"type": "order_status",
-		"target_id": "1fcf60a791714fe8803eb5ffc837d3fc",
+		"target_id": 3,
 		"payload": {
 			"status": "done",
 			"reason": "filled",
@@ -106,16 +127,19 @@
 	},
 	{
 		"type": "order_status",
-		"target_id": "0cebc33785af42fc99374f3890067371",
+		"target_id": 3,
 		"payload": {
 			"status": "open",
-			"order_id": 9
+			"side": 1,
+			"order_id": 9,
+			"price": 10.24,
+			"size": 10.234
 		},
 		"seq": 12
 	},
 	{
 		"type": "fill",
-		"target_id": "0cebc33785af42fc99374f3890067371",
+		"target_id": 3,
 		"payload": {
 			"order_id": 9,
 			"size": 10.234,
@@ -126,7 +150,7 @@
 	},
 	{
 		"type": "order_status",
-		"target_id": "0cebc33785af42fc99374f3890067371",
+		"target_id": 3,
 		"payload": {
 			"status": "done",
 			"reason": "filled",
@@ -136,7 +160,7 @@
 	},
 	{
 		"type": "fill",
-		"target_id": "f4b29c15d96d4243ab6961edb8a81774",
+		"target_id": 2,
 		"payload": {
 			"order_id": 1,
 			"size": 10.234,
@@ -147,7 +171,7 @@
 	},
 	{
 		"type": "order_status",
-		"target_id": "f4b29c15d96d4243ab6961edb8a81774",
+		"target_id": 2,
 		"payload": {
 			"status": "done",
 			"reason": "filled",
@@ -157,18 +181,21 @@
 	},
 	{
 		"type": "order_status",
-		"target_id": "655ca7048ab54483947334b33b090dc1",
+		"target_id": 2,
 		"payload": {
 			"status": "open",
-			"order_id": 7
+			"side": 0,
+			"order_id": 10,
+			"price": 11,
+			"size": 2.1
 		},
 		"seq": 17
 	},
 	{
 		"type": "fill",
-		"target_id": "655ca7048ab54483947334b33b090dc1",
+		"target_id": 2,
 		"payload": {
-			"order_id": 7,
+			"order_id": 10,
 			"size": 2.1,
 			"liquidity": false,
 			"price": 11
@@ -177,17 +204,17 @@
 	},
 	{
 		"type": "order_status",
-		"target_id": "655ca7048ab54483947334b33b090dc1",
+		"target_id": 2,
 		"payload": {
 			"status": "done",
 			"reason": "filled",
-			"order_id": 7
+			"order_id": 10
 		},
 		"seq": 19
 	},
 	{
 		"type": "fill",
-		"target_id": "6e0d832f449b4f48bba446950b31bbfd",
+		"target_id": 3,
 		"payload": {
 			"order_id": 4,
 			"size": 2.1,
@@ -198,7 +225,7 @@
 	},
 	{
 		"type": "order_status",
-		"target_id": "6e0d832f449b4f48bba446950b31bbfd",
+		"target_id": 3,
 		"payload": {
 			"status": "done",
 			"reason": "filled",

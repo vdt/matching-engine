@@ -27,7 +27,10 @@ function subscribe(ms) {
 }
 
 function do_test(test_name, cb) {
+    // clear the journals
     fs.writeFileSync("./log/matcher.log", "");
+    fs.writeFileSync("./log/matcher_in.log", "");
+
     matcher.start(PORT, function() {
         run_test(test_name, cb);
     });
@@ -77,8 +80,11 @@ function run_test(test_name, cb) {
     function process_journal(journal) {
         var a = [];
         journal.split('\n').forEach(function(line) {
-            if(line.length)
-                a.push(JSON.parse(line));
+            if(line.length) {
+                var obj = JSON.parse(line);
+                delete obj.payload.id;
+                a.push(obj);
+            }
         });
         remove_timestamps(a);
         return a;
@@ -95,7 +101,7 @@ function run_test(test_name, cb) {
     function end() {
         client.end();
         matcher.stop();
-        
+
         remove_timestamps(resps);
 
         var journal = fs.readFileSync(journal_file) + "";

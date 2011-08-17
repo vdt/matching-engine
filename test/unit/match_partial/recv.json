@@ -4,7 +4,10 @@
 		"target_id": "b7211f8a704b4815be93c07dcb354e4d",
 		"payload": {
 			"status": "open",
-			"order_id": 0
+			"side": 0,
+			"order_id": 0,
+			"price": 10.23,
+			"size": 52.34591011
 		},
 		"seq": 1
 	},
@@ -13,7 +16,10 @@
 		"target_id": "1fa34b0f04e249c2940a6fbb8bae105c",
 		"payload": {
 			"status": "open",
-			"order_id": 1
+			"side": 0,
+			"order_id": 1,
+			"price": 10.24,
+			"size": 10.234
 		},
 		"seq": 2
 	},
@@ -22,7 +28,10 @@
 		"target_id": "fd0d457e3a4e43fe85f84d8c0b95cdd2",
 		"payload": {
 			"status": "open",
-			"order_id": 2
+			"side": 0,
+			"order_id": 2,
+			"price": 10.23,
+			"size": 10.2
 		},
 		"seq": 3
 	},
@@ -31,7 +40,10 @@
 		"target_id": "19a61efb542c4c4697d09769092bfab1",
 		"payload": {
 			"status": "open",
-			"order_id": 5
+			"side": 1,
+			"order_id": 5,
+			"price": 18,
+			"size": 80.56912305
 		},
 		"seq": 4
 	},
@@ -40,7 +52,10 @@
 		"target_id": "20a867503a244976ab894bbb54d1e76c",
 		"payload": {
 			"status": "open",
-			"order_id": 3
+			"side": 1,
+			"order_id": 3,
+			"price": 11,
+			"size": 1.2
 		},
 		"seq": 5
 	},
@@ -49,7 +64,10 @@
 		"target_id": "dbaae29301c24070a8237468ee52af81",
 		"payload": {
 			"status": "open",
-			"order_id": 4
+			"side": 1,
+			"order_id": 4,
+			"price": 11,
+			"size": 2.1
 		},
 		"seq": 6
 	},
@@ -58,7 +76,10 @@
 		"target_id": "e2f78b80dac5460db20700e42a136920",
 		"payload": {
 			"status": "open",
-			"order_id": 6
+			"side": 0,
+			"order_id": 6,
+			"price": 10.59,
+			"size": 1.1
 		},
 		"seq": 7
 	},
@@ -67,7 +88,10 @@
 		"target_id": "c8b2e88d62b74733a03b6d6f871e1cc5",
 		"payload": {
 			"status": "open",
-			"order_id": 7
+			"side": 0,
+			"order_id": 7,
+			"price": 11,
+			"size": 0.2
 		},
 		"seq": 8
 	},
@@ -108,7 +132,10 @@
 		"target_id": "509f2e316df04390b33237c769d23b48",
 		"payload": {
 			"status": "open",
-			"order_id": 8
+			"side": 0,
+			"order_id": 8,
+			"price": 11.01,
+			"size": 0.2
 		},
 		"seq": 12
 	},
@@ -149,7 +176,10 @@
 		"target_id": "d2c6d224ad9a4984989ce7923baaac3a",
 		"payload": {
 			"status": "open",
-			"order_id": 9
+			"side": 1,
+			"order_id": 9,
+			"price": 10.59,
+			"size": 0.2
 		},
 		"seq": 16
 	},
@@ -190,7 +220,10 @@
 		"target_id": "89dbda8070ea40faae02f3a1d0722977",
 		"payload": {
 			"status": "open",
-			"order_id": 10
+			"side": 1,
+			"order_id": 10,
+			"price": 10.58,
+			"size": 0.2
 		},
 		"seq": 20
 	},

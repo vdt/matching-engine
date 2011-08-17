@@ -20,12 +20,15 @@ function Matcher() {
 
 Matcher.prototype.start = function(port, cb) {
     logger.trace('Starting matcher');
+
+    var self = this;
+
     var emitter = new events.EventEmitter();
 
     this.order_book = new OrderBook();
 
     var order_processor = new ReqProcessor(this);
-    
+
     this.server = net.createServer();
     this.server.listen(port, 'localhost', function() {
         logger.trace('Matcher started');
@@ -45,7 +48,7 @@ Matcher.prototype.start = function(port, cb) {
 
         var ev = new EventSender(pubsub);
         ms.addListener('msg', function(msg) {
-            logger.trace('got msg ' + msg.type);
+            logger.trace('Got msg: ' + msg.type);
             order_processor.process(msg, ev);
         });
     });

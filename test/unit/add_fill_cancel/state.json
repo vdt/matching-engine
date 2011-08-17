@@ -5,7 +5,7 @@
 				"price": 10.23,
 				"size": 52.34591011,
 				"id": 0,
-				"sender_id": "4043c2e0cb9443409171ca3d9d3ea105"
+				"sender_id": 2
 			}
 		],
 		"asks": []
@@ -16,7 +16,7 @@
 				"price": 10.23,
 				"size": 42.11191011,
 				"id": 0,
-				"sender_id": "4043c2e0cb9443409171ca3d9d3ea105"
+				"sender_id": 2
 			}
 		],
 		"asks": []
@@ -27,7 +27,7 @@
 				"price": 10.23,
 				"size": 42.11191011,
 				"id": 0,
-				"sender_id": "4043c2e0cb9443409171ca3d9d3ea105"
+				"sender_id": 2
 			}
 		],
 		"asks": []
@@ -42,7 +42,7 @@
 				"price": 2.2,
 				"size": 10.1,
 				"id": 3,
-				"sender_id": "92b4f302cb214d60b4330453fa1caf9e"
+				"sender_id": 3
 			}
 		],
 		"asks": []

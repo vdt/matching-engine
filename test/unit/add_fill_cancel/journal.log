@@ -1,7 +1,7 @@
-{"type":"order_status","timestamp":1313372731942,"target_id":"4043c2e0cb9443409171ca3d9d3ea105","payload":{"status":"open","order_id":0,"exchange_time":1313372731942}}
-{"type":"order_status","timestamp":1313372731942,"target_id":"037b3997769d408cb55f3df7519c8c68","payload":{"status":"open","order_id":1,"exchange_time":1313372731942}}
-{"type":"match","timestamp":1313372731942,"payload":{"taker_id":1,"provider_id":0,"size":10.234,"price":10.23}}
-{"type":"order_status","timestamp":1313372731942,"target_id":"4043c2e0cb9443409171ca3d9d3ea105","payload":{"status":"done","reason":"cancelled","order_id":0,"exchange_time":1313372731942}}
-{"type":"order_status","timestamp":1313372731943,"target_id":"92b4f302cb214d60b4330453fa1caf9e","payload":{"status":"open","order_id":3,"exchange_time":1313372731943}}
-{"type":"order_status","timestamp":1313372731946,"target_id":"0581a5d7299544049a061b358c525fb7","payload":{"status":"open","order_id":4,"exchange_time":1313372731946}}
-{"type":"match","timestamp":1313372731948,"payload":{"taker_id":4,"provider_id":3,"size":10.1,"price":2.2}}
+{"type":"order_status","timestamp":1313548448781,"target_id":2,"payload":{"status":"open","side":0,"order_id":0,"price":10.23,"size":52.34591011,"exchange_time":1313548448781}}
+{"type":"order_status","timestamp":1313548448782,"target_id":3,"payload":{"status":"open","side":1,"order_id":1,"price":10.23,"size":10.234,"exchange_time":1313548448782}}
+{"type":"match","timestamp":1313548448782,"payload":{"id":"e11032bcb14340b19edd9aabb17f2273","taker_id":1,"provider_id":0,"size":10.234,"price":10.23,"taker_done":true,"provider_done":false}}
+{"type":"order_status","timestamp":1313548448786,"target_id":2,"payload":{"status":"done","reason":"cancelled","order_id":0,"exchange_time":1313548448786}}
+{"type":"order_status","timestamp":1313548448786,"target_id":3,"payload":{"status":"open","side":0,"order_id":3,"price":2.2,"size":10.1,"exchange_time":1313548448786}}
+{"type":"order_status","timestamp":1313548448786,"target_id":2,"payload":{"status":"open","side":1,"order_id":4,"price":2.2,"size":10.1,"exchange_time":1313548448786}}
+{"type":"match","timestamp":1313548448786,"payload":{"id":"54ac36e0b03e4f2a803bcbfc1193cef6","taker_id":4,"provider_id":3,"size":10.1,"price":2.2,"taker_done":true,"provider_done":true}}
