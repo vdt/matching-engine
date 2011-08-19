@@ -4,22 +4,32 @@ var assert = require('assert');
 
 var Messenger = require('../../common/messenger');
 
-//var logger = require('../../common/logger');
-//logger.enable_stdout_provider();
-
 var Matcher = require('../matcher');
 var json2 = require('../deps/json2'); // for pretty-serialize
 
-var PORT = 6666;
 var BASE_DIR = __dirname + "/unit";
 var TIMEOUT = 100;
 
-var journal_file = __dirname + "/../../log/matcher.log";
-var in_journal_file = __dirname + "/../../log/matcher_in.log";
+var matcher_config = {
+    client: {
+        ip: 'localhost',
+        port: 10001
+    },
+    feed: {
+        ip: '239.255.0.1',
+        port: 10001
+    }
+};
+
+// create the matcher used for testing
+var matcher = new Matcher(matcher_config);
+
+var env = require('../../common/config').env;
+
+var journal_file = env.logdir + '/matcher.log';
+var in_journal_file = env.logdir + '/matcher_in.log';
 
 var gen_golds = process.argv.length > 2 && process.argv[2] == '-g';
-
-var matcher = new Matcher();
 
 function subscribe(ms) {
     var smsg = {
@@ -34,7 +44,7 @@ function do_test(test_name, cb) {
     fs.writeFileSync(journal_file, "");
     fs.writeFileSync(in_journal_file, "");
 
-    matcher.start(PORT, function() {
+    matcher.start(function() {
         run_test(test_name, cb);
     });
 }
@@ -50,7 +60,7 @@ function run_test(test_name, cb) {
 
     var tid; // timeout id
 
-    var client = net.createConnection(PORT);
+    var client = net.createConnection(matcher_config.client.port);
     client.on('connect', function() {
         var ms = new Messenger(client);
         subscribe(ms);
@@ -75,7 +85,7 @@ function run_test(test_name, cb) {
     var resps = [];
     var states = [];
 
-    matcher.events.on('process', function() {
+    matcher.on('process', function() {
         states.push(matcher.state());
     });
 
