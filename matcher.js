@@ -11,6 +11,7 @@ var uuid = require('node-uuid');
 var Messenger = require('../common/messenger');
 var Journal = require('../common/journal');
 var logger = require('../common/logger').set_ident('matcher');
+var products = require('../common/products');
 
 // local
 var OrderBook = require('./lib/order_book').OrderBook;
@@ -30,7 +31,6 @@ Matcher.prototype = new events.EventEmitter();
 
 /// start the matcher, callback when started
 Matcher.prototype.start = function(cb) {
-
     var self = this;
     logger.trace('starting matcher');
 
@@ -148,9 +148,15 @@ Matcher.prototype.start = function(cb) {
             payload: {
                 order_id: order.id,
                 status: 'done',
+                size: order.size, // need for fast cancel (hold amount calc)
+                price: order.price, // need for fast cancel (hold amount calc)
+                side: order.side, // need for fast cancel (hold amount calc)
+                user_id: order.sender, // need for fast cancel (hold amount update)
                 reason: (order.done) ? 'filled' : 'cancelled'
             }
         };
+        journal.log(msg);
+        send_feed_msg(msg);
 
         // notify client of their done or canceled order
         if (order.done)
@@ -292,13 +298,13 @@ if(require.main === module) {
     // matcher configs
     var matchers = require('../common/config').matchers();
 
-    var product = process.argv[2];
-    if (!product) {
+    var product_id = process.argv[2];
+    if (!product_id) {
         logger.error('no product specfied');
         process.exit();
     }
 
-    var matcher = new Matcher(matchers[product]);
+    var matcher = new Matcher(matchers[product_id]);
     matcher.start(function() {
         logger.trace('matcher running for product: ' + product);
     });

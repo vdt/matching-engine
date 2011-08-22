@@ -4,10 +4,10 @@
         "type": "order", 
         "payload": {
             "order_id": 0, 
-            "price": 10.23, 
-            "sender_id": 2,
+            "price": 1023000000, 
+            "sender_id": 2, 
             "side": 0, 
-            "size": 52.34591011
+            "size": 5234591011
         }
     }, 
     {
@@ -15,10 +15,10 @@
         "type": "order", 
         "payload": {
             "order_id": 1, 
-            "price": 10.23, 
-            "sender_id": 3,
+            "price": 1023000000, 
+            "sender_id": 3, 
             "side": 1, 
-            "size": 10.234
+            "size": 1023400000
         }
     }, 
     {
@@ -42,10 +42,10 @@
         "type": "order", 
         "payload": {
             "order_id": 3, 
-            "price": 2.2, 
-            "sender_id": 3,
+            "price": 220000000, 
+            "sender_id": 3, 
             "side": 0, 
-            "size": 10.1
+            "size": 1010000000
         }
     }, 
     {
@@ -53,10 +53,10 @@
         "type": "order", 
         "payload": {
             "order_id": 4, 
-            "price": 2.2, 
-            "sender_id": 2,
+            "price": 220000000, 
+            "sender_id": 2, 
             "side": 1, 
-            "size": 10.1
+            "size": 1010000000
         }
     }, 
     {

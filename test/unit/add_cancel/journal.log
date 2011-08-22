@@ -1,6 +1,8 @@
-{"type":"order_status","timestamp":1313714316213,"payload":{"status":"received","side":0,"order_id":0,"sender":2,"price":1023,"size":5234591011,"exchange_time":1313714316213}}
-{"type":"order_status","timestamp":1313714316214,"payload":{"status":"received","side":0,"order_id":1,"sender":2,"price":1024,"size":1023400000,"exchange_time":1313714316214}}
-{"type":"order_status","timestamp":1313714316214,"payload":{"status":"received","side":0,"order_id":2,"sender":2,"price":1023,"size":1020000000,"exchange_time":1313714316214}}
-{"type":"order_status","timestamp":1313714316215,"payload":{"status":"received","side":1,"order_id":5,"sender":2,"price":1800,"size":8056912305,"exchange_time":1313714316215}}
-{"type":"order_status","timestamp":1313714316215,"payload":{"status":"received","side":1,"order_id":3,"sender":2,"price":1100,"size":120000000,"exchange_time":1313714316215}}
-{"type":"order_status","timestamp":1313714316216,"payload":{"status":"received","side":1,"order_id":4,"sender":2,"price":1100,"size":210000000,"exchange_time":1313714316216}}
+{"type":"order_status","timestamp":1314035649046,"payload":{"status":"received","side":0,"order_id":0,"sender":2,"price":1023000000,"size":5234591011,"exchange_time":1314035649046}}
+{"type":"order_status","timestamp":1314035649047,"payload":{"status":"received","side":0,"order_id":1,"sender":2,"price":1024000000,"size":1023400000,"exchange_time":1314035649047}}
+{"type":"order_status","timestamp":1314035649047,"payload":{"status":"received","side":0,"order_id":2,"sender":2,"price":1023000000,"size":1020000000,"exchange_time":1314035649047}}
+{"type":"order_status","timestamp":1314035649048,"payload":{"order_id":0,"status":"done","size":5234591011,"price":1023000000,"side":0,"user_id":2,"reason":"cancelled"}}
+{"type":"order_status","timestamp":1314035649048,"payload":{"status":"received","side":1,"order_id":5,"sender":2,"price":1800000000,"size":8056912305,"exchange_time":1314035649048}}
+{"type":"order_status","timestamp":1314035649049,"payload":{"status":"received","side":1,"order_id":3,"sender":2,"price":1100000000,"size":120000000,"exchange_time":1314035649049}}
+{"type":"order_status","timestamp":1314035649049,"payload":{"status":"received","side":1,"order_id":4,"sender":2,"price":1100000000,"size":210000000,"exchange_time":1314035649049}}
+{"type":"order_status","timestamp":1314035649050,"payload":{"order_id":2,"status":"done","size":1020000000,"price":1023000000,"side":0,"user_id":2,"reason":"cancelled"}}

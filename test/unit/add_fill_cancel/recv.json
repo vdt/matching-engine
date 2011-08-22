@@ -6,8 +6,8 @@
 			"status": "open",
 			"side": 0,
 			"order_id": 0,
-			"price": 10.23,
-			"size": 52.34591011
+			"price": 1023000000,
+			"size": 5234591011
 		},
 		"seq": 1
 	},
@@ -18,8 +18,8 @@
 			"status": "open",
 			"side": 1,
 			"order_id": 1,
-			"price": 10.23,
-			"size": 10.234
+			"price": 1023000000,
+			"size": 1023400000
 		},
 		"seq": 2
 	},
@@ -28,9 +28,9 @@
 		"target_id": 3,
 		"payload": {
 			"order_id": 1,
-			"size": 10.234,
+			"size": 1023400000,
 			"liquidity": false,
-			"price": 10.23
+			"price": 1023000000
 		},
 		"seq": 3
 	},
@@ -39,9 +39,9 @@
 		"target_id": 2,
 		"payload": {
 			"order_id": 0,
-			"size": 10.234,
+			"size": 1023400000,
 			"liquidity": true,
-			"price": 10.23
+			"price": 1023000000
 		},
 		"seq": 4
 	},
@@ -81,8 +81,8 @@
 			"status": "open",
 			"side": 0,
 			"order_id": 3,
-			"price": 2.2,
-			"size": 10.1
+			"price": 220000000,
+			"size": 1010000000
 		},
 		"seq": 8
 	},
@@ -93,8 +93,8 @@
 			"status": "open",
 			"side": 1,
 			"order_id": 4,
-			"price": 2.2,
-			"size": 10.1
+			"price": 220000000,
+			"size": 1010000000
 		},
 		"seq": 9
 	},
@@ -103,9 +103,9 @@
 		"target_id": 2,
 		"payload": {
 			"order_id": 4,
-			"size": 10.1,
+			"size": 1010000000,
 			"liquidity": false,
-			"price": 2.2
+			"price": 220000000
 		},
 		"seq": 10
 	},
@@ -114,9 +114,9 @@
 		"target_id": 3,
 		"payload": {
 			"order_id": 3,
-			"size": 10.1,
+			"size": 1010000000,
 			"liquidity": true,
-			"price": 2.2
+			"price": 220000000
 		},
 		"seq": 11
 	},

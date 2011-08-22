@@ -2,8 +2,8 @@
 	{
 		"bids": [
 			{
-				"price": 10.23,
-				"size": 52.34591011,
+				"price": 1023000000,
+				"size": 5234591011,
 				"id": 0,
 				"sender_id": "24095cf6defa4985aab0d9f6393a14fb"
 			}
@@ -13,14 +13,14 @@
 	{
 		"bids": [
 			{
-				"price": 10.24,
-				"size": 10.234,
+				"price": 1024000000,
+				"size": 1023400000,
 				"id": 1,
 				"sender_id": "693a498fe9454542908f2814154a95d4"
 			},
 			{
-				"price": 10.23,
-				"size": 52.34591011,
+				"price": 1023000000,
+				"size": 5234591011,
 				"id": 0,
 				"sender_id": "24095cf6defa4985aab0d9f6393a14fb"
 			}
@@ -30,20 +30,20 @@
 	{
 		"bids": [
 			{
-				"price": 10.24,
-				"size": 10.234,
+				"price": 1024000000,
+				"size": 1023400000,
 				"id": 1,
 				"sender_id": "693a498fe9454542908f2814154a95d4"
 			},
 			{
-				"price": 10.23,
-				"size": 52.34591011,
+				"price": 1023000000,
+				"size": 5234591011,
 				"id": 0,
 				"sender_id": "24095cf6defa4985aab0d9f6393a14fb"
 			},
 			{
-				"price": 10.23,
-				"size": 10.2,
+				"price": 1023000000,
+				"size": 1020000000,
 				"id": 2,
 				"sender_id": "0f9ab1d843a44f9a95f55950d15ab3ba"
 			}
@@ -53,28 +53,28 @@
 	{
 		"bids": [
 			{
-				"price": 10.24,
-				"size": 10.234,
+				"price": 1024000000,
+				"size": 1023400000,
 				"id": 1,
 				"sender_id": "693a498fe9454542908f2814154a95d4"
 			},
 			{
-				"price": 10.23,
-				"size": 52.34591011,
+				"price": 1023000000,
+				"size": 5234591011,
 				"id": 0,
 				"sender_id": "24095cf6defa4985aab0d9f6393a14fb"
 			},
 			{
-				"price": 10.23,
-				"size": 10.2,
+				"price": 1023000000,
+				"size": 1020000000,
 				"id": 2,
 				"sender_id": "0f9ab1d843a44f9a95f55950d15ab3ba"
 			}
 		],
 		"asks": [
 			{
-				"price": 18,
-				"size": 80.56912305,
+				"price": 1800000000,
+				"size": 8056912305,
 				"id": 5,
 				"sender_id": "a23e0db0f7d74aa79d1f9f8ffdf689b0"
 			}
@@ -83,34 +83,34 @@
 	{
 		"bids": [
 			{
-				"price": 10.24,
-				"size": 10.234,
+				"price": 1024000000,
+				"size": 1023400000,
 				"id": 1,
 				"sender_id": "693a498fe9454542908f2814154a95d4"
 			},
 			{
-				"price": 10.23,
-				"size": 52.34591011,
+				"price": 1023000000,
+				"size": 5234591011,
 				"id": 0,
 				"sender_id": "24095cf6defa4985aab0d9f6393a14fb"
 			},
 			{
-				"price": 10.23,
-				"size": 10.2,
+				"price": 1023000000,
+				"size": 1020000000,
 				"id": 2,
 				"sender_id": "0f9ab1d843a44f9a95f55950d15ab3ba"
 			}
 		],
 		"asks": [
 			{
-				"price": 11,
-				"size": 1.2,
+				"price": 1100000000,
+				"size": 120000000,
 				"id": 3,
 				"sender_id": "bfdc2003f2594cfda220a0b0d2bcfecb"
 			},
 			{
-				"price": 18,
-				"size": 80.56912305,
+				"price": 1800000000,
+				"size": 8056912305,
 				"id": 5,
 				"sender_id": "a23e0db0f7d74aa79d1f9f8ffdf689b0"
 			}
@@ -119,40 +119,40 @@
 	{
 		"bids": [
 			{
-				"price": 10.24,
-				"size": 10.234,
+				"price": 1024000000,
+				"size": 1023400000,
 				"id": 1,
 				"sender_id": "693a498fe9454542908f2814154a95d4"
 			},
 			{
-				"price": 10.23,
-				"size": 52.34591011,
+				"price": 1023000000,
+				"size": 5234591011,
 				"id": 0,
 				"sender_id": "24095cf6defa4985aab0d9f6393a14fb"
 			},
 			{
-				"price": 10.23,
-				"size": 10.2,
+				"price": 1023000000,
+				"size": 1020000000,
 				"id": 2,
 				"sender_id": "0f9ab1d843a44f9a95f55950d15ab3ba"
 			}
 		],
 		"asks": [
 			{
-				"price": 11,
-				"size": 1.2,
+				"price": 1100000000,
+				"size": 120000000,
 				"id": 3,
 				"sender_id": "bfdc2003f2594cfda220a0b0d2bcfecb"
 			},
 			{
-				"price": 11,
-				"size": 2.1,
+				"price": 1100000000,
+				"size": 210000000,
 				"id": 4,
 				"sender_id": "2c99757c274648c3b8242da738d9de7f"
 			},
 			{
-				"price": 18,
-				"size": 80.56912305,
+				"price": 1800000000,
+				"size": 8056912305,
 				"id": 5,
 				"sender_id": "a23e0db0f7d74aa79d1f9f8ffdf689b0"
 			}
@@ -161,34 +161,34 @@
 	{
 		"bids": [
 			{
-				"price": 10.24,
-				"size": 10.234,
+				"price": 1024000000,
+				"size": 1023400000,
 				"id": 1,
 				"sender_id": "693a498fe9454542908f2814154a95d4"
 			},
 			{
-				"price": 10.23,
-				"size": 52.34591011,
+				"price": 1023000000,
+				"size": 5234591011,
 				"id": 0,
 				"sender_id": "24095cf6defa4985aab0d9f6393a14fb"
 			},
 			{
-				"price": 10.23,
-				"size": 10.2,
+				"price": 1023000000,
+				"size": 1020000000,
 				"id": 2,
 				"sender_id": "0f9ab1d843a44f9a95f55950d15ab3ba"
 			}
 		],
 		"asks": [
 			{
-				"price": 11,
-				"size": 1.1,
+				"price": 1100000000,
+				"size": 110000000,
 				"id": 4,
 				"sender_id": "2c99757c274648c3b8242da738d9de7f"
 			},
 			{
-				"price": 18,
-				"size": 80.56912305,
+				"price": 1800000000,
+				"size": 8056912305,
 				"id": 5,
 				"sender_id": "a23e0db0f7d74aa79d1f9f8ffdf689b0"
 			}
@@ -197,28 +197,28 @@
 	{
 		"bids": [
 			{
-				"price": 10.23,
-				"size": 42.37991011,
+				"price": 1023000000,
+				"size": 4237991011,
 				"id": 0,
 				"sender_id": "24095cf6defa4985aab0d9f6393a14fb"
 			},
 			{
-				"price": 10.23,
-				"size": 10.2,
+				"price": 1023000000,
+				"size": 1020000000,
 				"id": 2,
 				"sender_id": "0f9ab1d843a44f9a95f55950d15ab3ba"
 			}
 		],
 		"asks": [
 			{
-				"price": 11,
-				"size": 1.1,
+				"price": 1100000000,
+				"size": 110000000,
 				"id": 4,
 				"sender_id": "2c99757c274648c3b8242da738d9de7f"
 			},
 			{
-				"price": 18,
-				"size": 80.56912305,
+				"price": 1800000000,
+				"size": 8056912305,
 				"id": 5,
 				"sender_id": "a23e0db0f7d74aa79d1f9f8ffdf689b0"
 			}
