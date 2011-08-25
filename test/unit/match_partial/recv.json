@@ -1,262 +1,53 @@
 [
 	{
-		"type": "order_status",
-		"target_id": "b7211f8a704b4815be93c07dcb354e4d",
-		"payload": {
-			"status": "open",
-			"side": 0,
-			"order_id": 0,
-			"price": 1023000000,
-			"size": 5234591011
-		},
+		"bids": [
+			{
+				"price": 1059000000,
+				"size": 70000000,
+				"id": 6,
+				"sender_id": "e2f78b80dac5460db20700e42a136920"
+			},
+			{
+				"price": 1024000000,
+				"size": 1023400000,
+				"id": 1,
+				"sender_id": "1fa34b0f04e249c2940a6fbb8bae105c"
+			},
+			{
+				"price": 1023000000,
+				"size": 5234591011,
+				"id": 0,
+				"sender_id": "b7211f8a704b4815be93c07dcb354e4d"
+			},
+			{
+				"price": 1023000000,
+				"size": 1020000000,
+				"id": 2,
+				"sender_id": "fd0d457e3a4e43fe85f84d8c0b95cdd2"
+			}
+		],
+		"asks": [
+			{
+				"price": 1100000000,
+				"size": 80000000,
+				"id": 3,
+				"sender_id": "20a867503a244976ab894bbb54d1e76c"
+			},
+			{
+				"price": 1100000000,
+				"size": 210000000,
+				"id": 4,
+				"sender_id": "dbaae29301c24070a8237468ee52af81"
+			},
+			{
+				"price": 1800000000,
+				"size": 8056912305,
+				"id": 5,
+				"sender_id": "19a61efb542c4c4697d09769092bfab1"
+			}
+		],
+		"state_num": 1,
+		"output_seq": 22,
 		"seq": 1
-	},
-	{
-		"type": "order_status",
-		"target_id": "1fa34b0f04e249c2940a6fbb8bae105c",
-		"payload": {
-			"status": "open",
-			"side": 0,
-			"order_id": 1,
-			"price": 1024000000,
-			"size": 1023400000
-		},
-		"seq": 2
-	},
-	{
-		"type": "order_status",
-		"target_id": "fd0d457e3a4e43fe85f84d8c0b95cdd2",
-		"payload": {
-			"status": "open",
-			"side": 0,
-			"order_id": 2,
-			"price": 1023000000,
-			"size": 1020000000
-		},
-		"seq": 3
-	},
-	{
-		"type": "order_status",
-		"target_id": "19a61efb542c4c4697d09769092bfab1",
-		"payload": {
-			"status": "open",
-			"side": 1,
-			"order_id": 5,
-			"price": 1800000000,
-			"size": 8056912305
-		},
-		"seq": 4
-	},
-	{
-		"type": "order_status",
-		"target_id": "20a867503a244976ab894bbb54d1e76c",
-		"payload": {
-			"status": "open",
-			"side": 1,
-			"order_id": 3,
-			"price": 1100000000,
-			"size": 120000000
-		},
-		"seq": 5
-	},
-	{
-		"type": "order_status",
-		"target_id": "dbaae29301c24070a8237468ee52af81",
-		"payload": {
-			"status": "open",
-			"side": 1,
-			"order_id": 4,
-			"price": 1100000000,
-			"size": 210000000
-		},
-		"seq": 6
-	},
-	{
-		"type": "order_status",
-		"target_id": "e2f78b80dac5460db20700e42a136920",
-		"payload": {
-			"status": "open",
-			"side": 0,
-			"order_id": 6,
-			"price": 1059000000,
-			"size": 110000000
-		},
-		"seq": 7
-	},
-	{
-		"type": "order_status",
-		"target_id": "c8b2e88d62b74733a03b6d6f871e1cc5",
-		"payload": {
-			"status": "open",
-			"side": 0,
-			"order_id": 7,
-			"price": 1100000000,
-			"size": 20000000
-		},
-		"seq": 8
-	},
-	{
-		"type": "fill",
-		"target_id": "c8b2e88d62b74733a03b6d6f871e1cc5",
-		"payload": {
-			"order_id": 7,
-			"size": 20000000,
-			"liquidity": false,
-			"price": 1100000000
-		},
-		"seq": 9
-	},
-	{
-		"type": "fill",
-		"target_id": "20a867503a244976ab894bbb54d1e76c",
-		"payload": {
-			"order_id": 3,
-			"size": 20000000,
-			"liquidity": true,
-			"price": 1100000000
-		},
-		"seq": 10
-	},
-	{
-		"type": "order_status",
-		"target_id": "c8b2e88d62b74733a03b6d6f871e1cc5",
-		"payload": {
-			"status": "done",
-			"reason": "filled",
-			"order_id": 7
-		},
-		"seq": 11
-	},
-	{
-		"type": "order_status",
-		"target_id": "509f2e316df04390b33237c769d23b48",
-		"payload": {
-			"status": "open",
-			"side": 0,
-			"order_id": 8,
-			"price": 1101000000,
-			"size": 20000000
-		},
-		"seq": 12
-	},
-	{
-		"type": "fill",
-		"target_id": "509f2e316df04390b33237c769d23b48",
-		"payload": {
-			"order_id": 8,
-			"size": 20000000,
-			"liquidity": false,
-			"price": 1101000000
-		},
-		"seq": 13
-	},
-	{
-		"type": "fill",
-		"target_id": "20a867503a244976ab894bbb54d1e76c",
-		"payload": {
-			"order_id": 3,
-			"size": 20000000,
-			"liquidity": true,
-			"price": 1100000000
-		},
-		"seq": 14
-	},
-	{
-		"type": "order_status",
-		"target_id": "509f2e316df04390b33237c769d23b48",
-		"payload": {
-			"status": "done",
-			"reason": "filled",
-			"order_id": 8
-		},
-		"seq": 15
-	},
-	{
-		"type": "order_status",
-		"target_id": "d2c6d224ad9a4984989ce7923baaac3a",
-		"payload": {
-			"status": "open",
-			"side": 1,
-			"order_id": 9,
-			"price": 1059000000,
-			"size": 20000000
-		},
-		"seq": 16
-	},
-	{
-		"type": "fill",
-		"target_id": "d2c6d224ad9a4984989ce7923baaac3a",
-		"payload": {
-			"order_id": 9,
-			"size": 20000000,
-			"liquidity": false,
-			"price": 1059000000
-		},
-		"seq": 17
-	},
-	{
-		"type": "fill",
-		"target_id": "e2f78b80dac5460db20700e42a136920",
-		"payload": {
-			"order_id": 6,
-			"size": 20000000,
-			"liquidity": true,
-			"price": 1059000000
-		},
-		"seq": 18
-	},
-	{
-		"type": "order_status",
-		"target_id": "d2c6d224ad9a4984989ce7923baaac3a",
-		"payload": {
-			"status": "done",
-			"reason": "filled",
-			"order_id": 9
-		},
-		"seq": 19
-	},
-	{
-		"type": "order_status",
-		"target_id": "89dbda8070ea40faae02f3a1d0722977",
-		"payload": {
-			"status": "open",
-			"side": 1,
-			"order_id": 10,
-			"price": 1058000000,
-			"size": 20000000
-		},
-		"seq": 20
-	},
-	{
-		"type": "fill",
-		"target_id": "89dbda8070ea40faae02f3a1d0722977",
-		"payload": {
-			"order_id": 10,
-			"size": 20000000,
-			"liquidity": false,
-			"price": 1058000000
-		},
-		"seq": 21
-	},
-	{
-		"type": "fill",
-		"target_id": "e2f78b80dac5460db20700e42a136920",
-		"payload": {
-			"order_id": 6,
-			"size": 20000000,
-			"liquidity": true,
-			"price": 1059000000
-		},
-		"seq": 22
-	},
-	{
-		"type": "order_status",
-		"target_id": "89dbda8070ea40faae02f3a1d0722977",
-		"payload": {
-			"status": "done",
-			"reason": "filled",
-			"order_id": 10
-		},
-		"seq": 23
 	}
 ]

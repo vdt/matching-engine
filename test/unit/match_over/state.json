@@ -8,7 +8,9 @@
 				"sender_id": "bc21105829fa4ddf981f6cd5366b5af7"
 			}
 		],
-		"asks": []
+		"asks": [],
+		"state_num": 1,
+		"output_seq": 2
 	},
 	{
 		"bids": [
@@ -25,7 +27,9 @@
 				"sender_id": "bc21105829fa4ddf981f6cd5366b5af7"
 			}
 		],
-		"asks": []
+		"asks": [],
+		"state_num": 1,
+		"output_seq": 4
 	},
 	{
 		"bids": [
@@ -48,7 +52,9 @@
 				"sender_id": "e035fc9fa1034a8eabfa4e50cb3cb303"
 			}
 		],
-		"asks": []
+		"asks": [],
+		"state_num": 1,
+		"output_seq": 6
 	},
 	{
 		"bids": [
@@ -78,7 +84,9 @@
 				"id": 5,
 				"sender_id": "9c517fcc473f47a494b4b5aea366477a"
 			}
-		]
+		],
+		"state_num": 1,
+		"output_seq": 8
 	},
 	{
 		"bids": [
@@ -114,7 +122,9 @@
 				"id": 5,
 				"sender_id": "9c517fcc473f47a494b4b5aea366477a"
 			}
-		]
+		],
+		"state_num": 1,
+		"output_seq": 10
 	},
 	{
 		"bids": [
@@ -156,7 +166,9 @@
 				"id": 5,
 				"sender_id": "9c517fcc473f47a494b4b5aea366477a"
 			}
-		]
+		],
+		"state_num": 1,
+		"output_seq": 12
 	},
 	{
 		"bids": [],
@@ -185,7 +197,9 @@
 				"id": 5,
 				"sender_id": "9c517fcc473f47a494b4b5aea366477a"
 			}
-		]
+		],
+		"state_num": 1,
+		"output_seq": 20
 	},
 	{
 		"bids": [
@@ -196,6 +210,8 @@
 				"sender_id": "6214bbd490e44594b64b5e4903e14302"
 			}
 		],
-		"asks": []
+		"asks": [],
+		"state_num": 1,
+		"output_seq": 30
 	}
 ]

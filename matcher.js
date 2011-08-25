@@ -3,6 +3,7 @@
 var net = require('net');
 var dgram = require('dgram');
 var events = require('events');
+var fs = require('fs');
 
 // 3rd party
 var uuid = require('node-uuid');
@@ -12,18 +13,21 @@ var Messenger = require('../common/messenger');
 var Journal = require('../common/journal');
 var logger = require('../common/logger').set_ident('matcher');
 var products = require('../common/products');
+var config = require('../common/config');
 
 // local
 var OrderBook = require('./lib/order_book').OrderBook;
 var Order = require('./lib/order');
-var EventSender = require('./lib/event_sender').EventSender;
-var PubSub = require('./lib/pub_sub').PubSub;
+
+var matcher_state_prefix = config.env.logdir + "/matcher_state";
 
 function Matcher(config) {
     this.server;
     this.order_book;
     this.config = config;
-};
+    this.state_num = 0;
+    this.output_seq = 0;
+}
 
 // matcher emits the 'process' event for testing
 // see req_processor.js in lib
@@ -39,11 +43,6 @@ Matcher.prototype.start = function(cb) {
 
     var order_book = this.order_book = new OrderBook();
 
-    // outgoing matcher events go through the central event dispatcher
-    // the event dispatcher emits event messages which can be picked up by
-    // any interested event subscribers
-    var ev = new EventSender();
-
     // inbound message journal
     var in_journal = this.journal = new Journal('matcher_in', false);
 
@@ -53,11 +52,28 @@ Matcher.prototype.start = function(cb) {
     // the multicast feed channel socket
     var feed_socket = this.feed_socket = dgram.createSocket('udp4');
 
-    // send a message out on the multicast socket
-    function send_feed_msg(msg) {
+    var ev = new events.EventEmitter();
+
+    // journal & send a message out on the multicast socket
+    // updaters and other interested sources listen for this data
+    function send_feed_msg(type, payload) {
         // avoid referencing into the feed config object for every message send
         var feed_ip = feed.ip;
         var feed_port = feed.port;
+
+        // construct the message
+        var msg = {
+            type: type,
+            timestamp: Date.now(),
+            seq: self.output_seq,
+            payload: payload
+        };
+
+        // journal the message before sending it
+        // it's not necessary to wait for this to finish, since
+        // this is just for nightly reconciliation
+        // state is persisted by the input journal & state files
+        journal.log(msg);
 
         // have to send buffers
         var buff = new Buffer(JSON.stringify(msg));
@@ -67,6 +83,8 @@ Matcher.prototype.start = function(cb) {
             if (err)
                 logger.warn(err.message);
         });
+
+        ++self.output_seq;
     };
 
     /// order book event handlers
@@ -75,94 +93,48 @@ Matcher.prototype.start = function(cb) {
         // client has already been notofied that the order is open at the exchange
         // we can't do it here because the order may never be added to the book if it is
         // executed immediately, thus no call to event dist
-
-        // also not jounraled because it has already been journaled upon being received
-
         // the 'open' order status means that the order is now open on the order book
-        var add_order = {
-            type: 'order_status',
-            timestamp: Date.now(),
-            payload: {
-                status: 'open',
-                side: order.side,
-                order_id: order.id,
-                sender: order.sender,
-                price: order.price,
-                size: order.size,
-                exchange_time: Date.now()
-            }
+        var payload = {
+            status: 'open',
+            side: order.side,
+            order_id: order.id,
+            sender: order.sender,
+            price: order.price,
+            size: order.size,
+            exchange_time: Date.now()
         };
 
-        send_feed_msg(add_order);
+        send_feed_msg('order_status', payload);
     })
     // taker is the liq. taker, provider is the liq. provider
     .on('match', function(size, taker, provider) {
-        var self = this;
-        var time = Date.now();
-
-        // write the match event to the journal
-        var match_msg = {
-            type: 'match',
-            timestamp: time,
-            payload: {
-                id: uuid('binary').toString('hex'),
-                taker_id: taker.id,
-                provider_id: provider.id,
-                taker_user_id: taker.sender,
-                provider_user_id: provider.sender,
-                size: size,
-                price: provider.price,
-                taker_side: taker.side,
-                taker_original_limit: taker.price,
-                taker_done: taker.done == true, // .done may be undefined
-                provider_done: provider.done == true
-            }
+        var payload = {
+            id: uuid('binary').toString('hex'),
+            taker_id: taker.id,
+            provider_id: provider.id,
+            taker_user_id: taker.sender,
+            provider_user_id: provider.sender,
+            size: size,
+            price: provider.price,
+            taker_side: taker.side,
+            taker_original_limit: taker.price,
+            taker_done: taker.done == true, // .done may be undefined
+            provider_done: provider.done == true
         };
 
-        // we don't have to wait for the journal because the incomming jounral is available
-        // the outgoing journal is only used if there was a connectivity issue for updaters
-        journal.log(match_msg);
-
-        // send the match information out to the network
-        // updaters and other interested sources listen for this data
-        // to create feed streams
-        send_feed_msg(match_msg);
-
-        // notify clients of the match
-        ev.fill(time, size, taker, false);
-        ev.fill(time, size, provider, true);
-
-        // if taker is done, we need to send a done
-        // the taker will never be added to the order book so we cannot rely on the remove
-        // order event to send a done or cancel message
-        if (taker.done)
-            ev.done(taker);
+        send_feed_msg('match', payload);
     })
     .on('remove_order', function(order) {
-
-        // if an order was removed from the book, the match will take care of sending
-        // out the corresonding done message?
-        var msg = {
-            type: 'order_status',
-            timestamp: Date.now(),
-            payload: {
-                order_id: order.id,
-                status: 'done',
-                size: order.size, // need for fast cancel (hold amount calc)
-                price: order.price, // need for fast cancel (hold amount calc)
-                side: order.side, // need for fast cancel (hold amount calc)
-                user_id: order.sender, // need for fast cancel (hold amount update)
-                reason: (order.done) ? 'filled' : 'cancelled'
-            }
+        var payload = {
+            order_id: order.id,
+            status: 'done',
+            size: order.size, // need for fast cancel (hold amount calc)
+            price: order.price, // need for fast cancel (hold amount calc)
+            side: order.side, // need for fast cancel (hold amount calc)
+            user_id: order.sender, // need for fast cancel (hold amount update)
+            reason: (order.done) ? 'filled' : 'cancelled'
         };
-        journal.log(msg);
-        send_feed_msg(msg);
-
-        // notify client of their done or canceled order
-        if (order.done)
-            ev.done(order);
-        else
-            ev.cancelled(order);
+        send_feed_msg('order_status', payload);
     });
 
     // handlers for messages which will affect the matcher state
@@ -172,29 +144,16 @@ Matcher.prototype.start = function(cb) {
 
             // received order into the matcher
             // this order status is sent to indicate that the order was received
-            var received_order = {
-                type: 'order_status',
-                timestamp: Date.now(),
-                payload: {
-                    status: 'received',
-                    side: order.side,
-                    order_id: order.id,
-                    sender: order.sender,
-                    price: order.price,
-                    size: order.size,
-                    exchange_time: Date.now()
-                }
+            var payload = {
+                status: 'received',
+                side: order.side,
+                order_id: order.id,
+                sender: order.sender,
+                price: order.price,
+                size: order.size,
+                exchange_time: Date.now()
             };
-
-            // journal that we received the order
-            // althought we have it in the "in" journal, this journal is for recovery
-            // for updater and other database processes
-            journal.log(received_order);
-
-            send_feed_msg(received_order);
-
-            // send an open order event to clients
-            ev.open(order);
+            send_feed_msg('order_status', payload);
 
             // add the order to the order book
             // if the order can be matched immediately, it will be
@@ -211,8 +170,17 @@ Matcher.prototype.start = function(cb) {
             var result = order_book.remove(oid, sender);
 
             // if there was an error, inform the user
-            if (result)
-                ev.cancel_reject(oid, sender, result.message);
+            if (result) {
+                ev.emit('reply', {
+                    type: 'cancel_reject',
+                    timestamp: Date.now(),
+                    target_id: sender,
+                    payload: {
+                        order_id: oid,
+                        reject_reason: result.message
+                    }
+                });
+            }
 
             // for testing only
             self.emit('process');
@@ -233,15 +201,16 @@ Matcher.prototype.start = function(cb) {
 
         // the outgoing messenger for the client
         var ms = new Messenger(socket);
-        var pubsub = new PubSub(ms);
 
-        ev.on('event', function(sender, event) {
-            return pubsub.pub(sender, event);
-        });
+        function send_reply(obj) {
+            ms.send(obj);
+        }
+
+        ev.on('reply', send_reply);
 
         socket.on('close', function() {
-            logger.trace('closing pubsub for ' + addr);
-            pubsub.close();
+            logger.trace('removing send_reply handler for ' + addr);
+            ev.removeListener('reply', send_reply);
         });
 
         ms.addListener('msg', function(msg) {
@@ -250,15 +219,18 @@ Matcher.prototype.start = function(cb) {
             var handler = msg_handlers[msg.type];
             if (!handler) {
 
-                // sub requests don't happen that often so only try to handle them
+                // state requests don't happen often so only try to handle them
                 // if we don't already have a handler for the message type
                 // these are special messages not intended for the matcher
-                if (msg.type === 'sub') {
-                    var key = (msg.payload) ? msg.payload.key : undefined;
-                    return pubsub.sub(key);
-                } else if (msg.type === 'unsub') {
-                    var key = (msg.payload) ? msg.payload.key : undefined;
-                    return pubsub.unsub(key);
+                if (msg.type === 'state') {
+                    var filename = matcher_state_prefix + "." + self.state_num + ".json";
+                    in_journal.log({type: 'state', payload: self.state_num}, function(){
+                        var state = self.state();
+                        fs.writeFile(filename, JSON.stringify(state));
+                        ms.send(state);
+                    });
+                    ++self.state_num;
+                    return;
                 }
 
                 // if we didn't have a handler and it wasn't a sub request
@@ -274,7 +246,7 @@ Matcher.prototype.start = function(cb) {
             });
         });
     });
-}
+};
 
 Matcher.prototype.stop = function() {
     logger.trace('stopping matcher');
@@ -284,11 +256,20 @@ Matcher.prototype.stop = function() {
     });
 
     this.feed_socket.close();
-}
+};
 
 Matcher.prototype.state = function() {
-    return this.order_book.state();
-}
+    var state = this.order_book.state();
+    state.state_num = this.state_num;
+    state.output_seq = this.output_seq;
+    return state;
+};
+
+// resets matcher's sequence numbers
+Matcher.prototype.reset = function() {
+    this.output_seq = 0;
+    this.state_num = 0;
+};
 
 /// main
 

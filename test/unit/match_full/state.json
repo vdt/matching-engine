@@ -8,7 +8,9 @@
 				"sender_id": 2
 			}
 		],
-		"asks": []
+		"asks": [],
+		"state_num": 1,
+		"output_seq": 2
 	},
 	{
 		"bids": [
@@ -25,7 +27,9 @@
 				"sender_id": 2
 			}
 		],
-		"asks": []
+		"asks": [],
+		"state_num": 1,
+		"output_seq": 4
 	},
 	{
 		"bids": [
@@ -48,7 +52,9 @@
 				"sender_id": 2
 			}
 		],
-		"asks": []
+		"asks": [],
+		"state_num": 1,
+		"output_seq": 6
 	},
 	{
 		"bids": [
@@ -78,43 +84,9 @@
 				"id": 5,
 				"sender_id": 3
 			}
-		]
-	},
-	{
-		"bids": [
-			{
-				"price": 1024000000,
-				"size": 1023400000,
-				"id": 1,
-				"sender_id": 2
-			},
-			{
-				"price": 1023000000,
-				"size": 5234591011,
-				"id": 0,
-				"sender_id": 2
-			},
-			{
-				"price": 1023000000,
-				"size": 1020000000,
-				"id": 2,
-				"sender_id": 2
-			}
 		],
-		"asks": [
-			{
-				"price": 1100000000,
-				"size": 120000000,
-				"id": 3,
-				"sender_id": 3
-			},
-			{
-				"price": 1800000000,
-				"size": 8056912305,
-				"id": 5,
-				"sender_id": 3
-			}
-		]
+		"state_num": 1,
+		"output_seq": 8
 	},
 	{
 		"bids": [
@@ -145,6 +117,44 @@
 				"sender_id": 3
 			},
 			{
+				"price": 1800000000,
+				"size": 8056912305,
+				"id": 5,
+				"sender_id": 3
+			}
+		],
+		"state_num": 1,
+		"output_seq": 10
+	},
+	{
+		"bids": [
+			{
+				"price": 1024000000,
+				"size": 1023400000,
+				"id": 1,
+				"sender_id": 2
+			},
+			{
+				"price": 1023000000,
+				"size": 5234591011,
+				"id": 0,
+				"sender_id": 2
+			},
+			{
+				"price": 1023000000,
+				"size": 1020000000,
+				"id": 2,
+				"sender_id": 2
+			}
+		],
+		"asks": [
+			{
+				"price": 1100000000,
+				"size": 120000000,
+				"id": 3,
+				"sender_id": 3
+			},
+			{
 				"price": 1100000000,
 				"size": 210000000,
 				"id": 4,
@@ -156,7 +166,9 @@
 				"id": 5,
 				"sender_id": 3
 			}
-		]
+		],
+		"state_num": 1,
+		"output_seq": 12
 	},
 	{
 		"bids": [
@@ -192,7 +204,9 @@
 				"id": 5,
 				"sender_id": 3
 			}
-		]
+		],
+		"state_num": 1,
+		"output_seq": 15
 	},
 	{
 		"bids": [
@@ -222,7 +236,9 @@
 				"id": 5,
 				"sender_id": 3
 			}
-		]
+		],
+		"state_num": 1,
+		"output_seq": 18
 	},
 	{
 		"bids": [
@@ -246,6 +262,8 @@
 				"id": 5,
 				"sender_id": 3
 			}
-		]
+		],
+		"state_num": 1,
+		"output_seq": 21
 	}
 ]

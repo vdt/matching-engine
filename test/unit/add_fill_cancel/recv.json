@@ -1,161 +1,36 @@
 [
 	{
-		"type": "order_status",
+		"type": "cancel_reject",
 		"target_id": 2,
 		"payload": {
-			"status": "open",
-			"side": 0,
-			"order_id": 0,
-			"price": 1023000000,
-			"size": 5234591011
+			"order_id": 1,
+			"reject_reason": "not found"
 		},
 		"seq": 1
 	},
 	{
-		"type": "order_status",
-		"target_id": 3,
+		"type": "cancel_reject",
+		"target_id": 2,
 		"payload": {
-			"status": "open",
-			"side": 1,
-			"order_id": 1,
-			"price": 1023000000,
-			"size": 1023400000
+			"order_id": 4,
+			"reject_reason": "not found"
 		},
 		"seq": 2
 	},
 	{
-		"type": "fill",
+		"type": "cancel_reject",
 		"target_id": 3,
 		"payload": {
-			"order_id": 1,
-			"size": 1023400000,
-			"liquidity": false,
-			"price": 1023000000
+			"order_id": 3,
+			"reject_reason": "not found"
 		},
 		"seq": 3
 	},
 	{
-		"type": "fill",
-		"target_id": 2,
-		"payload": {
-			"order_id": 0,
-			"size": 1023400000,
-			"liquidity": true,
-			"price": 1023000000
-		},
+		"bids": [],
+		"asks": [],
+		"state_num": 1,
+		"output_seq": 10,
 		"seq": 4
-	},
-	{
-		"type": "order_status",
-		"target_id": 3,
-		"payload": {
-			"status": "done",
-			"reason": "filled",
-			"order_id": 1
-		},
-		"seq": 5
-	},
-	{
-		"type": "cancel_reject",
-		"target_id": 2,
-		"payload": {
-			"order_id": 1,
-			"reject_reason": "not found"
-		},
-		"seq": 6
-	},
-	{
-		"type": "order_status",
-		"target_id": 2,
-		"payload": {
-			"status": "done",
-			"reason": "cancelled",
-			"order_id": 0
-		},
-		"seq": 7
-	},
-	{
-		"type": "order_status",
-		"target_id": 3,
-		"payload": {
-			"status": "open",
-			"side": 0,
-			"order_id": 3,
-			"price": 220000000,
-			"size": 1010000000
-		},
-		"seq": 8
-	},
-	{
-		"type": "order_status",
-		"target_id": 2,
-		"payload": {
-			"status": "open",
-			"side": 1,
-			"order_id": 4,
-			"price": 220000000,
-			"size": 1010000000
-		},
-		"seq": 9
-	},
-	{
-		"type": "fill",
-		"target_id": 2,
-		"payload": {
-			"order_id": 4,
-			"size": 1010000000,
-			"liquidity": false,
-			"price": 220000000
-		},
-		"seq": 10
-	},
-	{
-		"type": "fill",
-		"target_id": 3,
-		"payload": {
-			"order_id": 3,
-			"size": 1010000000,
-			"liquidity": true,
-			"price": 220000000
-		},
-		"seq": 11
-	},
-	{
-		"type": "order_status",
-		"target_id": 2,
-		"payload": {
-			"status": "done",
-			"reason": "filled",
-			"order_id": 4
-		},
-		"seq": 12
-	},
-	{
-		"type": "order_status",
-		"target_id": 3,
-		"payload": {
-			"status": "done",
-			"reason": "filled",
-			"order_id": 3
-		},
-		"seq": 13
-	},
-	{
-		"type": "cancel_reject",
-		"target_id": 2,
-		"payload": {
-			"order_id": 4,
-			"reject_reason": "not found"
-		},
-		"seq": 14
-	},
-	{
-		"type": "cancel_reject",
-		"target_id": 3,
-		"payload": {
-			"order_id": 3,
-			"reject_reason": "not found"
-		},
-		"seq": 15
 	}
 ]

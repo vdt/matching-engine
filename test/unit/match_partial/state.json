@@ -8,7 +8,9 @@
 				"sender_id": "b7211f8a704b4815be93c07dcb354e4d"
 			}
 		],
-		"asks": []
+		"asks": [],
+		"state_num": 1,
+		"output_seq": 2
 	},
 	{
 		"bids": [
@@ -25,7 +27,9 @@
 				"sender_id": "b7211f8a704b4815be93c07dcb354e4d"
 			}
 		],
-		"asks": []
+		"asks": [],
+		"state_num": 1,
+		"output_seq": 4
 	},
 	{
 		"bids": [
@@ -48,7 +52,9 @@
 				"sender_id": "fd0d457e3a4e43fe85f84d8c0b95cdd2"
 			}
 		],
-		"asks": []
+		"asks": [],
+		"state_num": 1,
+		"output_seq": 6
 	},
 	{
 		"bids": [
@@ -78,7 +84,9 @@
 				"id": 5,
 				"sender_id": "19a61efb542c4c4697d09769092bfab1"
 			}
-		]
+		],
+		"state_num": 1,
+		"output_seq": 8
 	},
 	{
 		"bids": [
@@ -114,7 +122,9 @@
 				"id": 5,
 				"sender_id": "19a61efb542c4c4697d09769092bfab1"
 			}
-		]
+		],
+		"state_num": 1,
+		"output_seq": 10
 	},
 	{
 		"bids": [
@@ -156,7 +166,9 @@
 				"id": 5,
 				"sender_id": "19a61efb542c4c4697d09769092bfab1"
 			}
-		]
+		],
+		"state_num": 1,
+		"output_seq": 12
 	},
 	{
 		"bids": [
@@ -204,7 +216,9 @@
 				"id": 5,
 				"sender_id": "19a61efb542c4c4697d09769092bfab1"
 			}
-		]
+		],
+		"state_num": 1,
+		"output_seq": 14
 	},
 	{
 		"bids": [
@@ -252,7 +266,9 @@
 				"id": 5,
 				"sender_id": "19a61efb542c4c4697d09769092bfab1"
 			}
-		]
+		],
+		"state_num": 1,
+		"output_seq": 16
 	},
 	{
 		"bids": [
@@ -300,7 +316,9 @@
 				"id": 5,
 				"sender_id": "19a61efb542c4c4697d09769092bfab1"
 			}
-		]
+		],
+		"state_num": 1,
+		"output_seq": 18
 	},
 	{
 		"bids": [
@@ -348,7 +366,9 @@
 				"id": 5,
 				"sender_id": "19a61efb542c4c4697d09769092bfab1"
 			}
-		]
+		],
+		"state_num": 1,
+		"output_seq": 20
 	},
 	{
 		"bids": [
@@ -396,6 +416,8 @@
 				"id": 5,
 				"sender_id": "19a61efb542c4c4697d09769092bfab1"
 			}
-		]
+		],
+		"state_num": 1,
+		"output_seq": 22
 	}
 ]

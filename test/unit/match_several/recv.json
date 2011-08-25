@@ -1,226 +1,35 @@
 [
 	{
-		"type": "order_status",
-		"target_id": "24095cf6defa4985aab0d9f6393a14fb",
-		"payload": {
-			"status": "open",
-			"side": 0,
-			"order_id": 0,
-			"price": 1023000000,
-			"size": 5234591011
-		},
+		"bids": [
+			{
+				"price": 1023000000,
+				"size": 4237991011,
+				"id": 0,
+				"sender_id": "24095cf6defa4985aab0d9f6393a14fb"
+			},
+			{
+				"price": 1023000000,
+				"size": 1020000000,
+				"id": 2,
+				"sender_id": "0f9ab1d843a44f9a95f55950d15ab3ba"
+			}
+		],
+		"asks": [
+			{
+				"price": 1100000000,
+				"size": 110000000,
+				"id": 4,
+				"sender_id": "2c99757c274648c3b8242da738d9de7f"
+			},
+			{
+				"price": 1800000000,
+				"size": 8056912305,
+				"id": 5,
+				"sender_id": "a23e0db0f7d74aa79d1f9f8ffdf689b0"
+			}
+		],
+		"state_num": 1,
+		"output_seq": 20,
 		"seq": 1
-	},
-	{
-		"type": "order_status",
-		"target_id": "693a498fe9454542908f2814154a95d4",
-		"payload": {
-			"status": "open",
-			"side": 0,
-			"order_id": 1,
-			"price": 1024000000,
-			"size": 1023400000
-		},
-		"seq": 2
-	},
-	{
-		"type": "order_status",
-		"target_id": "0f9ab1d843a44f9a95f55950d15ab3ba",
-		"payload": {
-			"status": "open",
-			"side": 0,
-			"order_id": 2,
-			"price": 1023000000,
-			"size": 1020000000
-		},
-		"seq": 3
-	},
-	{
-		"type": "order_status",
-		"target_id": "a23e0db0f7d74aa79d1f9f8ffdf689b0",
-		"payload": {
-			"status": "open",
-			"side": 1,
-			"order_id": 5,
-			"price": 1800000000,
-			"size": 8056912305
-		},
-		"seq": 4
-	},
-	{
-		"type": "order_status",
-		"target_id": "bfdc2003f2594cfda220a0b0d2bcfecb",
-		"payload": {
-			"status": "open",
-			"side": 1,
-			"order_id": 3,
-			"price": 1100000000,
-			"size": 120000000
-		},
-		"seq": 5
-	},
-	{
-		"type": "order_status",
-		"target_id": "2c99757c274648c3b8242da738d9de7f",
-		"payload": {
-			"status": "open",
-			"side": 1,
-			"order_id": 4,
-			"price": 1100000000,
-			"size": 210000000
-		},
-		"seq": 6
-	},
-	{
-		"type": "order_status",
-		"target_id": "0d11c98ce9174b75803b08b34741c131",
-		"payload": {
-			"status": "open",
-			"side": 0,
-			"order_id": 7,
-			"price": 1100000000,
-			"size": 220000000
-		},
-		"seq": 7
-	},
-	{
-		"type": "fill",
-		"target_id": "0d11c98ce9174b75803b08b34741c131",
-		"payload": {
-			"order_id": 7,
-			"size": 120000000,
-			"liquidity": false,
-			"price": 1100000000
-		},
-		"seq": 8
-	},
-	{
-		"type": "fill",
-		"target_id": "bfdc2003f2594cfda220a0b0d2bcfecb",
-		"payload": {
-			"order_id": 3,
-			"size": 120000000,
-			"liquidity": true,
-			"price": 1100000000
-		},
-		"seq": 9
-	},
-	{
-		"type": "order_status",
-		"target_id": "bfdc2003f2594cfda220a0b0d2bcfecb",
-		"payload": {
-			"status": "done",
-			"reason": "filled",
-			"order_id": 3
-		},
-		"seq": 10
-	},
-	{
-		"type": "fill",
-		"target_id": "0d11c98ce9174b75803b08b34741c131",
-		"payload": {
-			"order_id": 7,
-			"size": 100000000,
-			"liquidity": false,
-			"price": 1100000000
-		},
-		"seq": 11
-	},
-	{
-		"type": "fill",
-		"target_id": "2c99757c274648c3b8242da738d9de7f",
-		"payload": {
-			"order_id": 4,
-			"size": 100000000,
-			"liquidity": true,
-			"price": 1100000000
-		},
-		"seq": 12
-	},
-	{
-		"type": "order_status",
-		"target_id": "0d11c98ce9174b75803b08b34741c131",
-		"payload": {
-			"status": "done",
-			"reason": "filled",
-			"order_id": 7
-		},
-		"seq": 13
-	},
-	{
-		"type": "order_status",
-		"target_id": "e8aaa71d54cc4f8f904c065c3499f8e8",
-		"payload": {
-			"status": "open",
-			"side": 1,
-			"order_id": 9,
-			"price": 1023000000,
-			"size": 2020000000
-		},
-		"seq": 14
-	},
-	{
-		"type": "fill",
-		"target_id": "e8aaa71d54cc4f8f904c065c3499f8e8",
-		"payload": {
-			"order_id": 9,
-			"size": 1023400000,
-			"liquidity": false,
-			"price": 1023000000
-		},
-		"seq": 15
-	},
-	{
-		"type": "fill",
-		"target_id": "693a498fe9454542908f2814154a95d4",
-		"payload": {
-			"order_id": 1,
-			"size": 1023400000,
-			"liquidity": true,
-			"price": 1024000000
-		},
-		"seq": 16
-	},
-	{
-		"type": "order_status",
-		"target_id": "693a498fe9454542908f2814154a95d4",
-		"payload": {
-			"status": "done",
-			"reason": "filled",
-			"order_id": 1
-		},
-		"seq": 17
-	},
-	{
-		"type": "fill",
-		"target_id": "e8aaa71d54cc4f8f904c065c3499f8e8",
-		"payload": {
-			"order_id": 9,
-			"size": 996600000,
-			"liquidity": false,
-			"price": 1023000000
-		},
-		"seq": 18
-	},
-	{
-		"type": "fill",
-		"target_id": "24095cf6defa4985aab0d9f6393a14fb",
-		"payload": {
-			"order_id": 0,
-			"size": 996600000,
-			"liquidity": true,
-			"price": 1023000000
-		},
-		"seq": 19
-	},
-	{
-		"type": "order_status",
-		"target_id": "e8aaa71d54cc4f8f904c065c3499f8e8",
-		"payload": {
-			"status": "done",
-			"reason": "filled",
-			"order_id": 9
-		},
-		"seq": 20
 	}
 ]

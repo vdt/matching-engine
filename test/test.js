@@ -1,6 +1,9 @@
 var net = require('net');
 var fs = require('fs');
 var assert = require('assert');
+var dgram = require('dgram');
+
+var _ = require('underscore');
 
 var Messenger = require('../../common/messenger');
 
@@ -44,6 +47,9 @@ function do_test(test_name, cb) {
     fs.writeFileSync(journal_file, "");
     fs.writeFileSync(in_journal_file, "");
 
+    // reset matcher sequence numbers
+    matcher.reset();
+
     matcher.start(function() {
         run_test(test_name, cb);
     });
@@ -53,6 +59,7 @@ function run_test(test_name, cb) {
     var test_dir = BASE_DIR + "/" + test_name;
     var journal_test_file = test_dir + "/journal.log";
     var recv_filename = test_dir + "/recv.json";
+    var recvm_filename = test_dir + "/recv_multi.json";
     var state_filename = test_dir + "/state.json";
     var orders = JSON.parse(fs.readFileSync(test_dir + "/send.json"));
     var start_time;
@@ -60,10 +67,20 @@ function run_test(test_name, cb) {
 
     var tid; // timeout id
 
+    var resps = [];
+    var resps_multi = [];
+    var states = [];
+
+    var feed = dgram.createSocket('udp4');
+
     var client = net.createConnection(matcher_config.client.port);
     client.on('connect', function() {
         var ms = new Messenger(client);
         subscribe(ms);
+
+        // listen for multicast messages
+        feed.bind(matcher_config.feed.port, matcher_config.feed.ip);
+        feed.addMembership(matcher_config.feed.ip);
 
         ms.addListener('msg', function(msg) {
             end_time = Date.now()/1000;
@@ -73,17 +90,28 @@ function run_test(test_name, cb) {
             tid = setTimeout(end, TIMEOUT);
         });
 
+        feed.on('message', function(msg_buf) {
+            end_time = Date.now()/1000;
+
+            var msg = JSON.parse(msg_buf.toString('utf8'));
+            resps_multi.push(msg);
+
+            clearTimeout(tid);
+            tid = setTimeout(end, TIMEOUT);
+        });
+
         start_time = Date.now()/1000;
         orders.forEach(function(order){
             ms.send(order);
         });
+
+        // send a state message, just to test that code
+        ms.send({type: 'state'});
+
         console.log('sent all messages for', test_name)
 
         tid = setTimeout(end, TIMEOUT);
     });
-
-    var resps = [];
-    var states = [];
 
     matcher.on('process', function() {
         states.push(matcher.state());
@@ -94,40 +122,57 @@ function run_test(test_name, cb) {
         journal.split('\n').forEach(function(line) {
             if(line.length) {
                 var obj = JSON.parse(line);
-                delete obj.payload.id;
                 a.push(obj);
             }
         });
         remove_timestamps(a);
+        remove_match_ids(a);
         return a;
+    }
+
+    // remove all match ids
+    // match ids need to be removed because they are randomly generated
+    // and thus will not match during testing
+    function remove_match_ids(arr) {
+        arr.forEach(function(m) {
+            if(m.type === 'match')
+                delete m.payload.id;
+        });
     }
 
     // remove all timestamps from an array
     function remove_timestamps(arr) {
         arr.forEach(function(r) {
             delete r.timestamp;
-            delete r.payload.exchange_time;
+            if(r.payload)
+                delete r.payload.exchange_time;
         });
     }
 
     function end() {
+        feed.close();
         client.end();
         matcher.stop();
 
         remove_timestamps(resps);
+        remove_timestamps(resps_multi);
+        remove_match_ids(resps_multi);
 
         var journal = fs.readFileSync(journal_file) + "";
 
         if(gen_golds) {
             fs.writeFileSync(journal_test_file, journal);
             fs.writeFileSync(recv_filename, json2.stringify(resps, null, '\t'));
+            fs.writeFileSync(recvm_filename, json2.stringify(resps_multi, null, '\t'));
             fs.writeFileSync(state_filename, json2.stringify(states, null, '\t'));
         }
         else {
             var grecv = JSON.parse(fs.readFileSync(recv_filename));
+            var grecvm = JSON.parse(fs.readFileSync(recvm_filename));
             var gstate = JSON.parse(fs.readFileSync(state_filename));
             var gjournal = fs.readFileSync(journal_test_file) + "";
             assert.deepEqual(resps, grecv);
+            assert.deepEqual(resps_multi, grecvm);
             assert.deepEqual(states, gstate);
             assert.deepEqual(process_journal(journal), process_journal(gjournal));
         }

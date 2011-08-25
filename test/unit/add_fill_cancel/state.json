@@ -8,7 +8,9 @@
 				"sender_id": 2
 			}
 		],
-		"asks": []
+		"asks": [],
+		"state_num": 1,
+		"output_seq": 2
 	},
 	{
 		"bids": [
@@ -19,7 +21,9 @@
 				"sender_id": 2
 			}
 		],
-		"asks": []
+		"asks": [],
+		"state_num": 1,
+		"output_seq": 4
 	},
 	{
 		"bids": [
@@ -30,11 +34,15 @@
 				"sender_id": 2
 			}
 		],
-		"asks": []
+		"asks": [],
+		"state_num": 1,
+		"output_seq": 4
 	},
 	{
 		"bids": [],
-		"asks": []
+		"asks": [],
+		"state_num": 1,
+		"output_seq": 5
 	},
 	{
 		"bids": [
@@ -45,18 +53,26 @@
 				"sender_id": 3
 			}
 		],
-		"asks": []
+		"asks": [],
+		"state_num": 1,
+		"output_seq": 7
 	},
 	{
 		"bids": [],
-		"asks": []
+		"asks": [],
+		"state_num": 1,
+		"output_seq": 10
 	},
 	{
 		"bids": [],
-		"asks": []
+		"asks": [],
+		"state_num": 1,
+		"output_seq": 10
 	},
 	{
 		"bids": [],
-		"asks": []
+		"asks": [],
+		"state_num": 1,
+		"output_seq": 10
 	}
 ]
