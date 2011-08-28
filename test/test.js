@@ -34,14 +34,6 @@ var in_journal_file = env.logdir + '/matcher_in.log';
 
 var gen_golds = process.argv.length > 2 && process.argv[2] == '-g';
 
-function subscribe(ms) {
-    var smsg = {
-        type: 'sub'
-    };
-
-    ms.send(smsg);
-}
-
 function do_test(test_name, cb) {
     // clear the journals
     fs.writeFileSync(journal_file, "");
@@ -76,7 +68,6 @@ function run_test(test_name, cb) {
     var client = net.createConnection(matcher_config.client.port);
     client.on('connect', function() {
         var ms = new Messenger(client);
-        subscribe(ms);
 
         // listen for multicast messages
         feed.bind(matcher_config.feed.port, matcher_config.feed.ip);
