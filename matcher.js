@@ -11,7 +11,7 @@ var uuid = require('node-uuid');
 // common
 var Messenger = require('../common/messenger');
 var Journal = require('../common/journal');
-var logger = require('../common/logger').set_ident('matcher');
+var logger = require('../common/logger');
 var products = require('../common/products');
 var config = require('../common/config');
 
@@ -274,8 +274,6 @@ Matcher.prototype.reset = function() {
 /// main
 
 if(require.main === module) {
-    logger.enable_stdout_provider();
-
     // matcher configs
     var matchers = require('../common/config').matchers();
 
