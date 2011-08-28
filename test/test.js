@@ -7,7 +7,7 @@ var _ = require('underscore');
 
 var Messenger = require('../../common/messenger');
 
-var Matcher = require('../matcher');
+var Matcher = require('../');
 var json2 = require('../deps/json2'); // for pretty-serialize
 
 var BASE_DIR = __dirname + "/unit";

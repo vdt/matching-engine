@@ -271,22 +271,4 @@ Matcher.prototype.reset = function() {
     this.state_num = 0;
 };
 
-/// main
-
-if(require.main === module) {
-    // matcher configs
-    var matchers = require('../common/config').matchers();
-
-    var product_id = process.argv[2];
-    if (!product_id) {
-        logger.error('no product specfied');
-        process.exit();
-    }
-
-    var matcher = new Matcher(matchers[product_id]);
-    matcher.start(function() {
-        logger.trace('matcher running for product: ' + product);
-    });
-}
-
 module.exports = Matcher;
