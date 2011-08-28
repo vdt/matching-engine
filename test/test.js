@@ -5,7 +5,7 @@ var dgram = require('dgram');
 
 var _ = require('underscore');
 
-var Messenger = require('../../common/messenger');
+var Messenger = require('bitfloor/messenger');
 
 var Matcher = require('../');
 var json2 = require('../deps/json2'); // for pretty-serialize
@@ -27,7 +27,7 @@ var matcher_config = {
 // create the matcher used for testing
 var matcher = new Matcher(matcher_config);
 
-var env = require('../../common/config').env;
+var env = require('bitfloor/config').env;
 
 var journal_file = env.logdir + '/matcher.log';
 var in_journal_file = env.logdir + '/matcher_in.log';

@@ -9,11 +9,11 @@ var fs = require('fs');
 var uuid = require('node-uuid');
 
 // common
-var Messenger = require('../common/messenger');
-var Journal = require('../common/journal');
-var logger = require('../common/logger');
-var products = require('../common/products');
-var config = require('../common/config');
+var Messenger = require('bitfloor/messenger');
+var Journal = require('bitfloor/journal');
+var logger = require('bitfloor/logger');
+var products = require('bitfloor/products');
+var config = require('bitfloor/config');
 
 // local
 var OrderBook = require('./lib/order_book').OrderBook;
