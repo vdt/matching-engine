@@ -37,6 +37,8 @@ function Matcher(product_id, config) {
 Matcher.prototype = new events.EventEmitter();
 
 Matcher.prototype.recover = function(send_feed_msg, cb) {
+    logger.info('state recovery started');
+
     var self = this;
     var state_file_prefix = "matcher_state." + self.product_id;
     var journal_filename = config.env.logdir + "/matcher." + self.product_id + ".log";
@@ -48,9 +50,8 @@ Matcher.prototype.recover = function(send_feed_msg, cb) {
         },
         function(err, files) {
             if (err) {
-                logger.error('could not read matcher state dir', err);
-                if (cb)
-                    cb(err);
+                logger.panic('could not read matcher state dir', err);
+                process.exit(1);
             }
 
             var state_files = [];
@@ -64,8 +65,10 @@ Matcher.prototype.recover = function(send_feed_msg, cb) {
             });
 
             if (!state_files.length) {
-                logger.warn('No state files found! Either this is the first time starting the matcher for this product or there is a serious error');
-                return cb();
+                logger.info('No state files found! Either this is the first time starting the matcher for this product or there is a serious error');
+                if (cb)
+                    cb();
+                return;
             }
 
             // get the one with the latest state_num
@@ -76,9 +79,8 @@ Matcher.prototype.recover = function(send_feed_msg, cb) {
         },
         function(err, data) {
             if (err) {
-                logger.error('could not read matcher state file', err);
-                if (cb)
-                    cb(err);
+                logger.panic('could not read matcher state file', err);
+                process.exit(1);
             }
 
             var state = JSON.parse(data);
@@ -106,9 +108,8 @@ Matcher.prototype.recover = function(send_feed_msg, cb) {
         },
         function(err, data) {
             if (err) {
-                logger.error('could not read matcher journal', err);
-                if (cb)
-                    cb(err);
+                logger.panic('could not read matcher journal', err);
+                process.exit(1);
             }
 
             // TODO: slow, do this line-by-line
@@ -140,8 +141,10 @@ Matcher.prototype.recover = function(send_feed_msg, cb) {
 
             // serious error, we have the wrong journal or it's corrupt
             if (!playback) {
-                logger.error('Could not find state num in journal ' + journal_state_num);
-
+                var errmsg = 'Could not find state num ' +
+                             journal_state_num + ' in journal';
+                logger.panic(errmsg, new Error(errmsg));
+                process.exit(1);
             }
 
             if (cb)
@@ -219,16 +222,16 @@ Matcher.prototype.start = function(cb) {
 
     var order_book = self.order_book;
 
-    // inbound message journal
-    var journal = this.journal = new Journal('matcher.' + self.product_id, false);
-
-    // output journal for the matcher
-    var journal_out = new Journal('matcher_out.' + self.product_id, false);
-
     // the multicast feed channel socket
     var feed_socket = this.feed_socket = dgram.createSocket('udp4');
 
     var ev = new events.EventEmitter();
+
+    // inbound message journal, initialized later
+    var journal;
+
+    // output journal for the matcher
+    var journal_out = new Journal('matcher_out.' + self.product_id, false);
 
     // journal & send a message out on the multicast socket
     // updaters and other interested sources listen for this data
@@ -331,10 +334,13 @@ Matcher.prototype.start = function(cb) {
         send_feed_msg('order_status', payload);
     });
 
-    /// matcher server setup and connection handling
+    // matcher server setup and connection handling
     var server = this.server = net.createServer();
 
-    function start_server() {
+    function start_server(err) {
+        // start up input journal only after recovery has happened
+        journal = this.journal = new Journal('matcher.' + self.product_id, false);
+
         // write state to file to make recovery cases easier
         write_state(function() {
             server.listen(client.port, client.ip, function() {
@@ -371,8 +377,6 @@ Matcher.prototype.start = function(cb) {
         });
 
         ms.addListener('msg', function(msg) {
-            logger.trace('got msg: ' + msg.type);
-
             var handler = self._get_handler(msg, send_feed_msg, ev);
 
             if (!handler) {
@@ -404,7 +408,10 @@ Matcher.prototype.start = function(cb) {
 Matcher.prototype.stop = function(cb) {
     logger.trace('stopping matcher');
     this.order_book.removeAllListeners();
-    this.server.close();
+
+    if (typeof this.server.fd === 'number') // make sure server is running
+        this.server.close();
+
     this.server.on('close', function() {
         logger.trace('matcher stopped');
         if (cb)
