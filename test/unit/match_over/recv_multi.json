@@ -1,6 +1,7 @@
 [
 	{
 		"type": "order_status",
+		"product_id": 0,
 		"seq": 0,
 		"payload": {
 			"status": "received",
@@ -13,6 +14,7 @@
 	},
 	{
 		"type": "order_status",
+		"product_id": 0,
 		"seq": 1,
 		"payload": {
 			"status": "open",
@@ -25,6 +27,7 @@
 	},
 	{
 		"type": "order_status",
+		"product_id": 0,
 		"seq": 2,
 		"payload": {
 			"status": "received",
@@ -37,6 +40,7 @@
 	},
 	{
 		"type": "order_status",
+		"product_id": 0,
 		"seq": 3,
 		"payload": {
 			"status": "open",
@@ -49,6 +53,7 @@
 	},
 	{
 		"type": "order_status",
+		"product_id": 0,
 		"seq": 4,
 		"payload": {
 			"status": "received",
@@ -61,6 +66,7 @@
 	},
 	{
 		"type": "order_status",
+		"product_id": 0,
 		"seq": 5,
 		"payload": {
 			"status": "open",
@@ -73,6 +79,7 @@
 	},
 	{
 		"type": "order_status",
+		"product_id": 0,
 		"seq": 6,
 		"payload": {
 			"status": "received",
@@ -85,6 +92,7 @@
 	},
 	{
 		"type": "order_status",
+		"product_id": 0,
 		"seq": 7,
 		"payload": {
 			"status": "open",
@@ -97,6 +105,7 @@
 	},
 	{
 		"type": "order_status",
+		"product_id": 0,
 		"seq": 8,
 		"payload": {
 			"status": "received",
@@ -109,6 +118,7 @@
 	},
 	{
 		"type": "order_status",
+		"product_id": 0,
 		"seq": 9,
 		"payload": {
 			"status": "open",
@@ -121,6 +131,7 @@
 	},
 	{
 		"type": "order_status",
+		"product_id": 0,
 		"seq": 10,
 		"payload": {
 			"status": "received",
@@ -133,6 +144,7 @@
 	},
 	{
 		"type": "order_status",
+		"product_id": 0,
 		"seq": 11,
 		"payload": {
 			"status": "open",
@@ -145,6 +157,7 @@
 	},
 	{
 		"type": "order_status",
+		"product_id": 0,
 		"seq": 12,
 		"payload": {
 			"status": "received",
@@ -157,6 +170,7 @@
 	},
 	{
 		"type": "match",
+		"product_id": 0,
 		"seq": 13,
 		"payload": {
 			"taker_id": 9,
@@ -173,6 +187,7 @@
 	},
 	{
 		"type": "order_status",
+		"product_id": 0,
 		"seq": 14,
 		"payload": {
 			"order_id": 1,
@@ -186,6 +201,7 @@
 	},
 	{
 		"type": "match",
+		"product_id": 0,
 		"seq": 15,
 		"payload": {
 			"taker_id": 9,
@@ -202,6 +218,7 @@
 	},
 	{
 		"type": "order_status",
+		"product_id": 0,
 		"seq": 16,
 		"payload": {
 			"order_id": 0,
@@ -215,6 +232,7 @@
 	},
 	{
 		"type": "match",
+		"product_id": 0,
 		"seq": 17,
 		"payload": {
 			"taker_id": 9,
@@ -231,6 +249,7 @@
 	},
 	{
 		"type": "order_status",
+		"product_id": 0,
 		"seq": 18,
 		"payload": {
 			"order_id": 2,
@@ -244,6 +263,7 @@
 	},
 	{
 		"type": "order_status",
+		"product_id": 0,
 		"seq": 19,
 		"payload": {
 			"status": "open",
@@ -256,6 +276,7 @@
 	},
 	{
 		"type": "order_status",
+		"product_id": 0,
 		"seq": 20,
 		"payload": {
 			"status": "received",
@@ -268,6 +289,7 @@
 	},
 	{
 		"type": "match",
+		"product_id": 0,
 		"seq": 21,
 		"payload": {
 			"taker_id": 9,
@@ -284,6 +306,7 @@
 	},
 	{
 		"type": "order_status",
+		"product_id": 0,
 		"seq": 22,
 		"payload": {
 			"order_id": 9,
@@ -297,6 +320,7 @@
 	},
 	{
 		"type": "match",
+		"product_id": 0,
 		"seq": 23,
 		"payload": {
 			"taker_id": 9,
@@ -313,6 +337,7 @@
 	},
 	{
 		"type": "order_status",
+		"product_id": 0,
 		"seq": 24,
 		"payload": {
 			"order_id": 3,
@@ -326,6 +351,7 @@
 	},
 	{
 		"type": "match",
+		"product_id": 0,
 		"seq": 25,
 		"payload": {
 			"taker_id": 9,
@@ -342,6 +368,7 @@
 	},
 	{
 		"type": "order_status",
+		"product_id": 0,
 		"seq": 26,
 		"payload": {
 			"order_id": 4,
@@ -355,6 +382,7 @@
 	},
 	{
 		"type": "match",
+		"product_id": 0,
 		"seq": 27,
 		"payload": {
 			"taker_id": 9,
@@ -371,6 +399,7 @@
 	},
 	{
 		"type": "order_status",
+		"product_id": 0,
 		"seq": 28,
 		"payload": {
 			"order_id": 5,
@@ -384,6 +413,7 @@
 	},
 	{
 		"type": "order_status",
+		"product_id": 0,
 		"seq": 29,
 		"payload": {
 			"status": "open",

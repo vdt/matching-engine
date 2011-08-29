@@ -197,6 +197,7 @@ Matcher.prototype._get_handler = function(msg, send_feed_msg, ev) {
                     type: 'cancel_reject',
                     timestamp: Date.now(),
                     target_id: sender,
+                    product_id: self.product_id,
                     payload: {
                         order_id: oid,
                         reject_reason: result.message
@@ -244,6 +245,7 @@ Matcher.prototype.start = function(cb) {
         var msg = {
             type: type,
             timestamp: Date.now(),
+            product_id: self.product_id,
             seq: self.output_seq,
             payload: payload
         };

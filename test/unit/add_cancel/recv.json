@@ -2,6 +2,7 @@
 	{
 		"type": "cancel_reject",
 		"target_id": 2,
+		"product_id": 0,
 		"payload": {
 			"order_id": 0,
 			"reject_reason": "not found"
