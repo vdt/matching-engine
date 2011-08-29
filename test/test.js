@@ -1,3 +1,12 @@
+/*
+   unit test
+   to run:
+   node test.js
+
+   to regenerate gold files:
+   node test.js -g
+*/
+
 var net = require('net');
 var fs = require('fs');
 var assert = require('assert');
@@ -14,6 +23,7 @@ var BASE_DIR = __dirname + "/unit";
 var TIMEOUT = 100;
 
 var matcher_config = {
+    no_recover: true,
     client: {
         ip: 'localhost',
         port: 10001
@@ -25,21 +35,22 @@ var matcher_config = {
 };
 
 // create the matcher used for testing
-var matcher = new Matcher(matcher_config);
+var product_id = 0; // fake id, matcher doesn't care except to save state
+var matcher = new Matcher(product_id, matcher_config);
 
 var env = require('bitfloor/config').env;
 
-var journal_file = env.logdir + '/matcher.log';
-var in_journal_file = env.logdir + '/matcher_in.log';
+var journal_file = env.logdir + '/matcher.0.log';
+var journal_file_out = env.logdir + '/matcher_out.0.log';
 
 var gen_golds = process.argv.length > 2 && process.argv[2] == '-g';
 
 function do_test(test_name, cb) {
     // clear the journals
     fs.writeFileSync(journal_file, "");
-    fs.writeFileSync(in_journal_file, "");
+    fs.writeFileSync(journal_file_out, "");
 
-    // reset matcher sequence numbers
+    // reset matcher state
     matcher.reset();
 
     matcher.start(function() {

@@ -4,12 +4,12 @@
 			{
 				"price": 1023000000,
 				"size": 5234591011,
-				"id": 0,
+				"order_id": 0,
 				"sender_id": "24095cf6defa4985aab0d9f6393a14fb"
 			}
 		],
 		"asks": [],
-		"state_num": 1,
+		"state_num": 2,
 		"output_seq": 2
 	},
 	{
@@ -17,18 +17,18 @@
 			{
 				"price": 1024000000,
 				"size": 1023400000,
-				"id": 1,
+				"order_id": 1,
 				"sender_id": "693a498fe9454542908f2814154a95d4"
 			},
 			{
 				"price": 1023000000,
 				"size": 5234591011,
-				"id": 0,
+				"order_id": 0,
 				"sender_id": "24095cf6defa4985aab0d9f6393a14fb"
 			}
 		],
 		"asks": [],
-		"state_num": 1,
+		"state_num": 2,
 		"output_seq": 4
 	},
 	{
@@ -36,24 +36,24 @@
 			{
 				"price": 1024000000,
 				"size": 1023400000,
-				"id": 1,
+				"order_id": 1,
 				"sender_id": "693a498fe9454542908f2814154a95d4"
 			},
 			{
 				"price": 1023000000,
 				"size": 5234591011,
-				"id": 0,
+				"order_id": 0,
 				"sender_id": "24095cf6defa4985aab0d9f6393a14fb"
 			},
 			{
 				"price": 1023000000,
 				"size": 1020000000,
-				"id": 2,
+				"order_id": 2,
 				"sender_id": "0f9ab1d843a44f9a95f55950d15ab3ba"
 			}
 		],
 		"asks": [],
-		"state_num": 1,
+		"state_num": 2,
 		"output_seq": 6
 	},
 	{
@@ -61,19 +61,19 @@
 			{
 				"price": 1024000000,
 				"size": 1023400000,
-				"id": 1,
+				"order_id": 1,
 				"sender_id": "693a498fe9454542908f2814154a95d4"
 			},
 			{
 				"price": 1023000000,
 				"size": 5234591011,
-				"id": 0,
+				"order_id": 0,
 				"sender_id": "24095cf6defa4985aab0d9f6393a14fb"
 			},
 			{
 				"price": 1023000000,
 				"size": 1020000000,
-				"id": 2,
+				"order_id": 2,
 				"sender_id": "0f9ab1d843a44f9a95f55950d15ab3ba"
 			}
 		],
@@ -81,11 +81,11 @@
 			{
 				"price": 1800000000,
 				"size": 8056912305,
-				"id": 5,
+				"order_id": 5,
 				"sender_id": "a23e0db0f7d74aa79d1f9f8ffdf689b0"
 			}
 		],
-		"state_num": 1,
+		"state_num": 2,
 		"output_seq": 8
 	},
 	{
@@ -93,19 +93,19 @@
 			{
 				"price": 1024000000,
 				"size": 1023400000,
-				"id": 1,
+				"order_id": 1,
 				"sender_id": "693a498fe9454542908f2814154a95d4"
 			},
 			{
 				"price": 1023000000,
 				"size": 5234591011,
-				"id": 0,
+				"order_id": 0,
 				"sender_id": "24095cf6defa4985aab0d9f6393a14fb"
 			},
 			{
 				"price": 1023000000,
 				"size": 1020000000,
-				"id": 2,
+				"order_id": 2,
 				"sender_id": "0f9ab1d843a44f9a95f55950d15ab3ba"
 			}
 		],
@@ -113,17 +113,17 @@
 			{
 				"price": 1100000000,
 				"size": 120000000,
-				"id": 3,
+				"order_id": 3,
 				"sender_id": "bfdc2003f2594cfda220a0b0d2bcfecb"
 			},
 			{
 				"price": 1800000000,
 				"size": 8056912305,
-				"id": 5,
+				"order_id": 5,
 				"sender_id": "a23e0db0f7d74aa79d1f9f8ffdf689b0"
 			}
 		],
-		"state_num": 1,
+		"state_num": 2,
 		"output_seq": 10
 	},
 	{
@@ -131,19 +131,19 @@
 			{
 				"price": 1024000000,
 				"size": 1023400000,
-				"id": 1,
+				"order_id": 1,
 				"sender_id": "693a498fe9454542908f2814154a95d4"
 			},
 			{
 				"price": 1023000000,
 				"size": 5234591011,
-				"id": 0,
+				"order_id": 0,
 				"sender_id": "24095cf6defa4985aab0d9f6393a14fb"
 			},
 			{
 				"price": 1023000000,
 				"size": 1020000000,
-				"id": 2,
+				"order_id": 2,
 				"sender_id": "0f9ab1d843a44f9a95f55950d15ab3ba"
 			}
 		],
@@ -151,23 +151,23 @@
 			{
 				"price": 1100000000,
 				"size": 120000000,
-				"id": 3,
+				"order_id": 3,
 				"sender_id": "bfdc2003f2594cfda220a0b0d2bcfecb"
 			},
 			{
 				"price": 1100000000,
 				"size": 210000000,
-				"id": 4,
+				"order_id": 4,
 				"sender_id": "2c99757c274648c3b8242da738d9de7f"
 			},
 			{
 				"price": 1800000000,
 				"size": 8056912305,
-				"id": 5,
+				"order_id": 5,
 				"sender_id": "a23e0db0f7d74aa79d1f9f8ffdf689b0"
 			}
 		],
-		"state_num": 1,
+		"state_num": 2,
 		"output_seq": 12
 	},
 	{
@@ -175,19 +175,19 @@
 			{
 				"price": 1024000000,
 				"size": 1023400000,
-				"id": 1,
+				"order_id": 1,
 				"sender_id": "693a498fe9454542908f2814154a95d4"
 			},
 			{
 				"price": 1023000000,
 				"size": 5234591011,
-				"id": 0,
+				"order_id": 0,
 				"sender_id": "24095cf6defa4985aab0d9f6393a14fb"
 			},
 			{
 				"price": 1023000000,
 				"size": 1020000000,
-				"id": 2,
+				"order_id": 2,
 				"sender_id": "0f9ab1d843a44f9a95f55950d15ab3ba"
 			}
 		],
@@ -195,17 +195,17 @@
 			{
 				"price": 1100000000,
 				"size": 110000000,
-				"id": 4,
+				"order_id": 4,
 				"sender_id": "2c99757c274648c3b8242da738d9de7f"
 			},
 			{
 				"price": 1800000000,
 				"size": 8056912305,
-				"id": 5,
+				"order_id": 5,
 				"sender_id": "a23e0db0f7d74aa79d1f9f8ffdf689b0"
 			}
 		],
-		"state_num": 1,
+		"state_num": 2,
 		"output_seq": 16
 	},
 	{
@@ -213,13 +213,13 @@
 			{
 				"price": 1023000000,
 				"size": 4237991011,
-				"id": 0,
+				"order_id": 0,
 				"sender_id": "24095cf6defa4985aab0d9f6393a14fb"
 			},
 			{
 				"price": 1023000000,
 				"size": 1020000000,
-				"id": 2,
+				"order_id": 2,
 				"sender_id": "0f9ab1d843a44f9a95f55950d15ab3ba"
 			}
 		],
@@ -227,17 +227,17 @@
 			{
 				"price": 1100000000,
 				"size": 110000000,
-				"id": 4,
+				"order_id": 4,
 				"sender_id": "2c99757c274648c3b8242da738d9de7f"
 			},
 			{
 				"price": 1800000000,
 				"size": 8056912305,
-				"id": 5,
+				"order_id": 5,
 				"sender_id": "a23e0db0f7d74aa79d1f9f8ffdf689b0"
 			}
 		],
-		"state_num": 1,
+		"state_num": 2,
 		"output_seq": 20
 	}
 ]

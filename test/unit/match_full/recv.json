@@ -4,13 +4,13 @@
 			{
 				"price": 1023000000,
 				"size": 5234591011,
-				"id": 0,
+				"order_id": 0,
 				"sender_id": 2
 			},
 			{
 				"price": 1023000000,
 				"size": 1020000000,
-				"id": 2,
+				"order_id": 2,
 				"sender_id": 2
 			}
 		],
@@ -18,11 +18,11 @@
 			{
 				"price": 1800000000,
 				"size": 8056912305,
-				"id": 5,
+				"order_id": 5,
 				"sender_id": 3
 			}
 		],
-		"state_num": 1,
+		"state_num": 2,
 		"output_seq": 21,
 		"seq": 1
 	}
