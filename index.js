@@ -316,14 +316,12 @@ Matcher.prototype.start = function(cb) {
             size: size,
             price: provider.price,
             taker_side: taker.side,
-            taker_original_limit: taker.price,
-            taker_done: taker.done == true, // .done may be undefined
-            provider_done: provider.done == true
+            taker_original_limit: taker.price
         };
 
         send_feed_msg('match', payload);
     })
-    .on('remove_order', function(order) {
+    .on('order_done', function(order) {
         var payload = {
             order_id: order.id,
             status: 'done',
