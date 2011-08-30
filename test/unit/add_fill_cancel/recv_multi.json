@@ -50,15 +50,27 @@
 			"size": 1023400000,
 			"price": 1023000000,
 			"taker_side": 1,
-			"taker_original_limit": 1023000000,
-			"taker_done": true,
-			"provider_done": false
+			"taker_original_limit": 1023000000
 		}
 	},
 	{
 		"type": "order_status",
 		"product_id": 0,
 		"seq": 4,
+		"payload": {
+			"order_id": 1,
+			"status": "done",
+			"size": 0,
+			"price": 1023000000,
+			"side": 1,
+			"user_id": 3,
+			"reason": "filled"
+		}
+	},
+	{
+		"type": "order_status",
+		"product_id": 0,
+		"seq": 5,
 		"payload": {
 			"order_id": 0,
 			"status": "done",
@@ -72,22 +84,9 @@
 	{
 		"type": "order_status",
 		"product_id": 0,
-		"seq": 5,
-		"payload": {
-			"status": "received",
-			"side": 0,
-			"order_id": 3,
-			"sender": 3,
-			"price": 220000000,
-			"size": 1010000000
-		}
-	},
-	{
-		"type": "order_status",
-		"product_id": 0,
 		"seq": 6,
 		"payload": {
-			"status": "open",
+			"status": "received",
 			"side": 0,
 			"order_id": 3,
 			"sender": 3,
@@ -100,6 +99,19 @@
 		"product_id": 0,
 		"seq": 7,
 		"payload": {
+			"status": "open",
+			"side": 0,
+			"order_id": 3,
+			"sender": 3,
+			"price": 220000000,
+			"size": 1010000000
+		}
+	},
+	{
+		"type": "order_status",
+		"product_id": 0,
+		"seq": 8,
+		"payload": {
 			"status": "received",
 			"side": 1,
 			"order_id": 4,
@@ -111,7 +123,7 @@
 	{
 		"type": "match",
 		"product_id": 0,
-		"seq": 8,
+		"seq": 9,
 		"payload": {
 			"taker_id": 4,
 			"provider_id": 3,
@@ -120,15 +132,13 @@
 			"size": 1010000000,
 			"price": 220000000,
 			"taker_side": 1,
-			"taker_original_limit": 220000000,
-			"taker_done": true,
-			"provider_done": true
+			"taker_original_limit": 220000000
 		}
 	},
 	{
 		"type": "order_status",
 		"product_id": 0,
-		"seq": 9,
+		"seq": 10,
 		"payload": {
 			"order_id": 3,
 			"status": "done",
@@ -136,6 +146,20 @@
 			"price": 220000000,
 			"side": 0,
 			"user_id": 3,
+			"reason": "filled"
+		}
+	},
+	{
+		"type": "order_status",
+		"product_id": 0,
+		"seq": 11,
+		"payload": {
+			"order_id": 4,
+			"status": "done",
+			"size": 0,
+			"price": 220000000,
+			"side": 1,
+			"user_id": 2,
 			"reason": "filled"
 		}
 	}

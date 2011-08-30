@@ -180,9 +180,7 @@
 			"size": 120000000,
 			"price": 1100000000,
 			"taker_side": 0,
-			"taker_original_limit": 1100000000,
-			"taker_done": true,
-			"provider_done": true
+			"taker_original_limit": 1100000000
 		}
 	},
 	{
@@ -204,6 +202,20 @@
 		"product_id": 0,
 		"seq": 15,
 		"payload": {
+			"order_id": 7,
+			"status": "done",
+			"size": 0,
+			"price": 1100000000,
+			"side": 0,
+			"user_id": 2,
+			"reason": "filled"
+		}
+	},
+	{
+		"type": "order_status",
+		"product_id": 0,
+		"seq": 16,
+		"payload": {
 			"status": "received",
 			"side": 1,
 			"order_id": 9,
@@ -215,7 +227,7 @@
 	{
 		"type": "match",
 		"product_id": 0,
-		"seq": 16,
+		"seq": 17,
 		"payload": {
 			"taker_id": 9,
 			"provider_id": 1,
@@ -224,15 +236,13 @@
 			"size": 1023400000,
 			"price": 1024000000,
 			"taker_side": 1,
-			"taker_original_limit": 1024000000,
-			"taker_done": true,
-			"provider_done": true
+			"taker_original_limit": 1024000000
 		}
 	},
 	{
 		"type": "order_status",
 		"product_id": 0,
-		"seq": 17,
+		"seq": 18,
 		"payload": {
 			"order_id": 1,
 			"status": "done",
@@ -246,7 +256,21 @@
 	{
 		"type": "order_status",
 		"product_id": 0,
-		"seq": 18,
+		"seq": 19,
+		"payload": {
+			"order_id": 9,
+			"status": "done",
+			"size": 0,
+			"price": 1024000000,
+			"side": 1,
+			"user_id": 3,
+			"reason": "filled"
+		}
+	},
+	{
+		"type": "order_status",
+		"product_id": 0,
+		"seq": 20,
 		"payload": {
 			"status": "received",
 			"side": 0,
@@ -259,7 +283,7 @@
 	{
 		"type": "match",
 		"product_id": 0,
-		"seq": 19,
+		"seq": 21,
 		"payload": {
 			"taker_id": 10,
 			"provider_id": 4,
@@ -268,15 +292,13 @@
 			"size": 210000000,
 			"price": 1100000000,
 			"taker_side": 0,
-			"taker_original_limit": 1100000000,
-			"taker_done": true,
-			"provider_done": true
+			"taker_original_limit": 1100000000
 		}
 	},
 	{
 		"type": "order_status",
 		"product_id": 0,
-		"seq": 20,
+		"seq": 22,
 		"payload": {
 			"order_id": 4,
 			"status": "done",
@@ -284,6 +306,20 @@
 			"price": 1100000000,
 			"side": 1,
 			"user_id": 3,
+			"reason": "filled"
+		}
+	},
+	{
+		"type": "order_status",
+		"product_id": 0,
+		"seq": 23,
+		"payload": {
+			"order_id": 10,
+			"status": "done",
+			"size": 0,
+			"price": 1100000000,
+			"side": 0,
+			"user_id": 2,
 			"reason": "filled"
 		}
 	}

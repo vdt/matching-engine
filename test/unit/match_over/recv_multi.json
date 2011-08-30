@@ -180,9 +180,7 @@
 			"size": 1023400000,
 			"price": 1024000000,
 			"taker_side": 1,
-			"taker_original_limit": 1000000,
-			"taker_done": false,
-			"provider_done": true
+			"taker_original_limit": 1000000
 		}
 	},
 	{
@@ -211,9 +209,7 @@
 			"size": 5234591011,
 			"price": 1023000000,
 			"taker_side": 1,
-			"taker_original_limit": 1000000,
-			"taker_done": false,
-			"provider_done": true
+			"taker_original_limit": 1000000
 		}
 	},
 	{
@@ -242,9 +238,7 @@
 			"size": 1020000000,
 			"price": 1023000000,
 			"taker_side": 1,
-			"taker_original_limit": 1000000,
-			"taker_done": false,
-			"provider_done": true
+			"taker_original_limit": 1000000
 		}
 	},
 	{
@@ -299,9 +293,7 @@
 			"size": 2732008989,
 			"price": 1000000,
 			"taker_side": 0,
-			"taker_original_limit": 10000000000,
-			"taker_done": false,
-			"provider_done": true
+			"taker_original_limit": 10000000000
 		}
 	},
 	{
@@ -330,9 +322,7 @@
 			"size": 120000000,
 			"price": 1100000000,
 			"taker_side": 0,
-			"taker_original_limit": 10000000000,
-			"taker_done": false,
-			"provider_done": true
+			"taker_original_limit": 10000000000
 		}
 	},
 	{
@@ -361,9 +351,7 @@
 			"size": 210000000,
 			"price": 1100000000,
 			"taker_side": 0,
-			"taker_original_limit": 10000000000,
-			"taker_done": false,
-			"provider_done": true
+			"taker_original_limit": 10000000000
 		}
 	},
 	{
@@ -392,9 +380,7 @@
 			"size": 8056912305,
 			"price": 1800000000,
 			"taker_side": 0,
-			"taker_original_limit": 10000000000,
-			"taker_done": false,
-			"provider_done": true
+			"taker_original_limit": 10000000000
 		}
 	},
 	{

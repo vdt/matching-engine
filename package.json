@@ -6,6 +6,6 @@
       "lib": "lib"
   },
   "scripts": {
-    "test": "node ./test/test.js; node ./test/recover.js"
+    "test": "node ./test/test.js && node ./test/recover.js"
   }
 }

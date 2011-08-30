@@ -206,7 +206,7 @@
 			}
 		],
 		"state_num": 2,
-		"output_seq": 15
+		"output_seq": 16
 	},
 	{
 		"bids": [
@@ -238,7 +238,7 @@
 			}
 		],
 		"state_num": 2,
-		"output_seq": 18
+		"output_seq": 20
 	},
 	{
 		"bids": [
@@ -264,6 +264,6 @@
 			}
 		],
 		"state_num": 2,
-		"output_seq": 21
+		"output_seq": 24
 	}
 ]
