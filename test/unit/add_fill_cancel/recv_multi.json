@@ -49,8 +49,7 @@
 			"provider_user_id": 2,
 			"size": 1023400000,
 			"price": 1023000000,
-			"taker_side": 1,
-			"taker_original_limit": 1023000000
+			"provider_side": 0
 		}
 	},
 	{
@@ -131,8 +130,7 @@
 			"provider_user_id": 3,
 			"size": 1010000000,
 			"price": 220000000,
-			"taker_side": 1,
-			"taker_original_limit": 220000000
+			"provider_side": 0
 		}
 	},
 	{

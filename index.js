@@ -315,8 +315,7 @@ Matcher.prototype.start = function(cb) {
             provider_user_id: provider.sender,
             size: size,
             price: provider.price,
-            taker_side: taker.side,
-            taker_original_limit: taker.price
+            provider_side: provider.side,
         };
 
         send_feed_msg('match', payload);

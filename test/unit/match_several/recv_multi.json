@@ -179,8 +179,7 @@
 			"provider_user_id": "bfdc2003f2594cfda220a0b0d2bcfecb",
 			"size": 120000000,
 			"price": 1100000000,
-			"taker_side": 0,
-			"taker_original_limit": 1100000000
+			"provider_side": 1
 		}
 	},
 	{
@@ -208,8 +207,7 @@
 			"provider_user_id": "2c99757c274648c3b8242da738d9de7f",
 			"size": 100000000,
 			"price": 1100000000,
-			"taker_side": 0,
-			"taker_original_limit": 1100000000
+			"provider_side": 1
 		}
 	},
 	{
@@ -250,8 +248,7 @@
 			"provider_user_id": "693a498fe9454542908f2814154a95d4",
 			"size": 1023400000,
 			"price": 1024000000,
-			"taker_side": 1,
-			"taker_original_limit": 1023000000
+			"provider_side": 0
 		}
 	},
 	{
@@ -279,8 +276,7 @@
 			"provider_user_id": "24095cf6defa4985aab0d9f6393a14fb",
 			"size": 996600000,
 			"price": 1023000000,
-			"taker_side": 1,
-			"taker_original_limit": 1023000000
+			"provider_side": 0
 		}
 	},
 	{
