@@ -173,6 +173,7 @@ Matcher.prototype._get_handler = function(msg, send_feed_msg, ev) {
                 sender: order.sender,
                 price: order.price,
                 size: order.size,
+                fee_rate: payload.fee_rate,
                 exchange_time: Date.now()
             };
             send_feed_msg('order_status', payload);
