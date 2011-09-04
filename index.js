@@ -385,7 +385,7 @@ Matcher.prototype.start = function(cb) {
                 // these are special messages not intended for the matcher
                 if (msg.type === 'state') {
                     write_state(function(state) {
-                        ms.send(state);
+                        ms.send({ type: 'state', payload: state });
                     });
                     return;
                 }
