@@ -30,10 +30,13 @@
 		"seq": 3
 	},
 	{
-		"bids": [],
-		"asks": [],
-		"state_num": 2,
-		"output_seq": 12,
+		"type": "state",
+		"payload": {
+			"bids": [],
+			"asks": [],
+			"state_num": 2,
+			"output_seq": 12
+		},
 		"seq": 4
 	}
 ]

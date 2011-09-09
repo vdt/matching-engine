@@ -1,16 +1,19 @@
 [
 	{
-		"bids": [
-			{
-				"price": 10000000000,
-				"size": 8911078706,
-				"order_id": 9,
-				"sender_id": "6214bbd490e44594b64b5e4903e14302"
-			}
-		],
-		"asks": [],
-		"state_num": 2,
-		"output_seq": 30,
+		"type": "state",
+		"payload": {
+			"bids": [
+				{
+					"price": 10000000000,
+					"size": 8911078706,
+					"order_id": 9,
+					"user_id": "9"
+				}
+			],
+			"asks": [],
+			"state_num": 2,
+			"output_seq": 30
+		},
 		"seq": 1
 	}
 ]

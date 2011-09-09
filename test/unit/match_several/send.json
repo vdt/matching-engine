@@ -1,89 +1,89 @@
 [
     {
-        "timestamp": 1311794549952, 
-        "type": "order", 
+        "timestamp": 1311794549952,
+        "type": "order",
         "payload": {
-            "order_id": 0, 
-            "price": 1023000000, 
-            "sender_id": "24095cf6defa4985aab0d9f6393a14fb", 
-            "side": 0, 
+            "order_id": 0,
+            "price": 1023000000,
+            "user_id": "1",
+            "side": 0,
             "size": 5234591011
         }
-    }, 
+    },
     {
-        "timestamp": 1311794549952, 
-        "type": "order", 
+        "timestamp": 1311794549952,
+        "type": "order",
         "payload": {
-            "order_id": 1, 
-            "price": 1024000000, 
-            "sender_id": "693a498fe9454542908f2814154a95d4", 
-            "side": 0, 
+            "order_id": 1,
+            "price": 1024000000,
+            "user_id": "2",
+            "side": 0,
             "size": 1023400000
         }
-    }, 
+    },
     {
-        "timestamp": 1311794549952, 
-        "type": "order", 
+        "timestamp": 1311794549952,
+        "type": "order",
         "payload": {
-            "order_id": 2, 
-            "price": 1023000000, 
-            "sender_id": "0f9ab1d843a44f9a95f55950d15ab3ba", 
-            "side": 0, 
+            "order_id": 2,
+            "price": 1023000000,
+            "user_id": "3",
+            "side": 0,
             "size": 1020000000
         }
-    }, 
+    },
     {
-        "timestamp": 1311794549952, 
-        "type": "order", 
+        "timestamp": 1311794549952,
+        "type": "order",
         "payload": {
-            "order_id": 5, 
-            "price": 1800000000, 
-            "sender_id": "a23e0db0f7d74aa79d1f9f8ffdf689b0", 
-            "side": 1, 
+            "order_id": 5,
+            "price": 1800000000,
+            "user_id": "4",
+            "side": 1,
             "size": 8056912305
         }
-    }, 
+    },
     {
-        "timestamp": 1311794549952, 
-        "type": "order", 
+        "timestamp": 1311794549952,
+        "type": "order",
         "payload": {
-            "order_id": 3, 
-            "price": 1100000000, 
-            "sender_id": "bfdc2003f2594cfda220a0b0d2bcfecb", 
-            "side": 1, 
+            "order_id": 3,
+            "price": 1100000000,
+            "user_id": "5",
+            "side": 1,
             "size": 120000000
         }
-    }, 
+    },
     {
-        "timestamp": 1311794549952, 
-        "type": "order", 
+        "timestamp": 1311794549952,
+        "type": "order",
         "payload": {
-            "order_id": 4, 
-            "price": 1100000000, 
-            "sender_id": "2c99757c274648c3b8242da738d9de7f", 
-            "side": 1, 
+            "order_id": 4,
+            "price": 1100000000,
+            "user_id": "6",
+            "side": 1,
             "size": 210000000
         }
-    }, 
+    },
     {
-        "timestamp": 1311794549953, 
-        "type": "order", 
+        "timestamp": 1311794549953,
+        "type": "order",
         "payload": {
-            "order_id": 7, 
-            "price": 1100000000, 
-            "sender_id": "0d11c98ce9174b75803b08b34741c131", 
-            "side": 0, 
+            "order_id": 7,
+            "price": 1100000000,
+            "user_id": "7",
+            "side": 0,
             "size": 220000000
         }
-    }, 
+    },
     {
-        "timestamp": 1311794549953, 
-        "type": "order", 
+        "timestamp": 1311794549953,
+        "type": "order",
         "payload": {
-            "order_id": 9, 
-            "price": 1023000000, 
-            "sender_id": "e8aaa71d54cc4f8f904c065c3499f8e8", 
-            "side": 1, 
+            "order_id": 9,
+            "price": 1023000000,
+            "user_id": "8",
+            "side": 1,
             "size": 2020000000
         }
     }

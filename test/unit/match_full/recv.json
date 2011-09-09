@@ -1,29 +1,32 @@
 [
 	{
-		"bids": [
-			{
-				"price": 1023000000,
-				"size": 5234591011,
-				"order_id": 0,
-				"sender_id": 2
-			},
-			{
-				"price": 1023000000,
-				"size": 1020000000,
-				"order_id": 2,
-				"sender_id": 2
-			}
-		],
-		"asks": [
-			{
-				"price": 1800000000,
-				"size": 8056912305,
-				"order_id": 5,
-				"sender_id": 3
-			}
-		],
-		"state_num": 2,
-		"output_seq": 24,
+		"type": "state",
+		"payload": {
+			"bids": [
+				{
+					"price": 1023000000,
+					"size": 5234591011,
+					"order_id": 0,
+					"user_id": 2
+				},
+				{
+					"price": 1023000000,
+					"size": 1020000000,
+					"order_id": 2,
+					"user_id": 2
+				}
+			],
+			"asks": [
+				{
+					"price": 1800000000,
+					"size": 8056912305,
+					"order_id": 5,
+					"user_id": 3
+				}
+			],
+			"state_num": 2,
+			"output_seq": 24
+		},
 		"seq": 1
 	}
 ]

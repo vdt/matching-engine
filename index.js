@@ -170,7 +170,7 @@ Matcher.prototype._get_handler = function(msg, send_feed_msg, ev) {
                 status: 'received',
                 side: order.side,
                 order_id: order.id,
-                sender: order.sender,
+                user_id: order.user_id,
                 price: order.price,
                 size: order.size,
                 fee_rate: payload.fee_rate,
@@ -188,16 +188,16 @@ Matcher.prototype._get_handler = function(msg, send_feed_msg, ev) {
         },
         'cancel': function(payload) {
             var oid = payload.order_id;
-            var sender = payload.sender_id;
+            var user_id = payload.user_id;
 
-            var result = self.order_book.remove(oid, sender);
+            var result = self.order_book.remove(oid, user_id);
 
             // if there was an error, inform the user
             if (result && ev) {
                 ev.emit('reply', {
                     type: 'cancel_reject',
                     timestamp: Date.now(),
-                    target_id: sender,
+                    target_id: user_id,
                     product_id: self.product_id,
                     payload: {
                         order_id: oid,
@@ -298,7 +298,7 @@ Matcher.prototype.start = function(cb) {
             status: 'open',
             side: order.side,
             order_id: order.id,
-            sender: order.sender,
+            user_id: order.user_id,
             price: order.price,
             size: order.size,
             exchange_time: Date.now()
@@ -312,8 +312,8 @@ Matcher.prototype.start = function(cb) {
             id: uuid('binary').toString('hex'),
             taker_id: taker.id,
             provider_id: provider.id,
-            taker_user_id: taker.sender,
-            provider_user_id: provider.sender,
+            taker_user_id: taker.user_id,
+            provider_user_id: provider.user_id,
             size: size,
             price: provider.price,
             provider_side: provider.side,
@@ -328,7 +328,7 @@ Matcher.prototype.start = function(cb) {
             size: order.size, // need for fast cancel (hold amount calc)
             price: order.price, // need for fast cancel (hold amount calc)
             side: order.side, // need for fast cancel (hold amount calc)
-            user_id: order.sender, // need for fast cancel (hold amount update)
+            user_id: order.user_id, // need for fast cancel (hold amount update)
             reason: (order.done) ? 'filled' : 'cancelled'
         };
         send_feed_msg('order_status', payload);

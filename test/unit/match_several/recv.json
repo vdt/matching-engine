@@ -1,35 +1,38 @@
 [
 	{
-		"bids": [
-			{
-				"price": 1023000000,
-				"size": 4237991011,
-				"order_id": 0,
-				"sender_id": "24095cf6defa4985aab0d9f6393a14fb"
-			},
-			{
-				"price": 1023000000,
-				"size": 1020000000,
-				"order_id": 2,
-				"sender_id": "0f9ab1d843a44f9a95f55950d15ab3ba"
-			}
-		],
-		"asks": [
-			{
-				"price": 1100000000,
-				"size": 110000000,
-				"order_id": 4,
-				"sender_id": "2c99757c274648c3b8242da738d9de7f"
-			},
-			{
-				"price": 1800000000,
-				"size": 8056912305,
-				"order_id": 5,
-				"sender_id": "a23e0db0f7d74aa79d1f9f8ffdf689b0"
-			}
-		],
-		"state_num": 2,
-		"output_seq": 22,
+		"type": "state",
+		"payload": {
+			"bids": [
+				{
+					"price": 1023000000,
+					"size": 4237991011,
+					"order_id": 0,
+					"user_id": "1"
+				},
+				{
+					"price": 1023000000,
+					"size": 1020000000,
+					"order_id": 2,
+					"user_id": "3"
+				}
+			],
+			"asks": [
+				{
+					"price": 1100000000,
+					"size": 110000000,
+					"order_id": 4,
+					"user_id": "6"
+				},
+				{
+					"price": 1800000000,
+					"size": 8056912305,
+					"order_id": 5,
+					"user_id": "4"
+				}
+			],
+			"state_num": 2,
+			"output_seq": 22
+		},
 		"seq": 1
 	}
 ]
