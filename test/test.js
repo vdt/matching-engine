@@ -147,7 +147,7 @@ function run_test(test_name, cb) {
         arr.forEach(function(r) {
             delete r.timestamp;
             if(r.payload)
-                delete r.payload.exchange_time;
+                delete r.payload.timestamp;
         });
     }
 

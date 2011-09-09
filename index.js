@@ -15,6 +15,7 @@ var Messenger = require('bitfloor/messenger');
 var Journal = require('bitfloor/journal');
 var logger = require('bitfloor/logger');
 var config = require('bitfloor/config');
+var time = require('bitfloor/time');
 
 // local
 var OrderBook = require('./lib/order_book').OrderBook;
@@ -174,7 +175,7 @@ Matcher.prototype._get_handler = function(msg, send_feed_msg, ev) {
                 price: order.price,
                 size: order.size,
                 fee_rate: payload.fee_rate,
-                exchange_time: Date.now()
+                timestamp: time.timestamp()
             };
             send_feed_msg('order_status', payload);
 
@@ -196,12 +197,12 @@ Matcher.prototype._get_handler = function(msg, send_feed_msg, ev) {
             if (result && ev) {
                 ev.emit('reply', {
                     type: 'cancel_reject',
-                    timestamp: Date.now(),
+                    timestamp: time.timestamp(),
                     target_id: user_id,
                     product_id: self.product_id,
                     payload: {
                         order_id: oid,
-                        reject_reason: result.message
+                        reject_reason: result.message,
                     }
                 });
             }
@@ -245,7 +246,7 @@ Matcher.prototype.start = function(cb) {
         // construct the message
         var msg = {
             type: type,
-            timestamp: Date.now(),
+            timestamp: time.timestamp(),
             product_id: self.product_id,
             seq: self.output_seq,
             payload: payload
@@ -301,7 +302,7 @@ Matcher.prototype.start = function(cb) {
             user_id: order.user_id,
             price: order.price,
             size: order.size,
-            exchange_time: Date.now()
+            timestamp: time.timestamp(),
         };
 
         send_feed_msg('order_status', payload);
@@ -317,6 +318,7 @@ Matcher.prototype.start = function(cb) {
             size: size,
             price: provider.price,
             provider_side: provider.side,
+            timestamp: time.timestamp(),
         };
 
         send_feed_msg('match', payload);
@@ -329,7 +331,8 @@ Matcher.prototype.start = function(cb) {
             price: order.price, // need for fast cancel (hold amount calc)
             side: order.side, // need for fast cancel (hold amount calc)
             user_id: order.user_id, // need for fast cancel (hold amount update)
-            reason: (order.done) ? 'filled' : 'cancelled'
+            reason: (order.done) ? 'filled' : 'cancelled',
+            timestamp: time.timestamp(),
         };
         send_feed_msg('order_status', payload);
     });
