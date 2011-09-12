@@ -37,7 +37,9 @@ function Matcher(product_id, config) {
 // see req_processor.js in lib
 Matcher.prototype = new events.EventEmitter();
 
-Matcher.prototype.recover = function(send_feed_msg, cb) {
+// recovers matcher state
+// calls cb() on finish, exits the process if error
+Matcher.prototype.recover = function(send_feed_msg, register_event_handlers, cb) {
     logger.info('state recovery started');
 
     var self = this;
@@ -67,6 +69,10 @@ Matcher.prototype.recover = function(send_feed_msg, cb) {
 
             if (!state_files.length) {
                 logger.info('No state files found! Either this is the first time starting the matcher for this product or there is a serious error');
+
+                // always register the event handlers before calling callback
+                register_event_handlers();
+
                 if (cb)
                     cb();
                 return;
@@ -112,6 +118,10 @@ Matcher.prototype.recover = function(send_feed_msg, cb) {
                 logger.panic('could not read matcher journal', err);
                 process.exit(1);
             }
+
+            // register the event handlers here because messages need to be
+            // sent out during replay, but not before that!
+            register_event_handlers();
 
             // TODO: slow, do this line-by-line
             var lines = data.split('\n');
@@ -288,54 +298,57 @@ Matcher.prototype.start = function(cb) {
         ++self.state_num;
     }
 
-    /// order book event handlers
-    order_book
-    .on('add_order', function(order) {
-        // client has already been notofied that the order is open at the exchange
-        // we can't do it here because the order may never be added to the book if it is
-        // executed immediately, thus no call to event dist
-        // the 'open' order status means that the order is now open on the order book
-        var payload = {
-            status: 'open',
-            side: order.side,
-            order_id: order.id,
-            user_id: order.user_id,
-            price: order.price,
-            size: order.size,
-            timestamp: time.timestamp(),
-        };
+    function register_event_handlers() {
+        /// order book event handlers
+        order_book
+        .on('add_order', function(order) {
+            // client has already been notofied that the order is open at the exchange
+            // we can't do it here because the order may never be added to the book if it is
+            // executed immediately, thus no call to event dist
+            // the 'open' order status means that the order is now open on the order book
+            var payload = {
+                status: 'open',
+                side: order.side,
+                order_id: order.id,
+                user_id: order.user_id,
+                price: order.price,
+                size: order.size,
+                timestamp: time.timestamp(),
+            };
 
-        send_feed_msg('order_status', payload);
-    })
-    // taker is the liq. taker, provider is the liq. provider
-    .on('match', function(size, taker, provider) {
-        var payload = {
-            id: uuid('binary').toString('hex'),
-            taker_id: taker.id,
-            provider_id: provider.id,
-            taker_user_id: taker.user_id,
-            provider_user_id: provider.user_id,
-            size: size,
-            price: provider.price,
-            provider_side: provider.side,
-            timestamp: time.timestamp(),
-        };
+            send_feed_msg('order_status', payload);
+        })
+        // taker is the liq. taker, provider is the liq. provider
+        .on('match', function(size, taker, provider) {
+            var payload = {
+                id: uuid('binary').toString('hex'),
+                taker_id: taker.id,
+                provider_id: provider.id,
+                taker_user_id: taker.user_id,
+                provider_user_id: provider.user_id,
+                size: size,
+                price: provider.price,
+                provider_side: provider.side,
+                timestamp: time.timestamp(),
+            };
 
-        send_feed_msg('match', payload);
-    })
-    .on('order_done', function(order) {
-        var payload = {
-            order_id: order.id,
-            status: 'done',
-            size: order.size, // need for fast cancel (hold amount calc)
-            price: order.price, // need for fast cancel (hold amount calc)
-            side: order.side, // need for fast cancel (hold amount calc)
-            user_id: order.user_id, // need for fast cancel (hold amount update)
-            reason: (order.done) ? 'filled' : 'cancelled',
-            timestamp: time.timestamp(),
-        };
-        send_feed_msg('order_status', payload);
-    });
+            send_feed_msg('match', payload);
+        })
+        .on('order_done', function(order) {
+            var payload = {
+                order_id: order.id,
+                status: 'done',
+                size: order.size, // need for fast cancel (hold amount calc)
+                price: order.price, // need for fast cancel (hold amount calc)
+                side: order.side, // need for fast cancel (hold amount calc)
+                user_id: order.user_id, // need for fast cancel (hold amount update)
+                reason: (order.done) ? 'filled' : 'cancelled',
+                timestamp: time.timestamp(),
+            };
+            send_feed_msg('order_status', payload);
+        });
+
+    }
 
     // matcher server setup and connection handling
     var server = this.server = net.createServer();
@@ -355,12 +368,14 @@ Matcher.prototype.start = function(cb) {
     }
 
     if (self.config.no_recover) {
+        register_event_handlers();
         start_server();
     } else {
         // recover the state before accepting requests
-        self.recover(send_feed_msg, start_server);
+        self.recover(send_feed_msg, register_event_handlers, start_server);
     }
 
+    // server event handlers
     server.on('connection', function(socket) {
         var addr = socket.remoteAddress + ":" + socket.remotePort;
         logger.trace('accepted connection from: ' + addr);

@@ -88,8 +88,6 @@ function run_recover(cb) {
     });
 }
 
-var tests = fs.readdirSync(BASE_DIR);
-
 function process_tests(tests) {
     var test = tests.shift();
     if(test) {
@@ -105,4 +103,5 @@ function process_tests(tests) {
     }
 }
 
+var tests = fs.readdirSync(BASE_DIR);
 process_tests(tests);

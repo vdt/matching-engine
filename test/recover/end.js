@@ -5,7 +5,7 @@
         "payload": {
             "order_id": 0, 
             "price": 1023000000, 
-            "sender_id": 2, 
+            "user_id": 2, 
             "side": 0, 
             "size": 5234591011
         }
@@ -16,7 +16,7 @@
         "payload": {
             "order_id": 1, 
             "price": 1024000000, 
-            "sender_id": 2, 
+            "user_id": 2, 
             "side": 0, 
             "size": 1023400000
         }
@@ -27,7 +27,7 @@
         "payload": {
             "order_id": 2, 
             "price": 1023000000, 
-            "sender_id": 2, 
+            "user_id": 2, 
             "side": 0, 
             "size": 1020000000
         }
@@ -38,7 +38,7 @@
         "payload": {
             "order_id": 5, 
             "price": 1800000000, 
-            "sender_id": 3, 
+            "user_id": 3, 
             "side": 1, 
             "size": 8056912305
         }
@@ -49,7 +49,7 @@
         "payload": {
             "order_id": 3, 
             "price": 1100000000, 
-            "sender_id": 3, 
+            "user_id": 3, 
             "side": 1, 
             "size": 120000000
         }
@@ -60,7 +60,7 @@
         "payload": {
             "order_id": 4, 
             "price": 1100000000, 
-            "sender_id": 3, 
+            "user_id": 3, 
             "side": 1, 
             "size": 210000000
         }
@@ -71,7 +71,7 @@
         "payload": {
             "order_id": 7, 
             "price": 1100000000, 
-            "sender_id": 2, 
+            "user_id": 2, 
             "side": 0, 
             "size": 120000000
         }
@@ -82,7 +82,7 @@
         "payload": {
             "order_id": 9, 
             "price": 1024000000, 
-            "sender_id": 3, 
+            "user_id": 3, 
             "side": 1, 
             "size": 1023400000
         }
@@ -93,7 +93,7 @@
         "payload": {
             "order_id": 10, 
             "price": 1100000000, 
-            "sender_id": 2, 
+            "user_id": 2, 
             "side": 0, 
             "size": 210000000
         }
