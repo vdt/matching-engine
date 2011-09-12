@@ -1,15 +1,10 @@
 /*
-   unit test
-   to run:
-   node test.js
-
    to regenerate gold files:
    node test.js -g
 */
 
 var net = require('net');
 var fs = require('fs');
-var assert = require('assert');
 var dgram = require('dgram');
 
 var _ = require('underscore');
@@ -45,7 +40,7 @@ var journal_file_out = env.logdir + '/matcher_out.0.log';
 
 var gen_golds = process.argv.length > 2 && process.argv[2] == '-g';
 
-function do_test(test_name, cb) {
+function do_test(test_name, assert, cb) {
     // clear the journals
     fs.writeFileSync(journal_file, "");
     fs.writeFileSync(journal_file_out, "");
@@ -54,11 +49,11 @@ function do_test(test_name, cb) {
     matcher.reset();
 
     matcher.start(function() {
-        run_test(test_name, cb);
+        run_test(test_name, assert, cb);
     });
 }
 
-function run_test(test_name, cb) {
+function run_test(test_name, assert, cb) {
     var test_dir = BASE_DIR + "/" + test_name;
     var journal_test_file = test_dir + "/journal.log";
     var recv_filename = test_dir + "/recv.json";
@@ -186,17 +181,40 @@ function run_test(test_name, cb) {
     }
 }
 
-var tests = fs.readdirSync(BASE_DIR);
-
-function process_tests(tests) {
-    var test = tests.shift();
-    if(test) {
-        console.log('running test', test);
-        do_test(test, function(ret) {
+function make_test(name) {
+    return function(assert) {
+        do_test(name, assert, function(ret) {
             console.log('ran test in', ret.time);
-            process_tests(tests);
+            assert.done();
         });
     }
 }
 
-process_tests(tests);
+// load and run tests
+var tests = fs.readdirSync(BASE_DIR);
+
+// if we ran as mainprog (not under nodeunit) then we need to run manually
+// TODO this is jenky and should be changed
+if (require.main === module) {
+    var assert = require('assert');
+
+    function process_tests(tests) {
+        var test = tests.shift();
+        if(test) {
+            console.log('running test', test);
+            do_test(test, assert, function(ret) {
+                console.log('ran test in', ret.time);
+                process_tests(tests);
+            });
+        }
+    }
+
+    process_tests(tests);
+} else {
+// running under nodeunit, setup tests
+    var test_name;
+    while (test_name = tests.shift()) {
+        module.exports[test_name] = make_test(test_name);
+    }
+}
+
