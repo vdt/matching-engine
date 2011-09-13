@@ -2,7 +2,7 @@ var net = require('net');
 
 var Messenger = require('bitfloor/messenger');
 
-var config = require('bitfloor/config').matchers()[process.argv[2]];
+var config = require('bitfloor/config').get_matcher(process.argv[2]);
 
 var client = net.createConnection(config.client.port);
 client.on('connect', function() {
