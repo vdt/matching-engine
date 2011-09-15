@@ -339,9 +339,7 @@ Matcher.prototype.start = function(cb) {
                 order_id: order.id,
                 status: 'done',
                 size: order.size, // need for fast cancel (hold amount calc)
-                price: order.price, // need for fast cancel (hold amount calc)
-                side: order.side, // need for fast cancel (hold amount calc)
-                user_id: order.user_id, // need for fast cancel (hold amount update)
+                user_id: order.user_id,
                 reason: (order.done) ? 'filled' : 'cancelled',
                 timestamp: time.timestamp(),
             };
