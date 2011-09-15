@@ -85,8 +85,6 @@
 			"order_id": 0,
 			"status": "done",
 			"size": 5234591011,
-			"price": 1023000000,
-			"side": 0,
 			"user_id": 2,
 			"reason": "cancelled"
 		}
@@ -177,8 +175,6 @@
 			"order_id": 2,
 			"status": "done",
 			"size": 1020000000,
-			"price": 1023000000,
-			"side": 0,
 			"user_id": 2,
 			"reason": "cancelled"
 		}

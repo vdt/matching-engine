@@ -190,8 +190,6 @@
 			"order_id": 3,
 			"status": "done",
 			"size": 0,
-			"price": 1100000000,
-			"side": 1,
 			"user_id": "5",
 			"reason": "filled"
 		}
@@ -218,8 +216,6 @@
 			"order_id": 7,
 			"status": "done",
 			"size": 0,
-			"price": 1100000000,
-			"side": 0,
 			"user_id": "7",
 			"reason": "filled"
 		}
@@ -259,8 +255,6 @@
 			"order_id": 1,
 			"status": "done",
 			"size": 0,
-			"price": 1024000000,
-			"side": 0,
 			"user_id": "2",
 			"reason": "filled"
 		}
@@ -287,8 +281,6 @@
 			"order_id": 9,
 			"status": "done",
 			"size": 0,
-			"price": 1023000000,
-			"side": 1,
 			"user_id": "8",
 			"reason": "filled"
 		}
