@@ -1,4 +1,5 @@
 var net = require('net');
+var util = require('util');
 
 var Messenger = require('bitfloor/messenger');
 
@@ -9,7 +10,7 @@ client.on('connect', function() {
     var ms = new Messenger(client);
 
     ms.addListener('msg', function(msg) {
-        console.log(msg);
+        console.log(util.inspect(msg, false, 100));
         process.exit();
     });
 
