@@ -3,6 +3,7 @@ var fs = require('fs');
 var dgram = require('dgram');
 var exec = require('child_process').exec;
 
+var logger = require('bitfloor/logger');
 var Messenger = require('bitfloor/messenger');
 
 var Matcher = require('../');
@@ -12,6 +13,8 @@ var BASE_DIR = __dirname + "/recover";
 var TIMEOUT = 100;
 
 var env = require('bitfloor/config').env;
+
+logger.silence(0);
 
 var matcher_config = {
     client: {

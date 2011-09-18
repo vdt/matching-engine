@@ -9,6 +9,7 @@ var dgram = require('dgram');
 
 var _ = require('underscore');
 
+var logger = require('bitfloor/logger');
 var Messenger = require('bitfloor/messenger');
 
 var Matcher = require('../');
@@ -105,7 +106,7 @@ function run_test(test_name, assert, cb) {
         // send a state message, just to test that code
         ms.send({type: 'state'});
 
-        console.log('sent all messages for', test_name)
+        logger.trace('sent all messages for: ' +  test_name)
 
         tid = setTimeout(end, TIMEOUT);
     });
@@ -184,7 +185,7 @@ function run_test(test_name, assert, cb) {
 function make_test(name) {
     return function(assert) {
         do_test(name, assert, function(ret) {
-            console.log('ran test in', ret.time);
+            logger.trace('ran test in: ' + ret.time);
             assert.done();
         });
     }
@@ -201,7 +202,7 @@ if (require.main === module) {
     function process_tests(tests) {
         var test = tests.shift();
         if(test) {
-            console.log('running test', test);
+            logger.trace('running test: ' + test);
             do_test(test, assert, function(ret) {
                 console.log('ran test in', ret.time);
                 process_tests(tests);
@@ -211,7 +212,9 @@ if (require.main === module) {
 
     process_tests(tests);
 } else {
-// running under nodeunit, setup tests
+    // running under nodeunit, setup tests
+
+    logger.silence(0);
     var test_name;
     while (test_name = tests.shift()) {
         module.exports[test_name] = make_test(test_name);
