@@ -1,0 +1,25 @@
+[
+	{
+		"type": "state",
+		"payload": {
+			"bids": [],
+			"asks": [
+				{
+					"price": 1000000000,
+					"size": 700,
+					"order_id": 5,
+					"user_id": "4"
+				}
+			],
+			"state_num": 2,
+			"output_seq": 13,
+			"ticker": {
+				"price": 1022000000,
+				"size": 100,
+				"timestamp": 1317086239.693123
+			}
+		},
+		"timestamp": 1317086239.693123,
+		"seq": 1
+	}
+]

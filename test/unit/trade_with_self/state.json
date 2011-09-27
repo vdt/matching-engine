@@ -1,0 +1,80 @@
+[
+	{
+		"bids": [
+			{
+				"price": 1022000000,
+				"size": 100,
+				"order_id": 0,
+				"user_id": "2"
+			}
+		],
+		"asks": [],
+		"state_num": 2,
+		"output_seq": 2,
+		"ticker": {}
+	},
+	{
+		"bids": [
+			{
+				"price": 1024000000,
+				"size": 200,
+				"order_id": 1,
+				"user_id": "3"
+			},
+			{
+				"price": 1022000000,
+				"size": 100,
+				"order_id": 0,
+				"user_id": "2"
+			}
+		],
+		"asks": [],
+		"state_num": 2,
+		"output_seq": 4,
+		"ticker": {}
+	},
+	{
+		"bids": [
+			{
+				"price": 1024000000,
+				"size": 200,
+				"order_id": 1,
+				"user_id": "3"
+			},
+			{
+				"price": 1023000000,
+				"size": 500,
+				"order_id": 2,
+				"user_id": "4"
+			},
+			{
+				"price": 1022000000,
+				"size": 100,
+				"order_id": 0,
+				"user_id": "2"
+			}
+		],
+		"asks": [],
+		"state_num": 2,
+		"output_seq": 6,
+		"ticker": {}
+	},
+	{
+		"bids": [],
+		"asks": [
+			{
+				"price": 1000000000,
+				"size": 700,
+				"order_id": 5,
+				"user_id": "4"
+			}
+		],
+		"state_num": 2,
+		"output_seq": 13,
+		"ticker": {
+			"price": 1022000000,
+			"size": 100,
+			"timestamp": 1317086239.693123
+		}
+	}
+]

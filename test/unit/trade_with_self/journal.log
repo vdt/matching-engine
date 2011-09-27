@@ -1,0 +1,6 @@
+{"type":"state","payload":0}
+{"timestamp":1317086239.693123,"type":"order","payload":{"order_id":0,"price":1022000000,"user_id":"2","side":0,"size":100},"seq":1}
+{"timestamp":1317086239.693123,"type":"order","payload":{"order_id":1,"price":1024000000,"user_id":"3","side":0,"size":200},"seq":2}
+{"timestamp":1317086239.693123,"type":"order","payload":{"order_id":2,"price":1023000000,"user_id":"4","side":0,"size":500},"seq":3}
+{"timestamp":1317086239.693123,"type":"order","payload":{"order_id":5,"price":1000000000,"user_id":"4","side":1,"size":1000},"seq":4}
+{"type":"state","payload":1}
