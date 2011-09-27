@@ -12,8 +12,8 @@
 		"state_num": 2,
 		"output_seq": 2,
 		"ticker": {
-			"price": 1023000000,
-			"size": 996600000,
+			"price": 1100000000,
+			"size": 210000000,
 			"timestamp": 1317086239.693123
 		}
 	},
@@ -36,8 +36,8 @@
 		"state_num": 2,
 		"output_seq": 4,
 		"ticker": {
-			"price": 1023000000,
-			"size": 996600000,
+			"price": 1100000000,
+			"size": 210000000,
 			"timestamp": 1317086239.693123
 		}
 	},
@@ -66,8 +66,8 @@
 		"state_num": 2,
 		"output_seq": 6,
 		"ticker": {
-			"price": 1023000000,
-			"size": 996600000,
+			"price": 1100000000,
+			"size": 210000000,
 			"timestamp": 1317086239.693123
 		}
 	},
@@ -103,8 +103,8 @@
 		"state_num": 2,
 		"output_seq": 8,
 		"ticker": {
-			"price": 1023000000,
-			"size": 996600000,
+			"price": 1100000000,
+			"size": 210000000,
 			"timestamp": 1317086239.693123
 		}
 	},
@@ -146,8 +146,8 @@
 		"state_num": 2,
 		"output_seq": 10,
 		"ticker": {
-			"price": 1023000000,
-			"size": 996600000,
+			"price": 1100000000,
+			"size": 210000000,
 			"timestamp": 1317086239.693123
 		}
 	},
@@ -195,8 +195,8 @@
 		"state_num": 2,
 		"output_seq": 12,
 		"ticker": {
-			"price": 1023000000,
-			"size": 996600000,
+			"price": 1100000000,
+			"size": 210000000,
 			"timestamp": 1317086239.693123
 		}
 	},
