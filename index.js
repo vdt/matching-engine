@@ -21,8 +21,8 @@ var time = require('bitfloor/time');
 var OrderBook = require('./lib/order_book').OrderBook;
 var Order = require('./lib/order');
 
-var matcher_state_dir = config.env.logdir;
-var matcher_state_prefix = matcher_state_dir + "/matcher_state";
+var matcher_state_dir = config.env.statedir;
+var matcher_state_prefix = matcher_state_dir + '/matcher_state';
 
 function Matcher(product_id, config) {
     this.server;
@@ -44,8 +44,8 @@ Matcher.prototype.recover = function(send_feed_msg, register_event_handlers, cb)
     logger.info('state recovery started');
 
     var self = this;
-    var state_file_prefix = "matcher_state." + self.product_id;
-    var journal_filename = config.env.logdir + "/matcher." + self.product_id + ".log";
+    var state_file_prefix = 'matcher_state.' + self.product_id;
+    var journal_filename = config.env.journaldir + '/matcher.' + self.product_id + '.log';
 
     Chain.exec(
         function() {
@@ -83,7 +83,7 @@ Matcher.prototype.recover = function(send_feed_msg, register_event_handlers, cb)
             state_files.sort(function(a, b) { return b.num - a.num; });
             var state_file = state_files[0].file;
 
-            fs.readFile(matcher_state_dir + "/" + state_file, 'utf8', Chain.next());
+            fs.readFile(matcher_state_dir + '/' + state_file, 'utf8', Chain.next());
         },
         function(err, data) {
             if (err) {
@@ -364,7 +364,7 @@ Matcher.prototype.start = function(cb) {
 
     function start_server(err) {
         // start up input journal only after recovery has happened
-        journal = this.journal = new Journal('matcher.' + self.product_id, false);
+        journal = this.journal = new Journal('/matcher.' + self.product_id, false);
 
         // write state to file to make recovery cases easier
         write_state(function() {

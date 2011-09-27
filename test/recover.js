@@ -34,20 +34,50 @@ var matcher_config = {
 var product_id = 0; // fake id, matcher doesn't care except to save state
 var matcher = new Matcher(product_id, matcher_config);
 
-function do_test(test_name, assert, cb) {
-    // clear the log directory
+function clear_log_dir(cb) {
     exec("rm -rf " + env.logdir + "/*", function(error) {
         if (error) {
             console.log('ERROR:');
             console.log(error);
             process.exit(1);
         }
+        cb();
+    });
+}
 
-        // reset matcher state
-        matcher.reset();
+function clear_state_dir(cb) {
+    exec("rm -rf " + env.statedir + "/*", function(error) {
+        if (error) {
+            console.log('ERROR:');
+            console.log(error);
+            process.exit(1);
+        }
+        cb();
+    });
+}
 
-        matcher.start(function() {
-            run_test(test_name, assert, cb);
+function clear_journal_dir(cb) {
+    exec("rm -rf " + env.journaldir + "/*", function(error) {
+        if (error) {
+            console.log('ERROR:');
+            console.log(error);
+            process.exit(1);
+        }
+        cb();
+    });
+}
+
+function do_test(test_name, assert, cb) {
+    clear_log_dir(function() {
+        clear_state_dir(function() {
+            clear_journal_dir(function() {
+                // reset matcher state
+                matcher.reset();
+
+                matcher.start(function() {
+                    run_test(test_name, assert, cb);
+                });
+            });
         });
     });
 }
