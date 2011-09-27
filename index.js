@@ -8,6 +8,7 @@ var util = require('util');
 
 // 3rd party
 var uuid = require('node-uuid');
+var carrier = require('carrier');
 var Chain = require('chain');
 
 // common
@@ -97,13 +98,13 @@ Matcher.prototype.recover = function(send_feed_msg, register_event_handlers, cb)
             state.bids.forEach(function(order_data) {
                 order_data.side = 0;
                 var order = Order.parse(order_data);
-                logger.trace('adding back ' + util.inspect(order));
+                //logger.trace('adding back ' + util.inspect(order));
                 self.order_book.add(order);
             });
             state.asks.forEach(function(order_data) {
                 order_data.side = 1;
                 var order = Order.parse(order_data);
-                logger.trace('adding back ' + util.inspect(order));
+                //logger.trace('adding back ' + util.inspect(order));
                 self.order_book.add(order);
             });
 
@@ -112,27 +113,27 @@ Matcher.prototype.recover = function(send_feed_msg, register_event_handlers, cb)
             self.output_seq = state.output_seq;
             self.ticker = state.ticker;
 
+            logger.trace('added back data from state file, reading journal');
+
             // open up the journal file
-            fs.readFile(journal_filename, 'utf8', Chain.next());
-        },
-        function(err, data) {
-            if (err) {
+            var fstream = fs.createReadStream(journal_filename);
+            fstream.on('error', function(err) {
                 logger.panic('could not read matcher journal', err);
                 process.exit(1);
-            }
+            });
+
+            var cstream = carrier.carry(fstream);
 
             // register the event handlers here because messages need to be
             // sent out during replay, but not before that!
             register_event_handlers();
 
-            // TODO: slow, do this line-by-line
-            var lines = data.split('\n');
-
             // the state num in the journal (1 smaller than the saved one)
             var journal_state_num = self.state_num - 1;
 
+            // do the replay
             var playback = false;
-            lines.forEach(function(line) {
+            cstream.on('line', function(line) {
                 if (line.length) {
                     var data = JSON.parse(line);
                     if (data.type === "state" && data.payload === journal_state_num) {
@@ -141,7 +142,7 @@ Matcher.prototype.recover = function(send_feed_msg, register_event_handlers, cb)
                     }
 
                     if (playback) {
-                        logger.trace('playing back ' + util.inspect(data));
+                        //logger.trace('playing back ' + util.inspect(data));
                         var handler = self._get_handler(data, send_feed_msg);
                         if (!handler) {
                             logger.warn('no handler for message type ' + data.type);
@@ -152,16 +153,20 @@ Matcher.prototype.recover = function(send_feed_msg, register_event_handlers, cb)
                 }
             });
 
-            // serious error, we have the wrong journal or it's corrupt
-            if (!playback) {
-                var errmsg = 'Could not find state num ' +
-                             journal_state_num + ' in journal';
-                logger.panic(errmsg, new Error(errmsg));
-                process.exit(1);
-            }
+            cstream.on('end', function() {
+                // serious error, we have the wrong journal or it's corrupt
+                if (!playback) {
+                    var errmsg = 'Could not find state num ' +
+                                 journal_state_num + ' in journal';
+                    logger.panic(errmsg, new Error(errmsg));
+                    process.exit(1);
+                }
 
-            if (cb)
-                cb();
+                logger.trace('state recovery successful');
+
+                if (cb)
+                    cb();
+            });
         }
     );
 };
