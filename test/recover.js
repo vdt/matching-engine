@@ -1,3 +1,6 @@
+// set timestamps to be fake timestamps
+require('bitfloor/time').use_test_timestamps();
+
 var net = require('net');
 var fs = require('fs');
 var dgram = require('dgram');

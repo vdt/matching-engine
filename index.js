@@ -31,6 +31,7 @@ function Matcher(product_id, config) {
     this.output_seq = 0;
     this.product_id = product_id;
     this.order_book = new OrderBook();
+    this.ticker = {};
 }
 
 // matcher emits the 'process' event for testing
@@ -109,6 +110,7 @@ Matcher.prototype.recover = function(send_feed_msg, register_event_handlers, cb)
             // set the other stateful fields
             self.state_num = state.state_num;
             self.output_seq = state.output_seq;
+            self.ticker = state.ticker;
 
             // open up the journal file
             fs.readFile(journal_filename, 'utf8', Chain.next());
@@ -320,6 +322,8 @@ Matcher.prototype.start = function(cb) {
         })
         // taker is the liq. taker, provider is the liq. provider
         .on('match', function(size, taker, provider) {
+            var price = provider.price;
+            var timestamp = time.timestamp();
             var payload = {
                 id: uuid('binary').toString('hex'),
                 taker_id: taker.id,
@@ -327,9 +331,16 @@ Matcher.prototype.start = function(cb) {
                 taker_user_id: taker.user_id,
                 provider_user_id: provider.user_id,
                 size: size,
-                price: provider.price,
+                price: price,
                 provider_side: provider.side,
-                timestamp: time.timestamp(),
+                timestamp: timestamp,
+            };
+
+            // save ticker info
+            self.ticker = {
+                price: price,
+                size: size,
+                timestamp: timestamp
             };
 
             send_feed_msg('match', payload);
@@ -441,6 +452,7 @@ Matcher.prototype.state = function() {
     var state = this.order_book.state();
     state.state_num = this.state_num;
     state.output_seq = this.output_seq;
+    state.ticker = this.ticker;
     return state;
 };
 

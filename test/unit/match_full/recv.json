@@ -25,8 +25,14 @@
 				}
 			],
 			"state_num": 2,
-			"output_seq": 24
+			"output_seq": 24,
+			"ticker": {
+				"price": 1100000000,
+				"size": 210000000,
+				"timestamp": 1317086239.693123
+			}
 		},
+		"timestamp": 1317086239.693123,
 		"seq": 1
 	}
 ]

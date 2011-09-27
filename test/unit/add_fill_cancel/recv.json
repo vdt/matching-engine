@@ -1,6 +1,7 @@
 [
 	{
 		"type": "cancel_reject",
+		"timestamp": 1317086239.693123,
 		"target_id": 2,
 		"product_id": 0,
 		"payload": {
@@ -11,6 +12,7 @@
 	},
 	{
 		"type": "cancel_reject",
+		"timestamp": 1317086239.693123,
 		"target_id": 2,
 		"product_id": 0,
 		"payload": {
@@ -21,6 +23,7 @@
 	},
 	{
 		"type": "cancel_reject",
+		"timestamp": 1317086239.693123,
 		"target_id": 3,
 		"product_id": 0,
 		"payload": {
@@ -35,8 +38,14 @@
 			"bids": [],
 			"asks": [],
 			"state_num": 2,
-			"output_seq": 12
+			"output_seq": 12,
+			"ticker": {
+				"price": 220000000,
+				"size": 1010000000,
+				"timestamp": 1317086239.693123
+			}
 		},
+		"timestamp": 1317086239.693123,
 		"seq": 4
 	}
 ]

@@ -10,7 +10,12 @@
 		],
 		"asks": [],
 		"state_num": 2,
-		"output_seq": 2
+		"output_seq": 2,
+		"ticker": {
+			"price": 1800000000,
+			"size": 8056912305,
+			"timestamp": 1317086239.693123
+		}
 	},
 	{
 		"bids": [
@@ -29,7 +34,12 @@
 		],
 		"asks": [],
 		"state_num": 2,
-		"output_seq": 4
+		"output_seq": 4,
+		"ticker": {
+			"price": 1800000000,
+			"size": 8056912305,
+			"timestamp": 1317086239.693123
+		}
 	},
 	{
 		"bids": [
@@ -54,7 +64,12 @@
 		],
 		"asks": [],
 		"state_num": 2,
-		"output_seq": 6
+		"output_seq": 6,
+		"ticker": {
+			"price": 1800000000,
+			"size": 8056912305,
+			"timestamp": 1317086239.693123
+		}
 	},
 	{
 		"bids": [
@@ -86,7 +101,12 @@
 			}
 		],
 		"state_num": 2,
-		"output_seq": 8
+		"output_seq": 8,
+		"ticker": {
+			"price": 1800000000,
+			"size": 8056912305,
+			"timestamp": 1317086239.693123
+		}
 	},
 	{
 		"bids": [
@@ -124,7 +144,12 @@
 			}
 		],
 		"state_num": 2,
-		"output_seq": 10
+		"output_seq": 10,
+		"ticker": {
+			"price": 1800000000,
+			"size": 8056912305,
+			"timestamp": 1317086239.693123
+		}
 	},
 	{
 		"bids": [
@@ -168,7 +193,12 @@
 			}
 		],
 		"state_num": 2,
-		"output_seq": 12
+		"output_seq": 12,
+		"ticker": {
+			"price": 1800000000,
+			"size": 8056912305,
+			"timestamp": 1317086239.693123
+		}
 	},
 	{
 		"bids": [
@@ -218,7 +248,12 @@
 			}
 		],
 		"state_num": 2,
-		"output_seq": 14
+		"output_seq": 14,
+		"ticker": {
+			"price": 1800000000,
+			"size": 8056912305,
+			"timestamp": 1317086239.693123
+		}
 	},
 	{
 		"bids": [
@@ -268,7 +303,12 @@
 			}
 		],
 		"state_num": 2,
-		"output_seq": 17
+		"output_seq": 17,
+		"ticker": {
+			"price": 1100000000,
+			"size": 20000000,
+			"timestamp": 1317086239.693123
+		}
 	},
 	{
 		"bids": [
@@ -318,7 +358,12 @@
 			}
 		],
 		"state_num": 2,
-		"output_seq": 20
+		"output_seq": 20,
+		"ticker": {
+			"price": 1100000000,
+			"size": 20000000,
+			"timestamp": 1317086239.693123
+		}
 	},
 	{
 		"bids": [
@@ -368,7 +413,12 @@
 			}
 		],
 		"state_num": 2,
-		"output_seq": 23
+		"output_seq": 23,
+		"ticker": {
+			"price": 1059000000,
+			"size": 20000000,
+			"timestamp": 1317086239.693123
+		}
 	},
 	{
 		"bids": [
@@ -418,6 +468,11 @@
 			}
 		],
 		"state_num": 2,
-		"output_seq": 26
+		"output_seq": 26,
+		"ticker": {
+			"price": 1059000000,
+			"size": 20000000,
+			"timestamp": 1317086239.693123
+		}
 	}
 ]

@@ -3,6 +3,9 @@
    node test.js -g
 */
 
+// set timestamps to be fake timestamps
+require('bitfloor/time').use_test_timestamps();
+
 var net = require('net');
 var fs = require('fs');
 var dgram = require('dgram');
@@ -123,7 +126,6 @@ function run_test(test_name, assert, cb) {
                 a.push(obj);
             }
         });
-        remove_timestamps(a);
         remove_match_ids(a);
         return a;
     }
@@ -138,22 +140,11 @@ function run_test(test_name, assert, cb) {
         });
     }
 
-    // remove all timestamps from an array
-    function remove_timestamps(arr) {
-        arr.forEach(function(r) {
-            delete r.timestamp;
-            if(r.payload)
-                delete r.payload.timestamp;
-        });
-    }
-
     function end() {
         feed.close();
         client.end();
         matcher.stop();
 
-        remove_timestamps(resps);
-        remove_timestamps(resps_multi);
         remove_match_ids(resps_multi);
 
         var journal = fs.readFileSync(journal_file) + "";

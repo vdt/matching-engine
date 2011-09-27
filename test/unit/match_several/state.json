@@ -10,7 +10,8 @@
 		],
 		"asks": [],
 		"state_num": 2,
-		"output_seq": 2
+		"output_seq": 2,
+		"ticker": {}
 	},
 	{
 		"bids": [
@@ -29,7 +30,8 @@
 		],
 		"asks": [],
 		"state_num": 2,
-		"output_seq": 4
+		"output_seq": 4,
+		"ticker": {}
 	},
 	{
 		"bids": [
@@ -54,7 +56,8 @@
 		],
 		"asks": [],
 		"state_num": 2,
-		"output_seq": 6
+		"output_seq": 6,
+		"ticker": {}
 	},
 	{
 		"bids": [
@@ -86,7 +89,8 @@
 			}
 		],
 		"state_num": 2,
-		"output_seq": 8
+		"output_seq": 8,
+		"ticker": {}
 	},
 	{
 		"bids": [
@@ -124,7 +128,8 @@
 			}
 		],
 		"state_num": 2,
-		"output_seq": 10
+		"output_seq": 10,
+		"ticker": {}
 	},
 	{
 		"bids": [
@@ -168,7 +173,8 @@
 			}
 		],
 		"state_num": 2,
-		"output_seq": 12
+		"output_seq": 12,
+		"ticker": {}
 	},
 	{
 		"bids": [
@@ -206,7 +212,12 @@
 			}
 		],
 		"state_num": 2,
-		"output_seq": 17
+		"output_seq": 17,
+		"ticker": {
+			"price": 1100000000,
+			"size": 100000000,
+			"timestamp": 1317086239.693123
+		}
 	},
 	{
 		"bids": [
@@ -238,6 +249,11 @@
 			}
 		],
 		"state_num": 2,
-		"output_seq": 22
+		"output_seq": 22,
+		"ticker": {
+			"price": 1023000000,
+			"size": 996600000,
+			"timestamp": 1317086239.693123
+		}
 	}
 ]

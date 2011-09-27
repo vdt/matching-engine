@@ -1,6 +1,7 @@
 [
 	{
 		"type": "cancel_reject",
+		"timestamp": 1317086239.693123,
 		"target_id": 2,
 		"product_id": 0,
 		"payload": {
@@ -41,8 +42,10 @@
 				}
 			],
 			"state_num": 2,
-			"output_seq": 14
+			"output_seq": 14,
+			"ticker": {}
 		},
+		"timestamp": 1317086239.693123,
 		"seq": 2
 	}
 ]

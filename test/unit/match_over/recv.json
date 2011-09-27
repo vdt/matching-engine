@@ -12,8 +12,14 @@
 			],
 			"asks": [],
 			"state_num": 2,
-			"output_seq": 30
+			"output_seq": 30,
+			"ticker": {
+				"price": 1800000000,
+				"size": 8056912305,
+				"timestamp": 1317086239.693123
+			}
 		},
+		"timestamp": 1317086239.693123,
 		"seq": 1
 	}
 ]

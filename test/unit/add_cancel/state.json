@@ -10,7 +10,8 @@
 		],
 		"asks": [],
 		"state_num": 2,
-		"output_seq": 2
+		"output_seq": 2,
+		"ticker": {}
 	},
 	{
 		"bids": [
@@ -29,7 +30,8 @@
 		],
 		"asks": [],
 		"state_num": 2,
-		"output_seq": 4
+		"output_seq": 4,
+		"ticker": {}
 	},
 	{
 		"bids": [
@@ -54,7 +56,8 @@
 		],
 		"asks": [],
 		"state_num": 2,
-		"output_seq": 6
+		"output_seq": 6,
+		"ticker": {}
 	},
 	{
 		"bids": [
@@ -73,7 +76,8 @@
 		],
 		"asks": [],
 		"state_num": 2,
-		"output_seq": 7
+		"output_seq": 7,
+		"ticker": {}
 	},
 	{
 		"bids": [
@@ -99,7 +103,8 @@
 			}
 		],
 		"state_num": 2,
-		"output_seq": 9
+		"output_seq": 9,
+		"ticker": {}
 	},
 	{
 		"bids": [
@@ -131,7 +136,8 @@
 			}
 		],
 		"state_num": 2,
-		"output_seq": 11
+		"output_seq": 11,
+		"ticker": {}
 	},
 	{
 		"bids": [
@@ -169,7 +175,8 @@
 			}
 		],
 		"state_num": 2,
-		"output_seq": 13
+		"output_seq": 13,
+		"ticker": {}
 	},
 	{
 		"bids": [
@@ -201,7 +208,8 @@
 			}
 		],
 		"state_num": 2,
-		"output_seq": 14
+		"output_seq": 14,
+		"ticker": {}
 	},
 	{
 		"bids": [
@@ -233,6 +241,7 @@
 			}
 		],
 		"state_num": 2,
-		"output_seq": 14
+		"output_seq": 14,
+		"ticker": {}
 	}
 ]
