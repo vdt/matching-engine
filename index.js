@@ -461,6 +461,7 @@ Matcher.prototype.reset = function() {
     this.output_seq = 0;
     this.state_num = 0;
     this.order_book = new OrderBook();
+    this.ticker = {};
 };
 
 module.exports = Matcher;
