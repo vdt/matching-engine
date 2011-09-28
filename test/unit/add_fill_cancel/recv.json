@@ -38,7 +38,7 @@
 			"bids": [],
 			"asks": [],
 			"state_num": 2,
-			"output_seq": 12,
+			"output_seq": 13,
 			"ticker": {
 				"price": 220000000,
 				"size": 1010000000,

@@ -10,7 +10,7 @@
 		],
 		"asks": [],
 		"state_num": 2,
-		"output_seq": 2,
+		"output_seq": 3,
 		"ticker": {}
 	},
 	{
@@ -30,7 +30,7 @@
 		],
 		"asks": [],
 		"state_num": 2,
-		"output_seq": 4,
+		"output_seq": 5,
 		"ticker": {}
 	},
 	{
@@ -56,7 +56,7 @@
 		],
 		"asks": [],
 		"state_num": 2,
-		"output_seq": 6,
+		"output_seq": 7,
 		"ticker": {}
 	},
 	{
@@ -70,7 +70,7 @@
 			}
 		],
 		"state_num": 2,
-		"output_seq": 13,
+		"output_seq": 14,
 		"ticker": {
 			"price": 1022000000,
 			"size": 100,

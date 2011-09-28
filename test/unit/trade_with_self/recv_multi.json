@@ -3,24 +3,9 @@
 		"type": "order_status",
 		"timestamp": 1317086239.693123,
 		"product_id": 0,
-		"seq": 0,
-		"payload": {
-			"status": "received",
-			"side": 0,
-			"order_id": 0,
-			"user_id": "2",
-			"price": 1022000000,
-			"size": 100,
-			"timestamp": 1317086239.693123
-		}
-	},
-	{
-		"type": "order_status",
-		"timestamp": 1317086239.693123,
-		"product_id": 0,
 		"seq": 1,
 		"payload": {
-			"status": "open",
+			"status": "received",
 			"side": 0,
 			"order_id": 0,
 			"user_id": "2",
@@ -35,12 +20,12 @@
 		"product_id": 0,
 		"seq": 2,
 		"payload": {
-			"status": "received",
+			"status": "open",
 			"side": 0,
-			"order_id": 1,
-			"user_id": "3",
-			"price": 1024000000,
-			"size": 200,
+			"order_id": 0,
+			"user_id": "2",
+			"price": 1022000000,
+			"size": 100,
 			"timestamp": 1317086239.693123
 		}
 	},
@@ -50,7 +35,7 @@
 		"product_id": 0,
 		"seq": 3,
 		"payload": {
-			"status": "open",
+			"status": "received",
 			"side": 0,
 			"order_id": 1,
 			"user_id": "3",
@@ -65,12 +50,12 @@
 		"product_id": 0,
 		"seq": 4,
 		"payload": {
-			"status": "received",
+			"status": "open",
 			"side": 0,
-			"order_id": 2,
-			"user_id": "4",
-			"price": 1023000000,
-			"size": 500,
+			"order_id": 1,
+			"user_id": "3",
+			"price": 1024000000,
+			"size": 200,
 			"timestamp": 1317086239.693123
 		}
 	},
@@ -80,7 +65,7 @@
 		"product_id": 0,
 		"seq": 5,
 		"payload": {
-			"status": "open",
+			"status": "received",
 			"side": 0,
 			"order_id": 2,
 			"user_id": "4",
@@ -95,6 +80,21 @@
 		"product_id": 0,
 		"seq": 6,
 		"payload": {
+			"status": "open",
+			"side": 0,
+			"order_id": 2,
+			"user_id": "4",
+			"price": 1023000000,
+			"size": 500,
+			"timestamp": 1317086239.693123
+		}
+	},
+	{
+		"type": "order_status",
+		"timestamp": 1317086239.693123,
+		"product_id": 0,
+		"seq": 7,
+		"payload": {
 			"status": "received",
 			"side": 1,
 			"order_id": 5,
@@ -108,7 +108,7 @@
 		"type": "match",
 		"timestamp": 1317086239.693123,
 		"product_id": 0,
-		"seq": 7,
+		"seq": 8,
 		"payload": {
 			"taker_id": 5,
 			"provider_id": 1,
@@ -124,7 +124,7 @@
 		"type": "order_status",
 		"timestamp": 1317086239.693123,
 		"product_id": 0,
-		"seq": 8,
+		"seq": 9,
 		"payload": {
 			"order_id": 1,
 			"status": "done",
@@ -138,7 +138,7 @@
 		"type": "order_status",
 		"timestamp": 1317086239.693123,
 		"product_id": 0,
-		"seq": 9,
+		"seq": 10,
 		"payload": {
 			"order_id": 2,
 			"status": "done",
@@ -152,7 +152,7 @@
 		"type": "match",
 		"timestamp": 1317086239.693123,
 		"product_id": 0,
-		"seq": 10,
+		"seq": 11,
 		"payload": {
 			"taker_id": 5,
 			"provider_id": 0,
@@ -168,7 +168,7 @@
 		"type": "order_status",
 		"timestamp": 1317086239.693123,
 		"product_id": 0,
-		"seq": 11,
+		"seq": 12,
 		"payload": {
 			"order_id": 0,
 			"status": "done",
@@ -182,7 +182,7 @@
 		"type": "order_status",
 		"timestamp": 1317086239.693123,
 		"product_id": 0,
-		"seq": 12,
+		"seq": 13,
 		"payload": {
 			"status": "open",
 			"side": 1,

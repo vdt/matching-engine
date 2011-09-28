@@ -10,7 +10,7 @@
 		],
 		"asks": [],
 		"state_num": 2,
-		"output_seq": 2,
+		"output_seq": 3,
 		"ticker": {}
 	},
 	{
@@ -30,7 +30,7 @@
 		],
 		"asks": [],
 		"state_num": 2,
-		"output_seq": 4,
+		"output_seq": 5,
 		"ticker": {}
 	},
 	{
@@ -56,7 +56,7 @@
 		],
 		"asks": [],
 		"state_num": 2,
-		"output_seq": 6,
+		"output_seq": 7,
 		"ticker": {}
 	},
 	{
@@ -89,7 +89,7 @@
 			}
 		],
 		"state_num": 2,
-		"output_seq": 8,
+		"output_seq": 9,
 		"ticker": {}
 	},
 	{
@@ -128,7 +128,7 @@
 			}
 		],
 		"state_num": 2,
-		"output_seq": 10,
+		"output_seq": 11,
 		"ticker": {}
 	},
 	{
@@ -173,7 +173,7 @@
 			}
 		],
 		"state_num": 2,
-		"output_seq": 12,
+		"output_seq": 13,
 		"ticker": {}
 	},
 	{
@@ -212,7 +212,7 @@
 			}
 		],
 		"state_num": 2,
-		"output_seq": 16,
+		"output_seq": 17,
 		"ticker": {
 			"price": 1100000000,
 			"size": 120000000,
@@ -249,7 +249,7 @@
 			}
 		],
 		"state_num": 2,
-		"output_seq": 20,
+		"output_seq": 21,
 		"ticker": {
 			"price": 1024000000,
 			"size": 1023400000,
@@ -280,7 +280,7 @@
 			}
 		],
 		"state_num": 2,
-		"output_seq": 24,
+		"output_seq": 25,
 		"ticker": {
 			"price": 1100000000,
 			"size": 210000000,

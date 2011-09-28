@@ -28,11 +28,10 @@ var matcher_state_prefix = matcher_state_dir + '/matcher_state';
 function Matcher(product_id, config) {
     this.server;
     this.config = config;
-    this.state_num = 0;
-    this.output_seq = 0;
     this.product_id = product_id;
-    this.order_book = new OrderBook();
-    this.ticker = {};
+
+    // clear matcher state
+    this.reset();
 }
 
 // matcher emits the 'process' event for testing
@@ -463,7 +462,7 @@ Matcher.prototype.state = function() {
 
 // resets matcher's state
 Matcher.prototype.reset = function() {
-    this.output_seq = 0;
+    this.output_seq = 1;
     this.state_num = 0;
     this.order_book = new OrderBook();
     this.ticker = {};
