@@ -479,7 +479,11 @@ Matcher.prototype.write_state = function(cb) {
         // save what the state num should be when recovering state via file
         state.state_num = state_num + 1; // TODO: jenky?
 
-        fs.writeFile(filename, JSON.stringify(state));
+        fs.writeFile(filename, JSON.stringify(state), function(err) {
+            if(err) {
+                logger.error('could not write to state file: ' + filename, err);
+            }
+        });
 
         if(cb) {
             cb(state);
