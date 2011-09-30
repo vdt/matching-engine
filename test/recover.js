@@ -105,14 +105,16 @@ function run_test(test_name, assert, cb) {
 
 function run_recover(assert, cb) {
     var gold_state = matcher.state();
+
+    // increment state num because it is incremented when writing state to state file
     gold_state.state_num++; // TODO: jenky, because of a jenky thing in the matcher
+
     matcher.stop(function() {
         matcher.reset();
         matcher.start(function() {
             var state = matcher.state();
             assert.deepEqual(state, gold_state);
-            matcher.stop();
-            cb();
+            matcher.stop(cb);
         });
     });
 }

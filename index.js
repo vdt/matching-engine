@@ -25,6 +25,8 @@ var Order = require('./lib/order');
 var matcher_state_dir = config.env.statedir;
 var matcher_state_prefix = matcher_state_dir + '/matcher_state';
 
+var write_state_period = 1000*60*15;
+
 function Matcher(product_id, config) {
     this.server;
     this.config = config;
@@ -286,24 +288,6 @@ Matcher.prototype.start = function(cb) {
         ++self.output_seq;
     }
 
-    // writes the state to the state file
-    // cb(state) when done
-    function write_state(cb) {
-        var state_num = self.state_num;
-        var filename = matcher_state_prefix + "." + self.product_id + "." + state_num + ".json";
-        journal.log({type: 'state', payload: state_num}, function(){
-            var state = self.state();
-
-            // save what the state num should be when recovering state via file
-            state.state_num = state_num + 1; // TODO: jenky?
-
-            fs.writeFile(filename, JSON.stringify(state));
-
-            cb(state);
-        });
-        ++self.state_num;
-    }
-
     function register_event_handlers() {
         /// order book event handlers
         order_book
@@ -368,12 +352,20 @@ Matcher.prototype.start = function(cb) {
 
     function start_server(err) {
         // start up input journal only after recovery has happened
-        journal = this.journal = new Journal('/matcher.' + self.product_id, false);
+        journal = self.journal = new Journal('/matcher.' + self.product_id, false);
 
         // write state to file to make recovery cases easier
-        write_state(function() {
+        self.write_state(function() {
             server.listen(client.port, client.ip, function() {
                 logger.trace('matcher started');
+
+                // write state periodically
+                function write_func() {
+                    self.write_state();
+                    self.write_state_tid = setTimeout(write_func, write_state_period);
+                }
+                self.write_state_tid = setTimeout(write_func, write_state_period);
+
                 if (cb)
                     cb();
             });
@@ -415,7 +407,7 @@ Matcher.prototype.start = function(cb) {
                 // if we don't already have a handler for the message type
                 // these are special messages not intended for the matcher
                 if (msg.type === 'state') {
-                    write_state(function(state) {
+                    self.write_state(function(state) {
                         ms.send({ type: 'state', payload: state });
                     });
                     return;
@@ -437,27 +429,63 @@ Matcher.prototype.start = function(cb) {
 };
 
 Matcher.prototype.stop = function(cb) {
+    var self = this;
     logger.trace('stopping matcher');
+
+    // stop periodic state writes
+    clearTimeout(this.write_state_tid);
+
     this.order_book.removeAllListeners();
+
+    this.server.on('close', function() {
+        logger.trace('matcher stopped');
+
+        if(cb)
+            cb();
+    });
 
     if (typeof this.server.fd === 'number') // make sure server is running
         this.server.close();
 
-    this.server.on('close', function() {
-        logger.trace('matcher stopped');
-        if (cb)
-            cb();
-    });
-
     this.feed_socket.close();
 };
 
+/// stops the matcher and writes its state out for quick restart
+Matcher.prototype.shutdown = function(cb) {
+    this.stop(function() {
+        this.write_state(cb);
+    });
+};
+
+/// serializes and returns Matcher's state
 Matcher.prototype.state = function() {
     var state = this.order_book.state();
     state.state_num = this.state_num;
     state.output_seq = this.output_seq;
     state.ticker = this.ticker;
     return state;
+};
+
+/// writes the state to the state file
+/// cb(state) when done
+Matcher.prototype.write_state = function(cb) {
+    var self = this;
+
+    var state_num = self.state_num;
+    var filename = matcher_state_prefix + "." + self.product_id + "." + state_num + ".json";
+    self.journal.log({type: 'state', payload: state_num}, function() {
+        var state = self.state();
+
+        // save what the state num should be when recovering state via file
+        state.state_num = state_num + 1; // TODO: jenky?
+
+        fs.writeFile(filename, JSON.stringify(state));
+
+        if(cb) {
+            cb(state);
+        }
+    });
+    ++self.state_num;
 };
 
 // resets matcher's state
