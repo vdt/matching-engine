@@ -109,6 +109,7 @@ function run_recover(assert, cb) {
     // increment state num because it is incremented when writing state to state file
     gold_state.state_num++; // TODO: jenky, because of a jenky thing in the matcher
 
+    // stops the matcher and tries to have it startup again and read the old state
     matcher.stop(function() {
         matcher.reset();
         matcher.start(function() {

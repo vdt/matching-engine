@@ -11,7 +11,8 @@
 		"asks": [],
 		"state_num": 2,
 		"output_seq": 3,
-		"ticker": {}
+		"ticker": {},
+		"recovery_journal": "matcher_in.0.1317086239.log"
 	},
 	{
 		"bids": [
@@ -31,7 +32,8 @@
 		"asks": [],
 		"state_num": 2,
 		"output_seq": 5,
-		"ticker": {}
+		"ticker": {},
+		"recovery_journal": "matcher_in.0.1317086239.log"
 	},
 	{
 		"bids": [
@@ -57,7 +59,8 @@
 		"asks": [],
 		"state_num": 2,
 		"output_seq": 7,
-		"ticker": {}
+		"ticker": {},
+		"recovery_journal": "matcher_in.0.1317086239.log"
 	},
 	{
 		"bids": [
@@ -77,7 +80,8 @@
 		"asks": [],
 		"state_num": 2,
 		"output_seq": 8,
-		"ticker": {}
+		"ticker": {},
+		"recovery_journal": "matcher_in.0.1317086239.log"
 	},
 	{
 		"bids": [
@@ -104,7 +108,8 @@
 		],
 		"state_num": 2,
 		"output_seq": 10,
-		"ticker": {}
+		"ticker": {},
+		"recovery_journal": "matcher_in.0.1317086239.log"
 	},
 	{
 		"bids": [
@@ -137,7 +142,8 @@
 		],
 		"state_num": 2,
 		"output_seq": 12,
-		"ticker": {}
+		"ticker": {},
+		"recovery_journal": "matcher_in.0.1317086239.log"
 	},
 	{
 		"bids": [
@@ -176,7 +182,8 @@
 		],
 		"state_num": 2,
 		"output_seq": 14,
-		"ticker": {}
+		"ticker": {},
+		"recovery_journal": "matcher_in.0.1317086239.log"
 	},
 	{
 		"bids": [
@@ -209,7 +216,8 @@
 		],
 		"state_num": 2,
 		"output_seq": 15,
-		"ticker": {}
+		"ticker": {},
+		"recovery_journal": "matcher_in.0.1317086239.log"
 	},
 	{
 		"bids": [
@@ -242,6 +250,7 @@
 		],
 		"state_num": 2,
 		"output_seq": 15,
-		"ticker": {}
+		"ticker": {},
+		"recovery_journal": "matcher_in.0.1317086239.log"
 	}
 ]

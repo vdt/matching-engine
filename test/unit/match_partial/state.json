@@ -11,7 +11,8 @@
 		"asks": [],
 		"state_num": 2,
 		"output_seq": 3,
-		"ticker": {}
+		"ticker": {},
+		"recovery_journal": "matcher_in.0.1317086239.log"
 	},
 	{
 		"bids": [
@@ -31,7 +32,8 @@
 		"asks": [],
 		"state_num": 2,
 		"output_seq": 5,
-		"ticker": {}
+		"ticker": {},
+		"recovery_journal": "matcher_in.0.1317086239.log"
 	},
 	{
 		"bids": [
@@ -57,7 +59,8 @@
 		"asks": [],
 		"state_num": 2,
 		"output_seq": 7,
-		"ticker": {}
+		"ticker": {},
+		"recovery_journal": "matcher_in.0.1317086239.log"
 	},
 	{
 		"bids": [
@@ -90,7 +93,8 @@
 		],
 		"state_num": 2,
 		"output_seq": 9,
-		"ticker": {}
+		"ticker": {},
+		"recovery_journal": "matcher_in.0.1317086239.log"
 	},
 	{
 		"bids": [
@@ -129,7 +133,8 @@
 		],
 		"state_num": 2,
 		"output_seq": 11,
-		"ticker": {}
+		"ticker": {},
+		"recovery_journal": "matcher_in.0.1317086239.log"
 	},
 	{
 		"bids": [
@@ -174,7 +179,8 @@
 		],
 		"state_num": 2,
 		"output_seq": 13,
-		"ticker": {}
+		"ticker": {},
+		"recovery_journal": "matcher_in.0.1317086239.log"
 	},
 	{
 		"bids": [
@@ -225,7 +231,8 @@
 		],
 		"state_num": 2,
 		"output_seq": 15,
-		"ticker": {}
+		"ticker": {},
+		"recovery_journal": "matcher_in.0.1317086239.log"
 	},
 	{
 		"bids": [
@@ -280,7 +287,8 @@
 			"price": 1100000000,
 			"size": 20000000,
 			"timestamp": 1317086239.693123
-		}
+		},
+		"recovery_journal": "matcher_in.0.1317086239.log"
 	},
 	{
 		"bids": [
@@ -335,7 +343,8 @@
 			"price": 1100000000,
 			"size": 20000000,
 			"timestamp": 1317086239.693123
-		}
+		},
+		"recovery_journal": "matcher_in.0.1317086239.log"
 	},
 	{
 		"bids": [
@@ -390,7 +399,8 @@
 			"price": 1059000000,
 			"size": 20000000,
 			"timestamp": 1317086239.693123
-		}
+		},
+		"recovery_journal": "matcher_in.0.1317086239.log"
 	},
 	{
 		"bids": [
@@ -445,6 +455,7 @@
 			"price": 1059000000,
 			"size": 20000000,
 			"timestamp": 1317086239.693123
-		}
+		},
+		"recovery_journal": "matcher_in.0.1317086239.log"
 	}
 ]

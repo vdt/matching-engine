@@ -39,8 +39,8 @@ var matcher = new Matcher(product_id, matcher_config);
 
 var env = require('bitfloor/config').env;
 
-var journal_file = env.journaldir + '/matcher.0.log';
-var journal_file_out = env.journaldir + '/matcher_out.0.log';
+var journal_file = env.journaldir + '/matcher_in.0.1317086239.log';
+var journal_file_out = env.journaldir + '/matcher_out.0.1317086239.log';
 
 var gen_golds = process.argv.length > 2 && process.argv[2] == '-g';
 

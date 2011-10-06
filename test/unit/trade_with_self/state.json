@@ -11,7 +11,8 @@
 		"asks": [],
 		"state_num": 2,
 		"output_seq": 3,
-		"ticker": {}
+		"ticker": {},
+		"recovery_journal": "matcher_in.0.1317086239.log"
 	},
 	{
 		"bids": [
@@ -31,7 +32,8 @@
 		"asks": [],
 		"state_num": 2,
 		"output_seq": 5,
-		"ticker": {}
+		"ticker": {},
+		"recovery_journal": "matcher_in.0.1317086239.log"
 	},
 	{
 		"bids": [
@@ -57,7 +59,8 @@
 		"asks": [],
 		"state_num": 2,
 		"output_seq": 7,
-		"ticker": {}
+		"ticker": {},
+		"recovery_journal": "matcher_in.0.1317086239.log"
 	},
 	{
 		"bids": [],
@@ -75,6 +78,7 @@
 			"price": 1022000000,
 			"size": 100,
 			"timestamp": 1317086239.693123
-		}
+		},
+		"recovery_journal": "matcher_in.0.1317086239.log"
 	}
 ]

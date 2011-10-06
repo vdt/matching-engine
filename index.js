@@ -5,6 +5,7 @@ var dgram = require('dgram');
 var events = require('events');
 var fs = require('fs');
 var util = require('util');
+var path = require('path');
 
 // 3rd party
 var uuid = require('node-uuid');
@@ -17,6 +18,7 @@ var Journal = require('bitfloor/journal');
 var logger = require('bitfloor/logger');
 var config = require('bitfloor/config');
 var time = require('bitfloor/time');
+var env = config.env;
 
 // local
 var OrderBook = require('./lib/order_book').OrderBook;
@@ -25,7 +27,12 @@ var Order = require('./lib/order');
 var matcher_state_dir = config.env.statedir;
 var matcher_state_prefix = matcher_state_dir + '/matcher_state';
 
+// write the state every N milliseconds
 var write_state_period = 1000*60*15;
+
+// interval to rotate the incoming journal
+// rotate every 12 hours
+var journal_rotate_interval = 1000 * 60 * 60 * 12;
 
 function Matcher(product_id, config) {
     this.server;
@@ -46,8 +53,6 @@ Matcher.prototype.recover = function(send_feed_msg, register_event_handlers, cb)
     logger.info('state recovery started');
 
     var self = this;
-    var state_file_prefix = 'matcher_state.' + self.product_id;
-    var journal_filename = config.env.journaldir + '/matcher.' + self.product_id + '.log';
 
     Chain.exec(
         function() {
@@ -64,12 +69,15 @@ Matcher.prototype.recover = function(send_feed_msg, register_event_handlers, cb)
 
             // get the files that match the prefix
             files.forEach(function(file) {
-                if(file.indexOf(state_file_prefix) === 0) {
-                    var num = file.match(/\.(\d+)\.json/)[1] - 0;
+                var re = new RegExp('matcher_state\\.' + self.product_id + '\\.(\\d+)\\.json');
+                var match = file.match(re);
+                if (match) {
+                    var num = match[1] - 0;
                     state_files.push({file: file, num: num});
                 }
             });
 
+            // no state file to load, fresh start
             if (!state_files.length) {
                 logger.info('No state files found! Either this is the first time starting the matcher for this product or there is a serious error');
 
@@ -83,13 +91,16 @@ Matcher.prototype.recover = function(send_feed_msg, register_event_handlers, cb)
 
             // get the one with the latest state_num
             state_files.sort(function(a, b) { return b.num - a.num; });
-            var state_file = state_files[0].file;
+            var state_file = state_files.shift().file;
 
+            logger.trace('reading state file: ' + state_file);
             fs.readFile(matcher_state_dir + '/' + state_file, 'utf8', Chain.next());
         },
         function(err, data) {
             if (err) {
                 logger.panic('could not read matcher state file', err);
+
+                // TODO this will not be good if we have multiple matchers in one process
                 process.exit(1);
             }
 
@@ -114,10 +125,20 @@ Matcher.prototype.recover = function(send_feed_msg, register_event_handlers, cb)
             self.output_seq = state.output_seq;
             self.ticker = state.ticker;
 
-            logger.trace('added back data from state file, reading journal');
+            // the readback filename is stored with the state
+            // this will be the filename of the journal file the state was written to
+            // this is not good because we need to recover from the _next_ file
+            // after a rotation, it should be the file we need to read from
+            // to do that tho, we have to pass the argument to the shits
 
-            // open up the journal file
-            var fstream = fs.createReadStream(journal_filename);
+            var journal_filename = state.recovery_journal;
+
+            logger.trace('adding back data from state file, reading journal: ' + journal_filename);
+
+            var base = path.basename(journal_filename, '.log');
+
+            // playback from the incoming logs
+            var fstream = fs.createReadStream(env.journaldir + journal_filename);
             fstream.on('error', function(err) {
                 logger.panic('could not read matcher journal', err);
                 process.exit(1);
@@ -249,10 +270,26 @@ Matcher.prototype.start = function(cb) {
     var ev = new events.EventEmitter();
 
     // inbound message journal, initialized later
-    var journal;
+    self.journal_in = undefined;
 
     // output journal for the matcher
-    var journal_out = new Journal('matcher_out.' + self.product_id, false);
+    // based on date
+    var date = Math.floor(time.timestamp());
+    self.journal_out = new Journal('matcher_out.' + self.product_id + '.' + date, false);
+
+    // rotate the outgoing journal
+    // this prevents it from growing too large
+    setInterval(function rotate_out_journal() {
+
+        var old_journal_out = self.journal_out;
+
+        var date = Math.floor(time.timestamp());
+        self.journal_out = new Journal('matcher_out.' + self.product_id + '.' + date, false);
+
+        old_journal_out.log({ type: 'eof', next: self.journal_out.filename });
+        old_journal_out.close();
+        delete old_journal_out;
+    }, journal_rotate_interval);
 
     // journal & send a message out on the multicast socket
     // updaters and other interested sources listen for this data
@@ -274,7 +311,7 @@ Matcher.prototype.start = function(cb) {
         // it's not necessary to wait for this to finish, since
         // this is just for nightly reconciliation
         // state is persisted by the input journal & state files
-        journal_out.log(msg);
+        self.journal_out.log(msg);
 
         // have to send buffers
         var buff = new Buffer(JSON.stringify(msg));
@@ -347,12 +384,49 @@ Matcher.prototype.start = function(cb) {
 
     }
 
+    function get_in_filename() {
+        //var date = Math.floor(Date.now()/1000);
+        var date = Math.floor(time.timestamp());
+        return 'matcher_in.' + self.product_id + '.' + date;
+    }
+
+    // rotate the incoming journal to avoid it growing too large
+    setInterval(function rotate_in_journal() {
+
+        // we will need to close the old file
+        var old_in_log = self.journal_in;
+
+        // make the new file
+        var filename = get_in_filename();
+        var new_in_log = new Journal(filename, false);
+
+        self.journal_in = new_in_log;
+
+        // write a state entry to the new log
+        // this will mark the start of the file
+        self.write_state();
+
+        old_in_log.log({type: 'eof', next: new_in_log.filename}, function(err) {
+            old_in_log.close();
+            delete old_in_log;
+        });
+
+        // a more robust solution would be to read in the statefile after it is written
+        // if the statefile is "valid" not sure what that means yet.. maybe checksumed
+        // then we know we can rotate the in journal because we can recover from the statefile
+        // which means we don't need to read from the old file
+    }, journal_rotate_interval);
+
     // matcher server setup and connection handling
     var server = this.server = net.createServer();
 
     function start_server(err) {
-        // start up input journal only after recovery has happened
-        journal = self.journal = new Journal('/matcher.' + self.product_id, false);
+        if (err) {
+            logger.error(err);
+        }
+
+        // create a new incoming journal file
+        self.journal_in = new Journal(get_in_filename(), false);
 
         // write state to file to make recovery cases easier
         self.write_state(function() {
@@ -419,7 +493,7 @@ Matcher.prototype.start = function(cb) {
 
             // wait for journal write before processing request
             // these journaled messages affect the state of the matcher
-            journal.log(msg, function() {
+            self.journal_in.log(msg, function() {
                 if (!msg.payload)
                     return logger.warn('no payload in message', msg);
                 return handler(msg.payload);
@@ -433,27 +507,28 @@ Matcher.prototype.stop = function(cb) {
     logger.trace('stopping matcher');
 
     // stop periodic state writes
-    clearTimeout(this.write_state_tid);
+    clearTimeout(self.write_state_tid);
 
-    this.order_book.removeAllListeners();
+    self.order_book.removeAllListeners();
 
-    this.server.on('close', function() {
+    self.server.on('close', function() {
         logger.trace('matcher stopped');
 
         if(cb)
             cb();
     });
 
-    if (typeof this.server.fd === 'number') // make sure server is running
-        this.server.close();
+    if (typeof self.server.fd === 'number') // make sure server is running
+        self.server.close();
 
-    this.feed_socket.close();
+    self.feed_socket.close();
 };
 
 /// stops the matcher and writes its state out for quick restart
 Matcher.prototype.shutdown = function(cb) {
+    var self = this;
     this.stop(function() {
-        this.write_state(cb);
+        self.write_state(cb);
     });
 };
 
@@ -463,6 +538,7 @@ Matcher.prototype.state = function() {
     state.state_num = this.state_num;
     state.output_seq = this.output_seq;
     state.ticker = this.ticker;
+    state.recovery_journal = path.basename(this.journal_in.filename);
     return state;
 };
 
@@ -472,14 +548,15 @@ Matcher.prototype.write_state = function(cb) {
     var self = this;
 
     var state_num = self.state_num;
-    var filename = matcher_state_prefix + "." + self.product_id + "." + state_num + ".json";
-    self.journal.log({type: 'state', payload: state_num}, function() {
+    var state_filename = matcher_state_prefix + "." + self.product_id + "." + state_num + ".json";
+    self.journal_in.log({type: 'state', payload: state_num}, function() {
         var state = self.state();
 
         // save what the state num should be when recovering state via file
         state.state_num = state_num + 1; // TODO: jenky?
 
-        fs.writeFile(filename, JSON.stringify(state), function(err) {
+        // write the state to the outfile
+        fs.writeFile(state_filename, JSON.stringify(state), function(err) {
             if(err) {
                 logger.error('could not write to state file: ' + filename, err);
             }

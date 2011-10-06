@@ -17,7 +17,8 @@
 				"price": 1022000000,
 				"size": 100,
 				"timestamp": 1317086239.693123
-			}
+			},
+			"recovery_journal": "matcher_in.0.1317086239.log"
 		},
 		"timestamp": 1317086239.693123,
 		"seq": 1
