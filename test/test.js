@@ -143,7 +143,13 @@ function run_test(test_name, assert, cb) {
     function end() {
         feed.close();
         client.end();
-        matcher.stop();
+        matcher.stop(function() {
+            if(cb) {
+                cb({
+                    time: end_time - start_time
+                });
+            }
+        });
 
         remove_match_ids(resps_multi);
 
@@ -165,11 +171,6 @@ function run_test(test_name, assert, cb) {
             assert.deepEqual(states, gstate);
             assert.deepEqual(process_journal(journal), process_journal(gjournal));
         }
-
-        if(cb)
-            cb({
-                time: end_time - start_time
-            });
     }
 }
 

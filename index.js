@@ -518,9 +518,7 @@ Matcher.prototype.stop = function(cb) {
             cb();
     });
 
-    if (typeof self.server.fd === 'number') // make sure server is running
-        self.server.close();
-
+    self.server.close();
     self.feed_socket.close();
 };
 
