@@ -545,18 +545,23 @@ Matcher.prototype.state = function() {
 Matcher.prototype.write_state = function(cb) {
     var self = this;
 
+    function state_filename(state_num) {
+        return matcher_state_prefix + "." + self.product_id + "." + state_num + ".json";
+    }
+
     var state_num = self.state_num;
-    var state_filename = matcher_state_prefix + "." + self.product_id + "." + state_num + ".json";
+    ++self.state_num;
+
     self.journal_in.log({type: 'state', payload: state_num}, function() {
         var state = self.state();
 
-        // save what the state num should be when recovering state via file
-        state.state_num = state_num + 1; // TODO: jenky?
-
         // write the state to the outfile
-        fs.writeFile(state_filename, JSON.stringify(state), function(err) {
+        fs.writeFile(state_filename(state_num), JSON.stringify(state), function(err) {
             if(err) {
                 logger.error('could not write to state file: ' + filename, err);
+            } else {
+                // remove old state files, leaving 2 most recent ones
+                fs.unlink(state_filename(state_num-2));
             }
         });
 
@@ -564,7 +569,6 @@ Matcher.prototype.write_state = function(cb) {
             cb(state);
         }
     });
-    ++self.state_num;
 };
 
 // resets matcher's state
