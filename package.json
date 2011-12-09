@@ -4,7 +4,8 @@
   "version": "0.0.1",
   "homepage": "bitfloor.com",
   "repository": {
-    "url": ""
+       "type": "git"
+    ,  "url": "https://github.com/bitfloor/matching-engine.git"
   },
   "dependencies": {
        "bintrees": "0.0.4"
