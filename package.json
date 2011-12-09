@@ -9,6 +9,7 @@
   "dependencies": {
        "bintrees": "0.0.4"
     ,  "node-uuid": "1.2.0"
+    ,  "nopt": "1.0.10"
     ,  "carrier": "0.1.3"
     ,  "chain": "https://github.com/shtylman/chain-js/tarball/master"
   },

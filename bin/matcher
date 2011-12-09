@@ -1,0 +1,40 @@
+#!/usr/bin/env node
+
+// 3rd party
+var nopt = require('nopt');
+
+// common
+var config = require('bitfloor/config');
+var logger = require('bitfloor/logger');
+
+var Matcher = require('../index.js');
+
+var known = {
+    product: Number,
+};
+
+var short = {};
+
+// process options
+var options = nopt(known, short, process.argv, 2);
+
+var product_id = options.product;
+if (!product_id) {
+    console.error('a product id must be specified with --product');
+    return process.exit();
+}
+
+// the matcher config will tell us everything we need to know about
+// what host/port to listen on and send market data out on
+var matcher_config = config.get_matcher(product_id);
+if (!matcher_config) {
+    console.error('no matcher config found for product id: ' + product_id);
+    return process.exit();
+}
+
+var matcher = new Matcher(product_id, matcher_config);
+matcher.start(function() {
+    logger.trace('matcher running for product: ' + product_id);
+});
+
+// vim: ft=javascript
